@@ -303,3 +303,8 @@ td {
   height: fit-content!important;
   top: 0!important;
 }
+
+.disabled{
+  pointer-events: none;
+  opacity: 0.6;
+}

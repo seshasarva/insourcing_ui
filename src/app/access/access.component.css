@@ -1,0 +1,122 @@
+.access-bg {
+    width: 100%;
+    height: 230px;
+    background: transparent linear-gradient(180deg, rgba(18,23,162,0.7) 0%,  rgba(9,12,81,0.7) 100%) 0% 0% no-repeat padding-box;
+    transition: all 0.3s;
+    border-radius: 19px;
+    padding-top: 20px;
+    padding-right: 60px;
+    padding-left: 30px;
+    margin: 20px;
+  }
+  .access-bg1 {
+    width: 100%;
+    height: 750px;
+    background: transparent linear-gradient(180deg, rgba(18,23,162,0.7) 0%,  rgba(9,12,81,0.7) 100%) 0% 0% no-repeat padding-box;
+    transition: all 0.3s;
+    border-radius: 19px;
+    padding-top: 20px;
+    padding-right: 60px;
+    padding-left: 30px;
+    margin: 20px;
+  }
+  .card-bg{
+    background: rgba(0, 0, 0, 1) 0% 0% no-repeat padding-box;
+    width: 610px;
+    height: 137px;
+    border-radius: 14px;
+    padding: 20px;
+    /* padding-left:20px; */
+    color: white;
+    margin-left: 20px;
+    margin-right: 0px;
+    margin-top: 20px;
+  }
+  .card-bg1{
+    background: rgba(0, 0, 0, 1) 0% 0% no-repeat padding-box;
+    width: 913px;
+    height: 315px;
+    border-radius: 14px;
+    padding: 20px;
+    /* padding-left:20px; */
+    color: white;
+    margin-left: 180px;
+    margin-top: 20px;
+  }
+.btn-radius{
+    border-radius: 17px;
+}
+.btn-upload{
+    background: transparent linear-gradient(180deg, #208810 0%, #104408 100%) 0% 0% no-repeat padding-box;
+  }
+.content-table{
+    border-collapse: collapse;
+    font-size: 12px;
+    width: 1019px;
+    height: 52px;
+   
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+
+    /* add this */
+    overflow:hidden;
+  }
+  .content-table thead tr{
+    background: transparent linear-gradient(180deg, #281CA4 0%, #140E52 100%) 0% 0% no-repeat padding-box; 
+    color: #DBDBDB;
+    font-weight: bold;
+    
+  }
+  .content-table th,
+  .content-table td{
+    padding: 15px 20px 15px 20px;
+  }
+  .content-table tr:first-child th:first-child{
+    border-top-left-radius: 20px;
+  }
+  .content-table tr:first-child th:last-child{
+    border-top-right-radius: 20px ;
+  }
+  
+  
+  .content-table tbody tr{
+    background: #DBDBDB 0% 0% no-repeat padding-box;
+    border-collapse: separate;
+    border-spacing: 10px;
+    *border-collapse: expression('separate', cellSpacing='10px');
+  }
+  
+  .btn-center{
+    
+        margin-left:350px;
+        margin-right:380px;
+    
+  }
+  .btn-custom{
+    border-radius: 30px;
+    margin-top:5px;
+    font-size: 12px;
+    border-color: transparent;
+  }
+
+  #div1,#div2{
+    height:80px;
+    
+    }
+    .img-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 300px;
+      right: 400px;
+    
+    }
+    .checkboxes input{
+      margin: 0px 2px 0px 0px;
+     }
+
+     .checkboxes label{
+       margin: 0px 25px 0px 18px;
+     }
+     

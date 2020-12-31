@@ -37,8 +37,8 @@ body {
     padding: 20px 0;
 } */
 
-#sidebar ul p {
-}
+/* #sidebar ul p {
+} */
 
 #sidebar ul li {
     text-align: center;
@@ -79,11 +79,17 @@ li:nth-child(2) .black-img img{
 li:nth-child(3) .black-img img{
   content:url("src/assets/img/b-deals-icon.png");
 }
+li:nth-child(4) .black-img img{
+  content:url("src/assets/img/b-evaluation-icon.png");
+}
 li:nth-child(5) .black-img img{
   content:url("src/assets/img/b-offer-icon.png");
 }
 li:nth-child(6) .black-img img{
   content:url("src/assets/img/b-reports-icon.png");
+}
+li:nth-child(7) .black-img img{
+  content:url("src/assets/img/b-access-icon.png");
 }
 
 ul ul a {
@@ -102,4 +108,9 @@ a[data-toggle="collapse"] {
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
+}
+
+.disabled{
+  pointer-events: none;
+  opacity: 0.6;
 }

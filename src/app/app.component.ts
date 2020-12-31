@@ -9,6 +9,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { AuthService } from './auth.service';
 import {EncrDecrServiceService} from './encr-decr-service.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { ActivatedRoute } from '@angular/router';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-root',
@@ -25,16 +29,28 @@ export class AppComponent {
 
   @ViewChild('childModal', { static: false }) childModal: ModalDirective;
 
-  constructor(private idle: Idle, private keepalive: Keepalive, private router: Router, private modalService: BsModalService, private authService: AuthService, private EncrDecr: EncrDecrServiceService){
+  constructor(private activatedRoute:ActivatedRoute,private idle: Idle,private modalServiceNgb : NgbModal, private keepalive: Keepalive, private router: Router, private modalService: BsModalService, private authService: AuthService, private EncrDecr: EncrDecrServiceService){
     window.onunload  = () => {
+      // this.router.navigate(['']);
+      // this.logout();
+
       // Clear the local storage
-      alert("Clearing Local Storage");
-      window.localStorage.clear();
+      console.log("clear storage")
+      // localStorage.removeItem('currentUser');
+      localStorage.clear();
+      // // this.currentUserSubject.next(null);
+
+     
+      this.router.navigate([''], {relativeTo: this.activatedRoute});
+      this.authService.logout();
+      
+      
+     
    }
    // sets an idle timeout of 5 seconds, for testing purposes.
-    idle.setIdle(30000);
+    idle.setIdle(900);
     // sets a timeout period of 5 seconds. after 10 seconds of inactivity, the user will be considered timed out.
-    idle.setTimeout(5);
+    idle.setTimeout(10);
     // sets the default interrupts, in this case, things like clicks, scrolls, touches to the document
     idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
 
@@ -51,7 +67,14 @@ export class AppComponent {
       console.log("Clearing local storage");
       //localStorage.clear();
       //this.router.navigate(['']);
+      // this.authService.logout();
+      // const data = new FormData();
+      // var encryptedEmail = this.EncrDecr.set('emailID', localStorage.getItem('access_token'));
+      // data.append('emailID', encryptedEmail);
       this.authService.logout();
+      this.modalServiceNgb.dismissAll();
+      this.childModal.hide();
+      this.router.navigate(['']);
       // let currentUrl = this.router.url;
       // console.log("Current URL");
       // console.log(currentUrl);
@@ -106,19 +129,26 @@ export class AppComponent {
   logout() {
     this.childModal.hide();
     //this.appService.setUserLoggedIn(false);
-    this.authService.logout();
+    // this.authService.logout();
+    if(localStorage.getItem('access_token')){
     // const data = new FormData();
     // var encryptedEmail = this.EncrDecr.set('emailID', localStorage.getItem('access_token'));
     // data.append('emailID', encryptedEmail);
-    // this.authService.logout(encryptedEmail);
-    //
-    // this.authService.currentUser.subscribe(user => {
-    //   if(user == null){
-    //     console.log("Logged out and user is null")
-    //     localStorage.clear();
-    //     this.router.navigate(['']);
-    //   }
-    // });
+    this.authService.logout();
+    
+    this.authService.currentUser.subscribe(user => {
+      if(user == null){
+        console.log("Logged out and user is null")
+        localStorage.clear();
+        this.router.navigate(['']);
+      }
+    });
+  }
+  else{
+    localStorage.clear();
+    this.router.navigate(['']);
+
+  }
 
     // localStorage.clear();
     // //this.router.navigate(['']);

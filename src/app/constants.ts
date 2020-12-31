@@ -4,23 +4,22 @@ export class AppConstants {
     /* Development */
     private static HOST = 'http://localhost:';
     private static PORT = '8080';
-    private static MAPPER = '/insource';
-
+    private static MAPPER = '/hrbc';
     /* UAT Deployment */
-    // public static HOST = 'http://10.169.36.38:';
-    // public static PORT = '8080';
-    // public static MAPPER = '/InsourcingPortal/api';
+      // public static HOST = 'http://10.169.36.38:';
+      // public static PORT = '8080';
+      // public static MAPPER = '/InsourcingPortalNew/hrbc';
 
    /* Prod Deployment */
     // public static HOST = 'https://10.169.36.36:';
     // public static PORT = '443';
-    // public static MAPPER = '/InsourcingPortal/api';
+    // public static MAPPER = '/InsourcingPortal/insource/hrbc';
 
     /* Endpoints */
 
     public static CANDIDATE_UPLOAD_BULK = '/upload';
     public static CANDIDATE_DOWNLOAD_DETAILS = '/download';
-    public static HRBC_LOGIN = '/hrbc/login';
+    public static HRBC_LOGIN = '/login';
     public static OFFER_PREVIEW_INDIA = '/india/preview/offer';
     public static OFFER_GENERATE_INDIA = '/india/generate/offer/letter';
     public static OFFER_PREVIEW_US = '/us/preview/offer';
@@ -33,7 +32,14 @@ export class AppConstants {
     public static REPORT_EDUCATION_EMPLOYMENT = '/education/employement/report';
     public static REPORT_OFFER_RETENTION = '/offer/retention/report';
     public static REPORT_INDIA = '/india/report';
-    public static RESET_CANDIDATE_PASSWORD = '/change/password';
+    public static RESET_CANDIDATE_PASSWORD = '/change/password/hr';
+    public static RESET_HR_PASSWORD = '/reset/password/hr';
+    public static CANDIDATE_LOGOUT = '/logout';
+    public static EXPIRE_SESSION = '/expire/session';
+    public static CANDIDATE_SAVETEMPLATE  = '/saveTemplate';
+    public static CANDIDATE_CHOOSETEMPLATE  = '/chooseTemplate';
+    public static CANDIDATE_GETTEMPLATE  = '/getTemplate';
+    public static CANDIDATE_SENDEMAILTEMPLATE  = '/sendEmail';
     public static FETCH_ALL_DEALS = '/deals/fetchAll';
     public static FETCH_DEAL = '/deals/fetchDeal';
     public static HRBC_CREATE_DEAL = '/deals/save';
@@ -57,6 +63,7 @@ export class AppConstants {
     public static SAVE_CONTACT_US='/transistion/saveContactUs'
     public static UPLOAD_EXPLORE_TCS='/transistion/uploadExploreTcsAttachments'
 
+
     /* Excel Headers */
     public static EXCEL_HEADERS_OFFER_INDIA = ['APPLICANT ID', 'DEPARTMENT', 'DATE OF OFFER', 'TITLE', 'FIRST NAME',
                     'MIDDLE NAME', 'LAST NAME', 'ADDRESS LINE 1', 'ADDRESS LINE 2', 'ADDRESS LINE 3',
@@ -69,12 +76,12 @@ export class AppConstants {
                     'ANNUAL_RETIRALS_A', 'RET_INC_A', 'CTC_A', 'PROBATION_PERIOD', 'PROBATION_UNIT',
                     'CANDIDATE EMAIL', 'DATE_OF_JOINING', 'JOINING_BRANCH', 'EXGRATIA'];
 
-    public static EXCEL_HEADERS_OFFER_US = ['Date', 'First Name', 'Last Name', 'Address', 'Address 2',
+    public static EXCEL_HEADERS_OFFER_US = ['Date', 'First Name', 'Last Name', 'Address', 'Address2',
                                             'City, State, Zip Code', 'Role/Job Title', 'Reporting To',
                                             'Reporting Address', 'Join Date', 'Base $', 'Exemption Status',
                                             'Bonus $', 'Severance $', 'Offer Response Date', 'Email Id'];
 
-    public static EXCEL_HEADERS_RETENTION = ['Date', 'First Name', 'Last Name', 'Address', 'Address 2',
+    public static EXCEL_HEADERS_RETENTION = ['Date', 'First Name', 'Last Name', 'Address',
                                             'Bonus $', 'Work State', 'Email ID', 'City,State,Zip Code'];
 
     public static EXCEL_HEADERS_APPOINTMENT = ['Applicant Id', 'title', 'First Name', 'Middle Name', 'Last Name',
@@ -90,11 +97,11 @@ export class AppConstants {
     public static getBaseURL(){
        /*prod*/
 
-        // return location.origin + AppConstants.MAPPER;
+        //return location.origin + AppConstants.MAPPER;
 
        /*Development*/
 
-       return AppConstants.HOST + AppConstants.PORT + AppConstants.MAPPER;
+      return AppConstants.HOST + AppConstants.PORT + AppConstants.MAPPER;
     }
 
 

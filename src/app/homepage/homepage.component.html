@@ -1,52 +1,168 @@
-<div class="container-fluid home-bg" >
+<ng-template #sessionManageModal class="appModal" let-modal>
+    <div class="modal-body">
+        <div>
+            <p style="font-size: 20px; white-space:pre-line;line-height:normal;">
+                User session is already active. Click 'Yes' to logout all other active sessions.
+            </p>
+        </div><br><br>
+        <div class="row">
+            <div class="center-align d-flex" style="margin: 0 auto;"><button type="button" class="btn btn-primary btn-radius font-segoe mr-3 btn-custom" (click)="onLoad();modal.dismiss()">Cancel</button>
+                <button type="button" class="btn btn-primary btn-radius ml-3 font-segoe btn-custom" (click)="invalidateLogin();modal.dismiss()">Yes</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
 
-  <div class="row">
-    <div class="col-sm center-align" >
-      <img   [ngClass]="{'logo-anim': showLoginPopup === true,'logo-anim-out':showLoginPopup === false }"  src="../assets/img/home_logo.png">    </div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
 
+<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+<div class="modal-dialog modal-dialog-centered" role="document">
+
+
+  <div class="modal-content" style="
+  text-align: center;
+  font: Bold 12px/16px Segoe UI;
+  letter-spacing: 0px;
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: .3rem;
+  outline: 0;
+  color: black;
+  font-weight: 500;
+  line-height: 15px;
+  margin-top: 25px;
+                    ">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle" style="margin-bottom: none;">Contact HR to Reset Password</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <!-- <div class="modal-body">
+      <label>Contact HR to Reset Password</label>
+    </div> -->
+    <div class="modal-footer">
+      <button type="button" style=" margin-top:none;   background: transparent linear-gradient(180deg, #1A15BE 0%, #0D0B5F 100%) 0% 0% no-repeat padding-box;
+      border: none;
+      width: 150px;
+      height: 30px;
+      font-size: 13px;"class="btn btn-primary" data-dismiss="modal">Close</button>
+    </div>
   </div>
-  <div class="row"><div   class="col-sm  login d-flex justify-content-center title-wrapper align-items-center align-middle center-align"   >
-  <div class=" segoe-bold  ">
-    <p>People Transition</p>
-  </div>
-
 </div>
 </div>
-  <div class="row">
-    <div class="col center-align" ><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="width: 150px;margin-top:8px;"  [hidden]="showLoginPopup" [@loginButtonState]="stateName" (click)=toggleLPopup()>Sign In</button></div></div>
-  <div class="row"><div  [hidden]="!showLoginPopup"  [@loginPopOverState]="stateName" class=" div-wrapper d-flex justify-content-center align-items-center center-align"  [ngClass]="{'col': showLoginPopup === true,'noDisplay':showLoginPopup === false }" >
-    <div class="m1-custom"  >
 
-      <!-- Modal content -->
-      <div class="modal-content m1-content-custom">
-        <div class="row"><div class="col" style="text-align: right">
-          <button  type="button" (click)="toggleLPopup()" class="close close-modal" aria-label="Close">
+<div class="container-fluid home-bg">
+
+    <div class="row">
+        <div class="col-sm center-align">
+            <img [ngClass]="{'logo-anim': showLoginPopup === true,'logo-anim-out':showLoginPopup === false }" src="../assets/img/home_logo.png"> </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm  login d-flex justify-content-center title-wrapper align-items-center align-middle center-align">
+            <div class=" segoe-bold  ">
+                <p>People Transition</p>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="width: 150px;margin-top:8px;" [hidden]="showLoginPopup" [@loginButtonState]="stateName" (click)=toggleLPopup()>Sign In</button></div>
+    </div>
+    <div class="row">
+        <div [hidden]="!showLoginPopup" [@loginPopOverState]="stateName" class=" div-wrapper d-flex justify-content-center align-items-center center-align" [ngClass]="{'col': showLoginPopup === true,'noDisplay':showLoginPopup === false }">
+            <div class="m1-custom">
+
+                <!-- Modal content -->
+                <div class="modal-content m1-content-custom">
+                    <div class="row">
+                        <div class="col" style="text-align: right">
+                            <button type="button" (click)="toggleLPopup()" class="close close-modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button></div></div>
-        <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
-          <div class="row"><div class="col">
-            <div [ngClass]="{ 'has-error': isSubmitted && formControls.emailID.errors }">
+          </button></div>
+                    </div>
+                    <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+                        <div class="row">
+                            <div class="col">
+                                <div [ngClass]="{ 'has-error': isSubmitted && formControls.emailID.errors }">
 
-            <input type="email" (keyup)="keyingInCredentials($event)" formControlName="emailID" placeholder="Email ID"  class="form-control email input-custom" name="emailId" style="
+                                    <input type="email" (keyup)="keyingInCredentials($event)" formControlName="emailID" placeholder="Email ID" class="form-control email input-custom" name="emailId" style="
     padding-left:10px;
 "></div><span *ngIf="isSubmitted && formControls.emailID.errors" class="help-block">
                 <span >Email ID is required</span>
-              </span></div></div>
-          <div class="row"><div class="col"><div [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
-            <input appBlockCopyPaste type="password" (keyup)="keyingInCredentials($event)" placeholder="Password" formControlName="password" class="input-custom form-control" name="password" >
-          </div> <span *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+                                    <input appBlockCopyPaste type="password" (keyup)="keyingInCredentials($event)" placeholder="Password" formControlName="password" class="input-custom form-control" name="password">
+                                </div> <span *ngIf="isSubmitted && formControls.password.errors" class="help-block">
                   <span >Password is required</span>
-                </span></div></div>
-      <div class="row"><div class="col"><button type="submit" class="btn btn-primary btn-radius font-segoe btn-custom" style="width: 150px;margin-top:8px;">Sign In</button>
-        </div></div><div class="row"><div class="col"> <span *ngIf="loginError" class="help-block">
+                                </span>
+                            </div>
+                        </div>
+
+                        <label style="    margin-left: -168px;  color: white; padding-left: -60px; font-size: 14px; font-weight: bold; "> Captcha :</label>
+                        <br>                       
+                        <form [formGroup]="mathFormGroup">        
+                            <input type="text" style="background: transparent; color: white;   border: none;
+                                padding: 0px; align-content:fit; align-items: center;  " formControlName="firstNumber" maxlength="1"  size="1" disabled="true" id="firstNumber">
+                            <label style="background: transparent; color: white;     border: none;
+                                padding: 0px; padding-left:-40px; ">+</label>
+                            <input type="text"  style="background: transparent; color: white;   border: none;
+                                padding: 0px; align-content:fit; padding-left: 25px;" disabled="true" maxlength="2" size="2" formControlName="secondNumber" id="secondNumber">
+                            <label style="color:white; padding-right:10px; padding-left: 10px; font-style: italic;"> is </label>
+                            <input type="text"  style="background: transparent; color: white;   border-color:white; border-top: none; border-left:none; border-right:none;
+                        padding: 0px;" maxlength="2" size="2" formControlName="answer" id="answer" >
+                        <!-- <button type="submit" [disabled]="!mathFormGroup.valid" class="btn btn-primary">Submit</button> -->
+                    </form>
+
+                        <div class="row">
+                            <div class="col"><button type="submit" [disabled]="!mathFormGroup.valid" class="btn btn-primary btn-radius font-segoe btn-custom" style="width: 150px;margin-top:8px;">Sign In</button>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target= "#exampleModalCenter " style="background-color: transparent; border: none">
+                            Forgot Password ?
+                            </button>
+
+                        <div class="row">
+                            <div class="col"> <span *ngIf="loginError" class="help-block">
                   <span >Login/Password is incorrect</span>
-                </span>
-        </div></div></form>
+                                </span><br/>
+                                <span *ngIf="incorrectAttempts>0 && incorrectAttempts<6" class="help-block">
+                  <span >Incorrect Attempts {{incorrectAttempts}} / 5<br></span>
+                                </span>
+                                <span *ngIf="incorrectAttempts>=5" class="help-block">
+                  <span>Your Account is blocked. Please try after an hour</span>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
 
-      </div>
+                </div>
 
 
 
-  </div></div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
+
+<ng-template #sessionManageModal class="appModal" let-modal>
+    <div class="modal-body">
+        <div>
+            <p style="font-size: 20px; white-space:pre-line;line-height:normal;">
+                User session is already active.
+            </p>
+        </div><br><br>
+        <div class="row">
+            <div class="center-align d-flex" style="margin: 0 auto;"><button type="button" class="btn btn-primary btn-radius font-segoe mr-3 btn-custom" (click)="modal.dismiss()">Cancel</button>
+                <!-- <button type="button" class="btn btn-primary btn-radius ml-3 font-segoe btn-custom" (click)="invalidateLogin();modal.dismiss('Cross click')">Yes</button> -->
+            </div>
+        </div>
+    </div>
+</ng-template>

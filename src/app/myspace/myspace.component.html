@@ -47,29 +47,40 @@
 
   </div> 
   <div class="row card-bg">
-    <div class="col">
+    <div class="col image-container">
       <div class="cards segoe">
-        <div class="card" *ngFor="let dealOwner of dealOwners | keyvalue">
+       <!-- <div class="card" *ngFor="let dealOwner of dealOwners | keyvalue">
           <img class="card-image" src="assets/img/{{dealOwner.value[0]}}.{{dealOwner.value[1]}}">
           <div class="card-name">
             {{dealOwner.key}} <br/> {{dealOwnerCountry}}
           </div>
+        </div>-->
+         <div class="card">
+         <a [routerLink]="['/', { outlets: { 'primary': ['navpage', { outlets: { 'innerContent': ['myspace-page1'] } }]}}]" [routerLinkActive]="['active','black-img']"> 
+            
+            <img class="card-image" src="assets/img/myspace_1.png"></a>
+          <div class="card-name">Tanveer S <br> India</div>
         </div>
-        <!-- <div class="card">
-          <img class="card-image" src="assets/img/myspace_1.png">
-          <div class="card-name">Tanveer S India</div>
-        </div>
-        <div class="card"><img class="card-image" src="assets/img/myspace_2.png"><div class="card-name">Khyati B India</div></div>
-        <div class="card"><img class="card-image" src="assets/img/myspace_3.png"><div class="card-name">Daniel R India</div></div>
-        <div class="card"><img class="card-image" src="assets/img/myspace_4.png"><div class="card-name">Patricia M Germany</div></div>
-        <div class="card"><img class="card-image" src="assets/img/myspace_5.png"><div class="card-name">Rajini N India</div></div> -->
+        <div class="card"><img class="card-image" src="assets/img/myspace_2.png"><div class="card-name">Khyati B <br> India</div></div>
+        <div class="card"><img class="card-image" src="assets/img/myspace_3.png"><div class="card-name">Daniel R <br> India</div></div>
+        <div class="card"><img class="card-image" src="assets/img/myspace_4.png"><div class="card-name">Patricia M <br> Germany</div></div>
+        <div class="card"><img class="card-image" src="assets/img/myspace_5.png"><div class="card-name">Rajini N <br> India</div></div> 
       </div>
     </div>
   </div>
   <div class="row status-bg"><div class="col"><div class="status-cards segoe">
-    <div class="status-card"><img class="status-card-image" src="assets/img/closed_bg.png"><div hidden class="status-card-name"><div style="padding-left: 45px;">Closed Deals</div>Net Headcount Additions - 40,000<br>Net Offer Released - 63000<br>Joining Ratio - 72%<br></div></div>
-    <div class="status-card"><img class="status-card-image" src="assets/img/wip_bg.png"><div hidden class="status-card-name"><div style="padding-left: 45px;">Work In Progress</div>Offers Released - 300<br>Joiners - 0<br>Joining Ratio - 0<br></div></div>
-    <div class="status-card"><img class="status-card-image" src="assets/img/pipeline_bg.png"><div hidden class="status-card-name"><div style="padding-left: 45px;">Pipeline</div>Deals in Queue - 4<br>Approx. Headcount - 2500<br>Target - 8<br></div></div>
+    <div class="status-card"><img class="status-card-image" src="assets/img/closed_bg.png"><div class="status-card-name"><div style="padding-left: 45px;">Closed Deals</div>
+    <i class="fa fa-users" aria-hidden="true"></i>&nbsp;Net Headcount Additions - 40,000<br>
+    <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Net Offer Released - 63000<br>
+    <i class="fa fa-usd" aria-hidden="true"></i>&nbsp;Joining Ratio - 72%<br></div></div>
+    <div class="status-card"><img class="status-card-image" src="assets/img/wip_bg.png"><div class="status-card-name"><div style="padding-left: 45px;">Work In Progress</div>
+    <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;Offers Released - 300<br>
+    <i class="fa fa-user" aria-hidden="true"></i>&nbsp;Joiners - 0<br>
+    <i class="fa fa-usd" aria-hidden="true"></i>&nbsp;Joining Ratio - 0<br></div></div>
+    <div class="status-card"><img class="status-card-image" src="assets/img/pipeline_bg.png"><div class="status-card-name"><div style="padding-left: 45px;">Pipeline</div>
+    <i class="fa fa-bank"></i>&nbsp;Deals in Queue - 4<br>
+    <i class="fa fa-users" aria-hidden="true"></i>&nbsp;Approx. Headcount - 2500<br>
+    <i class="fa fa-check-square" aria-hidden="true"></i>&nbsp;Target - 8<br></div></div>
   </div></div></div>
 
 </div>

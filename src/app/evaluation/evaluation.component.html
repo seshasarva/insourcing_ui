@@ -1,0 +1,95 @@
+<div class="container-fluid evaluation-bg">
+  
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row segoe">
+            <label style="color:white">Candidate Search</label>
+        </div>
+    <div class="row segoe">
+      <div class="col-4">
+        <input type="text" placeholder="Email ID/Ep Number"  class="input-text btn-radius form-control" formControlName="emailID" name="emailIDD"> 
+      </div>
+      <div class="col-4">
+        <input type="text" placeholder="Deal ID"  class="input-text btn-radius form-control" formControlName="dealID" name="dealID"> 
+      </div>
+      <div class="col-4">
+        <input type="text" placeholder="Company Name"  class="input-text btn-radius form-control" formControlName="companyName" name="companyName"> 
+      </div> 
+    </div>
+    <div class="row segoe mt-4">
+        <div class="col-4">
+            <input type="text" placeholder="Business Group"  class="input-text btn-radius form-control" formControlName="businessGroup" name="businessGroup"> 
+          </div>
+        <div class="col-4">
+            <select   class="custom-select"  class="input-text btn-radius form-control" formControlName="dealType" name="dealType"> 
+                <option value="" disabled>Deal Type</option>
+             </select>
+          </div>
+        <div class="col-4"> 
+            <input type="text" required="" class="input-text btn-radius form-control" formControlName="interviewDate" name="interviewDate" placeholder="Interview Date" onfocus="(this.type='date')" min="1950-01-01" onblur="if(this.value==''){this.type='text'}">
+          </div> 
+    </div>
+    <div class="row segoe mt-4">
+      <div class="col text-center"><button type="submit" style="background: transparent linear-gradient(180deg,#1B1088 0%, #0E0844 100%) 0% 0% no-repeat padding-box;" class="btn btn-primary btn-radius segoe btn-custom" >Search</button></div>
+    </div>
+    </form>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+    <table class="content-table align-baseline spacing">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Interview Date</th>
+                <th>Access</th>
+                <th>Status</th>
+                <th>Created By</th>
+                <th>Company</th>
+                <th>Skill</th>
+                <th>Geography </th>
+            </tr>
+        </thead>
+        <tbody class="font-segoe">
+            <tr>
+                <td><input type="radio"/></td>
+                <td>Maurice L</td>
+                <td>24/07/2019</td>
+                <td>Panel</td>
+                <td>HR Cleared</td>
+                <td>Rajni N</td>
+                <td>Bayer</td>
+                <td>Unix</td>
+                <td>India</td>
+             </tr>
+             <tr>
+                <td><input type="radio"/></td>
+                <td>Lexon T</td>
+                <td>24/07/2019</td>
+                <td>Panel</td>
+                <td>Open</td>
+                <td>Rajni N</td>
+                <td>Bayer</td>
+                <td>Java</td>
+                <td>India</td>
+             </tr>
+             <tr>
+                <td><input type="radio"/></td>
+                <td>Taylor K</td>
+                <td>24/07/2019</td>
+                <td>Panel</td>
+                <td>Tech Cleared</td>
+                <td>Rajni N</td>
+                <td>Bayer</td>
+                <td>Appian</td>
+                <td>India</td>
+             </tr>
+        </tbody>
+    </table>  
+  </div>
+  <div class="row mt-4 justify-content-md-center">
+      <div class="col col-lg-2"><button type="submit"  class="btn btn-primary btn-radius segoe btn-custom btn-download">Download Template</button></div>
+      <div class="col col-lg-2"><button type="submit" style=" background: transparent linear-gradient(180deg,#1B1088 0%, #0E0844 100%) 0% 0% no-repeat padding-box;" class="btn btn-primary btn-radius segoe btn-custom">Evaluate</button></div>
+      <div class="col col-lg-2"><button type="submit"  class="btn btn-primary btn-radius segoe btn-custom btn-upload">Upload Evaluation</button></div>
+    </div>
+  </div>
+

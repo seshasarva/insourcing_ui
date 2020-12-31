@@ -1,0 +1,81 @@
+.myspace-bg {
+    width: 100%;
+    height: 650px;
+    background: transparent linear-gradient(180deg, rgba(18,23,162,0.7) 0%,  rgba(9,12,81,0.7) 100%) 0% 0% no-repeat padding-box;
+    transition: all 0.3s;
+    border-radius: 19px;
+    padding-top: 20px;
+    padding-right: 60px;
+    padding-left: 30px;
+    margin: 20px;
+  }
+  .card-bg{
+    background: rgba(0, 0, 0, 1) 0% 0% no-repeat padding-box;
+    width: 950px;
+    height: 350px;
+    border-radius: 14px;
+    padding: 20px;
+    /* padding-left:20px; */
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+   
+  }
+  .content-table{
+    border-collapse: collapse;
+    font-size: 12px;
+    width: 950px;
+    height: 52px;
+   
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+
+    /* add this */
+    overflow:hidden;
+  }
+  .content-table thead tr{
+    background: transparent linear-gradient(180deg, #281CA4 0%, #140E52 100%) 0% 0% no-repeat padding-box; 
+    color: #DBDBDB;
+    font-weight: bold;
+    
+  }
+  .content-table th,
+  .content-table td{
+    padding: 15px 20px 15px 20px;
+  }
+  .content-table tr:first-child th:first-child{
+    border-top-left-radius: 20px;
+  }
+  .content-table tr:first-child th:last-child{
+    border-top-right-radius: 20px ;
+  }
+  
+  
+  .content-table tbody tr{
+    background: #DBDBDB 0% 0% no-repeat padding-box;
+    border-collapse: separate;
+    border-spacing: 10px;
+    *border-collapse: expression('separate', cellSpacing='10px');
+  }
+
+  .btn-radius{
+    text-align: left;
+    font: normal normal bold 10px/14px Segoe UI;
+    width: 135px;
+    height: 27px;
+    
+    color: #1E1E1E;
+    border-radius: 7px;
+  }
+  /* #div1,#div2{
+     height:100%;   
+    } */
+
+#wrapper_1 {
+    border-left: 3px solid #FFFFFF;
+    top: 30px;
+    left: 0px;
+    width: 0px;
+    height: 224px;
+}

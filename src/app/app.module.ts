@@ -17,6 +17,7 @@ import { ReportsComponent } from './reports/reports.component';
 import { OfferComponent } from './offer/offer.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { HighchartsChartModule } from 'highcharts-angular';
 
 import {MatTableModule} from '@angular/material/table';
@@ -38,6 +39,10 @@ import { BlockCopyPasteDirective } from './block-copy-paste.directive';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
 import { MomentModule } from 'angular2-moment';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { EvaluationComponent } from './evaluation/evaluation.component';
+import { AccessComponent } from './access/access.component';
+import { MyspacePage1Component } from './myspace-page1/myspace-page1.component';
+import { DatePipe } from '@angular/common';
 import { DealsComponent } from './deals/deals.component';
 import { DealsEditComponent } from './deals-edit/deals-edit.component';
 import { ExploreTcsComponent } from './transitionPanels/explore-tcs/explore-tcs.component';
@@ -48,7 +53,6 @@ import { StatusManagementComponent } from './transitionPanels/CandidateRegistrat
 import { ApplicationFormComponent } from './transitionPanels/CandidateRegistrationForm/application-form/application-form.component';
 import {MyJourneyComponent} from './transitionPanels/my-journey/my-journey.component';
 import { RecruiterProfileComponent } from './TransitionPanels/recruiter-profile/recruiter-profile.component';
-
 
 @NgModule({
   declarations: [
@@ -63,6 +67,9 @@ import { RecruiterProfileComponent } from './TransitionPanels/recruiter-profile/
     OfferComponent,
     HrFooterComponent,
     BlockCopyPasteDirective,
+    EvaluationComponent,
+    AccessComponent,
+    MyspacePage1Component,
     DealsComponent,
     DealsEditComponent,
     ExploreTcsComponent,
@@ -100,9 +107,10 @@ import { RecruiterProfileComponent } from './TransitionPanels/recruiter-profile/
     MatTabsModule,
     HighchartsChartModule
   ],
-  providers: [
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy},
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    DatePipe,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,18 +15,19 @@ export class JwtInterceptor implements HttpInterceptor {
   constructor(private authenticationService: AuthService) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-	  var user=JSON.parse(localStorage.getItem('currentUser'))
-        const isLoggedIn = user && user.emailid;
+    const currentUser = this.authenticationService.currentUserValue;
+    console.log("current user");
+    console.log(currentUser);
+        const isLoggedIn = currentUser;
         const isApiUrl = request.url.startsWith(AppConstants.getBaseURL());
-		console.log('currentUser',user,'--isLoggedIn-',isLoggedIn,'--isApiUrl---',isApiUrl)
-		console.log('AppConstants--',AppConstants.getBaseURL().toString());
-		console.log('request.url is',request.url);
+        console.log("isloggedin");
+        console.log(isLoggedIn);
+        console.log("isapiurl");
+        console.log(isApiUrl);
         if (isLoggedIn && isApiUrl) {
-			console.log('-its true-');			
-			console.log('user is:',user);
             request = request.clone({
                 setHeaders: {
-                    Authorization: `${user.jwtToken}`
+                    Authorization: `Bearer ${currentUser.jwtToken}`
                 }
             });
         }

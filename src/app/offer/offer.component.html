@@ -1,14 +1,14 @@
 <ng-template #uploadFileMessageModal class="appModal" let-modal>
-  <div class="modal-body">
-      <div>
-          <p style="font-size: 20px; white-space:pre-line;line-height:normal;word-break:break-all;">{{uploadFileMessage}}</p>
-      </div><br><br>
-      <div class="row">
-          <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="
+    <div class="modal-body">
+        <div>
+            <p style="font-size: 20px; white-space:pre-line;line-height:normal;word-break:break-all;">{{uploadFileMessage}}</p>
+        </div><br><br>
+        <div class="row">
+            <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="
   margin-left: 150px;
   margin-top: 50px;" (click)="modal.dismiss('Cross click')">OK</button></div>
-      </div>
-  </div>
+        </div>
+    </div>
 </ng-template>
 
 <ng-template #autoComputeModal class="appModal" let-modal>
@@ -193,7 +193,7 @@
                     <div>
                         <div class="flex" style="text-align: center;">
                             <!-- <form style="display: inline" [formGroup]="formexc" > -->
-                            <div class="row">
+                            <div class="row"   >
                                 <div class="col">
                                     <div class="row">
                                         <div class="col">
@@ -208,14 +208,14 @@
                                         </div>
                                         <!-- </form> -->
                                         <div class="col">
-                                            <button class="auto btn btn-primary btn-radius font-segoe btn-custom" (click)="autoComputeOffer()" [disabled]="!offerFile" placement="right" ngbTooltip="Click to see the content of the excel file uploaded">
+                                            <button  class="auto btn btn-primary btn-radius font-segoe btn-custom" (click)="autoComputeOffer()" [disabled]="!offerFile" placement="right" ngbTooltip="Click to see the content of the excel file uploaded">
                         Auto compute
                       </button>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col">
-                                            <div style="display:inline-flex">
+                                        <div class="col" >
+                                            <div style="display:inline-flex" >
                                                 <label class="upload btn btn-primary btn-radius font-segoe btn-custom" placement="right" ngbTooltip="Click to upload Offer template">
                           Template
                           <i class = "fa fa-paperclip"  ></i>
@@ -315,7 +315,7 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col">
+                                        <div class="col" >
                                             <div style="display:inline-flex">
                                                 <label class="upload btn btn-primary btn-radius font-segoe btn-custom">Template  <i class = "fa fa-paperclip"  ></i> <input style="display: none; " type="file" accept="application/pdf" name="retentionTemplate" (change)="onFileChangeDoc($event)" /></label>
                                                 <i *ngIf="docxRetention" class="fa fa-check-circle" style="margin: 25px 0 0 -20px; font-size:1.5em;" aria-hidden="true"></i>

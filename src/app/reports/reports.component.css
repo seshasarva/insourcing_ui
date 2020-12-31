@@ -56,6 +56,10 @@
 
 }
 .btn-custom{
-
   font-size: 12px;
+}
+
+.input-text{
+  border-radius: 21px;
+  width:204px;
 }

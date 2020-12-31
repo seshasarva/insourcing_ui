@@ -1,14 +1,72 @@
-
-
 <div class="container-fluid reports-bg">
   
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="row segoe"><div class="col-2 offset-md-4">
+  <div class="form-row segoe">
+    <div class="form-group col-3">
+      <input type="text" required="" placeholder="Deal ID"  class="input-text  form-control" formControlName="dealID" name="dealID"> 
+    </div>
+    <div class="form-group col-3">
+      <input type="text" required="" class="input-text form-control" formControlName="startDate" name="startDate" placeholder="Start Date"  onfocus="(this.type='date')" min="1950-01-01" onblur="if(this.value==''){this.type='text'}">
+    </div>
+    <div class="form-group col-3"> 
+      <input type="text" required="" class="input-text form-control" formControlName="endDate" name="endDate" placeholder="End Date" onfocus="(this.type='date')" min="1950-01-01" onblur="if(this.value==''){this.type='text'}">
+    </div> 
+    <div class="form-group col-3">
+      <input type="text" required="" placeholder="Location"  class="input-text form-control" formControlName="location" name="location"> 
+    </div>
+  </div>
+  <div class="form-row  segoe mt-4">
+    <div class="form-group col-2 offset-md-4"><button type="submit" style="background: transparent linear-gradient(180deg, #208810 0%, #104408 100%) 0% 0% no-repeat padding-box;" class="btn btn-primary btn-radius segoe btn-custom" >Search</button></div>
+    <div class="form-group col-6"><button type="submit" style="background: transparent linear-gradient(180deg, #208810 0%, #104408 100%) 0% 0% no-repeat padding-box;" class="btn btn-primary btn-radius segoe btn-custom" >Upload File<i class ="fa fa-paperclip"></i></button></div>
+  </div>
+    <!--<div class="col-2 offset-md-4">
     <select   class="custom-select"  class="input-title input-register form-control" formControlName="currentReport" name="currentReport">
       <option value="" disabled>Select Report</option>
       <option *ngFor="let report of Reports" [ngValue]="report">{{report}}</option>
 
    </select></div><div class="col-6"><button type="submit" style="background: transparent linear-gradient(180deg, #208810 0%, #104408 100%) 0% 0% no-repeat padding-box;" class="btn btn-primary btn-radius segoe btn-custom" >Download</button>
-  </div></div> 
-  </form>
+  </div>-->
+  
+</form>
+ 
 </div>
+
+<div class="container-fluid">
+<div class="row">
+ <div class="col">
+  <img src="assets/img/Image 2.png">
+ </div>
+ <div class="col">
+  <img src="assets/img/Image 3.png">
+ </div>
+ <div class="col">
+   <div class="row float-right">
+    <button type="submit" style="right: 250px;  background: transparent linear-gradient(180deg, #1A15BE 0%, #0D0B5F 100%) 0% 0% no-repeat padding-box;" class="btn btn-primary btn-radius segoe btn-custom " >More Filers</button>
+ </div>
+<div class="row mt-5">
+  <img src="assets/img/Image 4.png">
+</div>
+ </div>
+
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="row mt-4">
+  <div class="col-2 offset-md-4">
+    <select style="background: transparent linear-gradient(180deg, #208810 0%, #104408 100%) 0% 0% no-repeat padding-box;"  class="custom-select"  class="btn btn-primary btn-radius segoe btn-custom form-control" formControlName="currentReport" name="currentReport">
+      <option value="" selected disabled>Download Report</option>
+      <option *ngFor="let report of Reports" [ngValue]="report">{{report}}</option>
+
+   </select></div>
+   <div class="col-2">
+    <button type="submit" style="background: transparent linear-gradient(180deg, #208810 0%, #104408 100%) 0% 0% no-repeat padding-box;" class="btn btn-primary btn-radius segoe btn-custom" >Download</button>
+   </div>
+</div>
+</form>
+
+</div>
+
+
+
+
+
+  

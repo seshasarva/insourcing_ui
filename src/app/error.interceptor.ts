@@ -23,8 +23,8 @@ export class ErrorInterceptor implements HttpInterceptor {
           // const data = new FormData();
           // var encryptedEmail = this.EncrDecr.set('emailID', localStorage.getItem('access_token'));
           // data.append('emailID', encryptedEmail);
-          // this.authenticationService.logout(encryptedEmail);
           this.authenticationService.logout();
+          // this.authenticationService.logout();
           location.reload(true);
       }
 

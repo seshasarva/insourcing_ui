@@ -12,6 +12,7 @@ import * as moment from 'moment';
 import {
   ViewChild,
   AfterViewInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-offer',
   templateUrl: './offer.component.html',
@@ -23,6 +24,7 @@ import {
 export class OfferComponent implements OnInit {
   @ViewChild('tabset') tabset: TabsetComponent;
   dateFormat=(localStorage.getItem('userCountry')=='IN'? 'dd/mm/yyyy': 'mm/dd/yyyy');
+  Role = localStorage.getItem("Role");
 
   formexc: FormGroup;
   docForm: FormGroup;
@@ -33,8 +35,12 @@ export class OfferComponent implements OnInit {
   retentionTemplate: File;
   appointmentTemplate: File;
   offerCompute: object[] = [];
+  offerComputee: object[] = [];
   retentionCompute: object[] = [];
+  retentionComputee: object[] = [];
+
   appointmentCompute: object[] = [];
+  appointmentComputee: object[] = [];
   offerRadioGroup: number;
   retentionRadioGroup: number;
   appointmentRadioGroup: number;
@@ -86,10 +92,9 @@ export class OfferComponent implements OnInit {
   @ViewChild('uploadFileMessageModal') uploadFileMessageModal: any;
 
 
-  constructor(private modalService: NgbModal, private uploadService: UploadService, private formBuilder: FormBuilder) { }
+  constructor(private modalService: NgbModal, private uploadService: UploadService, private formBuilder: FormBuilder, public httpClient: HttpClient) { }
 
   onFileChange(ev) {
-    console.log("event",ev);
     console.log(ev.srcElement.name);
     if(!FileCheck.isFileAllowed(ev.target.files[0], 'spreadsheet')){
       console.log("File is not allowed");
@@ -177,7 +182,30 @@ export class OfferComponent implements OnInit {
           console.log("No difference in headers");
           this.offerCompute  = computedExcel;
           console.log("OfferComput is assigned: ");
-          console.log(this.offerCompute);
+          console.log(this.offerCompute + "[[[[]]]]]]");
+          if(this.hrUserCountry == 'IN'){
+            this.offerCompute.forEach((item, index) => {
+              if (this.offerComputee.findIndex(i => i['CANDIDATE EMAIL'] == item['CANDIDATE EMAIL']) === -1) 
+              {
+                  this.offerComputee.push(item)
+              }
+          
+          });
+          this.offerCompute = this.offerComputee;
+          console.log("hi siva " + this.offerCompute)
+
+          }else{
+            this.offerCompute.forEach((item, index) => {
+              if (this.offerComputee.findIndex(i => i['Email Id'] == item['Email Id']) === -1) 
+              {
+                  this.offerComputee.push(item)
+              }
+          
+          });
+          this.offerCompute = this.offerComputee;
+          console.log("hi siva " + this.offerCompute)
+            
+          }
         }
         else{
           console.log("Wrong excel file is uploaded or Error in the following headers: ");
@@ -249,6 +277,40 @@ export class OfferComponent implements OnInit {
           this.retentionCompute  = computedExcel;
           console.log("OfferComput is assigned: ");
           console.log(this.retentionCompute);
+
+          
+this.retentionCompute.forEach((item, index) => {
+    if (this.retentionComputee.findIndex(i => i['Email ID'] == item['Email ID']) === -1) 
+    {
+        this.retentionComputee.push(item)
+    }
+
+});
+this.retentionCompute = this.retentionComputee;
+console.log("hi siva " + this.retentionCompute)
+          // this.retentionCompute=Array.from(new Set(this.retentionCompute));
+          // this.retentionCompute.forEach(projet=>console.log(projet['Email ID']));
+//           let obj = {};
+
+// const unique = () => {
+//   let result = [];
+  
+//   this.retentionCompute.forEach((item, i) => {
+//     obj[item['Email ID']] = i;
+//   });
+  
+//   for (let key in obj) {
+//     let index = obj[key];
+//     result.push(this.retentionCompute[index])
+//   }
+  
+//   return result;
+// }
+
+// this.retentionCompute = unique(); // for example; 
+
+// console.log(this.retentionCompute + "filtered excel");
+
         }
         else{
           console.log("Wrong excel file is uploaded or Error in the following headers: ");
@@ -303,6 +365,16 @@ export class OfferComponent implements OnInit {
           this.appointmentCompute  = computedExcel;
           console.log("OfferComput is assigned: ");
           console.log(this.appointmentCompute);
+          this.appointmentCompute.forEach((item, index) => {
+            if (this.appointmentComputee.findIndex(i => i['Email Id'] == item['Email Id']) === -1) 
+            {
+                this.appointmentComputee.push(item)
+            }
+        
+        });
+        this.appointmentCompute = this.appointmentComputee;
+        console.log("hi siva " + this.appointmentCompute)
+          
         }
         else{
           console.log("Wrong excel file is uploaded or Error in the following headers: ");
@@ -348,7 +420,7 @@ export class OfferComponent implements OnInit {
   }
 
   generateofferconfirmed() {
-    this.generateoffermessage="are your sure you want to generate the offer -"
+    this.generateoffermessage="Are your sure you want to generate the offer?"
     this.open(this.offermodalconfirmation);
 
   }
@@ -400,7 +472,7 @@ export class OfferComponent implements OnInit {
     );
   }
   generateretention(){
-    this.generateretentionrmessage="are your sure you want to generate the retention letter -"
+    this.generateretentionrmessage="Are your sure you want to generate the retention letter?"
     this.open(this.retentionmodal);
 
   }
@@ -438,7 +510,7 @@ export class OfferComponent implements OnInit {
     );
   }
   generateappointment(){
-    this.generateappointmentmessage="are your sure you want to generate the Appointment letter -"
+    this.generateappointmentmessage="Are your sure you want to generate the Appointment letter?"
     this.open(this.appointmentmodal);
 
 
@@ -739,6 +811,25 @@ export class OfferComponent implements OnInit {
 
   }
   ngOnInit(): void {
+
+    const API_URL = AppConstants.getBaseURL()+AppConstants.EXPIRE_SESSION;
+    console.log("Hitting URL:");
+    console.log(API_URL);
+    this.httpClient.post(API_URL,null,{responseType:'text'})
+        .subscribe(response => {
+          if(response=="User Authentication success"){
+            console.log("Success")
+          }
+          else{
+          console.log("Response");
+          window.location.reload();
+          }
+        },
+        (error) => {
+          console.log(error);
+          console.log("Error in logging out")
+        });
+
 
     this.formexc = this.formBuilder.group({
       avatar: ['']

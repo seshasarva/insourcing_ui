@@ -21,6 +21,7 @@ export class LoggedinGuard implements CanActivate {
           // logged in so return true
           this.router.navigate(['/navpage']);
       }
+      else{this.router.navigate(['']);
   
       // not logged in so redirect to login page with the return url
      

@@ -19,7 +19,11 @@ export class ReportsComponent implements OnInit {
     return this.form.controls;
   }
   constructor(private fb: FormBuilder, private httpClient: HttpClient) {  this.form = fb.group({
-    currentReport:['', [Validators.required]]
+    currentReport:['', [Validators.required]],
+    dealID:['', [Validators.required]],
+    startDate:['', [Validators.required]],
+    endDate:['', [Validators.required]],
+    location:['', [Validators.required]]
   })};
   onSubmit() {
     this.reportSelected=this.form.controls['currentReport'].value;
@@ -53,6 +57,24 @@ export class ReportsComponent implements OnInit {
           serviceURL = baseUrl + AppConstants.REPORT_INDIA;
           filename = 'India_Offer_Acceptance_Report.xlsx';
           break;
+        
+          case 'Offer_Dump_Report':
+            //baseUrl = 'http://10.169.36.38:8080/InsourcingPortal/api/IndiaReport';
+            serviceURL = baseUrl + AppConstants.REPORT_INDIA;
+            filename = 'Offer_Dump_Report.xlsx';
+            break;
+
+          case 'Deal_OWner_Report':
+            //baseUrl = 'http://10.169.36.38:8080/InsourcingPortal/api/IndiaReport';
+            serviceURL = baseUrl + AppConstants.REPORT_INDIA;
+            filename = 'Deal_OWner_Report.xlsx';
+            break;
+
+          case 'Deal_Dump_Report':
+            //baseUrl = 'http://10.169.36.38:8080/InsourcingPortal/api/IndiaReport';
+            serviceURL = baseUrl + AppConstants.REPORT_INDIA;
+            filename = 'Deal_Dump_Report.xlsx';
+            break;
 
         default:
               return;
@@ -81,11 +103,31 @@ export class ReportsComponent implements OnInit {
 
   }
   ngOnInit(): void {
+
+    const API_URL = AppConstants.getBaseURL()+AppConstants.EXPIRE_SESSION;
+    console.log("Hitting URL:");
+    console.log(API_URL);
+    this.httpClient.post(API_URL,null,{responseType:'text'})
+        .subscribe(response => {
+          if(response=="User Authentication success"){
+            console.log("Success")
+          }
+          else{
+          console.log("Response");
+          window.location.reload();
+          }
+        },
+        (error) => {
+          console.log(error);
+          console.log("Error in logging out")
+        });
+
+
     if(localStorage.userCountry=="IN"){
-      this.Reports=['India_Offer_Acceptance_Report'];
+      this.Reports=['India_Offer_Acceptance_Report','Offer_Dump_Report','Deal_OWner_Report','Deal_Dump_Report'];
     }
     else{
-      this.Reports=['Application_form','Education_employment','Offer_Retention'];
+      this.Reports=['Application_form','Education_employment','Offer_Retention','Offer_Dump_Report','Deal_OWner_Report','Deal_Dump_Report'];
     }
   }
 
