@@ -1,0 +1,81 @@
+<div class="contactUs">
+<div stye="border-radius: 0px 0px 20px 20px;">
+    <mat-grid-list cols="3" [gutterSize]="'15px'">
+        <mat-grid-tile *ngFor="let tile of result; let i = index;" style="padding:5px;margin:5px;">
+            <mat-card style="background-color: #D4A31E;display:block;">
+                <mat-card-content>
+                    <!-- <div class="show-image">
+                        <input type="text" placeholder="First Name" name="firstname">
+                        <button (click)="updateTile(i,'yes')" [ngClass]="{'update-button': tile.display == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button (click)="updateTile(i,'no')" [ngClass]="{'update-button': tile.display == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button>
+                    </div> -->
+                    <div style="text-align: center">
+                        <div style=" margin: 10px;">
+                            <div *ngIf="(i==0|| i==1 || i==2)"><input type="text" [(ngModel)]="tile.header" class="editable input"></div>
+                            <div class="show-image" *ngIf="(i==3|| i==4)">
+                                <input type="text" [(ngModel)]="tile.header" class="editable input">
+                                <button (click)="updateTile(i,'yes')" [ngClass]="{'update-button': tile.display == 'yes'}" class="update">
+                                    <mat-icon>check</mat-icon>
+                                </button>
+                                <button (click)="updateTile(i,'no')" [ngClass]="{'update-button': tile.display == 'no'}" class="delete">
+                                    <mat-icon>clear</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <div style=" margin: 10px">
+                            <div [innerHtml]='msg' *ngIf="msg" style="color:red;"></div>
+                             <div mat-card-avatar style="width:100%; height:100px;">   
+                                <img style="width: 100px;
+                                height: 80px;" [src]="'data:image/jpeg;base64,'+tile.img" alt="select image"/>
+             <input style="padding-left:50px" type="file" accept="image/*" id="file" (change)="selectFile($event, i)" >
+            </div>
+                        </div>
+                        <div style=" margin: 10px;padding-left: 45px;">
+                            <!-- <span>{{tile.name}}</span> -->
+                            <input type="text" [(ngModel)]="tile.name" class="editable">
+                        </div>
+                        <div style="margin:5px 5px 10px 20px">
+                            <div style="margin-bottom: 5px;">
+                                <b>Email : </b><input type="text" [(ngModel)]="tile.emailId" class="editable">
+                            </div>
+                            <div>
+                                <b>Phone : </b><input type="text" [(ngModel)]="tile.phone" class="editable">
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <div class="bottom-buttons" style="text-align: center;" *ngIf="result.length">
+        <button class="btn btn-primary btn-radius font-segoe btn-custom" style="margin:38px 0px 20px;" (click)="handleSave($event)">
+      Save
+    </button>
+    </div>
+    <div *ngIf="result.length==0" style="text-align: center;">
+        No records
+    </div>
+</div>
+</div>
+
+<!-- <mat-grid-tile *ngFor="let tile of tiles; let i = index;">
+    <mat-card>
+        <mat-card-content>
+            <div class="show-image">
+                <img src={{tile.image}} />
+                <button (click)="updateTile(i,'yes')" [ngClass]="{'update-button': tile.display == 'yes'}" class="update" type="button">
+    <mat-icon>check</mat-icon></button>
+                <button (click)="updateTile(i,'no')" [ngClass]="{'update-button': tile.display == 'no'}" class="delete" type="button">
+    <mat-icon>clear</mat-icon></button>
+            </div>
+            <div style="text-align: center">
+                <input type="text" [(ngModel)]="tile.title" class="editable">
+                <mat-icon style="color:blue">create</mat-icon>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</mat-grid-tile> -->

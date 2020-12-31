@@ -1,0 +1,105 @@
+#sidebar {
+    min-width: 90px;
+    max-width: 120px;
+}
+@media (min-width: 1400px) {
+#sidebar ul li a {
+  padding-top: 5px;
+
+  padding-bottom: 5px;
+    font-size: 2.6em;
+    display: block;
+    color: white;
+}
+}
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+}
+
+body {
+    background: #fafafa;
+}
+
+#sidebar {
+    /* don't forget to add all the previously mentioned styles here too */
+    background: transparent linear-gradient(178deg, #281CA4 0%, #140E52 100%);
+    color: #fff;
+    transition: all 0.3s;
+}
+
+
+/* #sidebar ul.components {
+    padding: 20px 0;
+} */
+
+#sidebar ul p {
+}
+
+#sidebar ul li {
+    text-align: center;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+#sidebar ul li a {
+  padding-top: 5px;
+
+  padding-bottom: 5px;
+    font-size: 1.7em;
+    display: block;
+    color: white;
+}
+#sidebar ul li a i{
+  font-size: 25px;
+}
+#sidebar ul li a img{
+  width: 26px;
+  height: 23px;
+}
+#sidebar ul li .active  {
+    color: black;
+    background-color: white;
+    border-right: none;
+    border-radius: 55px 0px 0px 55px;
+    box-shadow: none;
+}
+li:nth-child(1) .black-img img{
+  content:url("src/assets/img/b-myspace-icon.png");
+}
+li:nth-child(2) .black-img img{
+  content:url("src/assets/img/b-transition-icon.png");
+}
+li:nth-child(3) .black-img img{
+  content:url("src/assets/img/b-deals-icon.png");
+}
+li:nth-child(5) .black-img img{
+  content:url("src/assets/img/b-offer-icon.png");
+}
+li:nth-child(6) .black-img img{
+  content:url("src/assets/img/b-reports-icon.png");
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}

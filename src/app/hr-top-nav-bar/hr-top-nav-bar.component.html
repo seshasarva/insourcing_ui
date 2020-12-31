@@ -1,0 +1,44 @@
+<ng-template #tooltipMessage>
+    <div class="d-flex flex-column">
+      <span><u>{{ iconToolTip}}</u></span>
+      <span>This Functionality is not available currently</span>
+    </div>
+</ng-template>
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-bg pl-0">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <img src="../../assets/img/tcs-logo.png" class="offset-md-1">
+    <form class="form-inline my-2 my-lg-0" style="margin-left: auto">
+      <div id="outer_box_search">
+          <input type="text" class="form-control" id="skill_input" aria-describedby="skillInput" placeholder="Search - Deal ID, Documents, SPOC">
+          <i style="color:black;padding:8px 17px 8px 8px;"class="fa fa-search" aria-hidden="true"></i>
+      </div>
+    </form>
+    <button>
+      <i class="fa fa-calendar" aria-hidden="true" bsDatepicker placement="bottom" [ngbTooltip]="tooltipMessage" (mouseover)="iconMouseOver('Calendar')"></i>
+    </button>
+    <button [routerLink]="['/', { outlets: { 'primary': ['navpage', { outlets: { 'innerContent': ['myspace'] } }] } }]" [routerLinkActive]="['active','black-img']">
+      <i class="fa fa-home" style="font-size: 1.4em;margin-top:4px;" placement="bottom" ngbTooltip="Click to go to Home Page" aria-hidden="true"></i>
+    </button>
+    <button>
+      <i class="fa fa-bell" placement="bottom" [ngbTooltip]="tooltipMessage" (mouseover)="iconMouseOver('Notifications')" aria-hidden="true"></i>
+    </button>
+    <div class="hr-user dropdown">
+      <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+      <div class="dropdown-menu" style="margin:0px;padding:0px;min-width:5rem;left:-50px;" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" (click)="logout()">Logout</a>
+      </div>
+    </div>
+    <!-- <div ngbDropdown class="hr-user dropdown">
+      <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" ngbDropdownToggle></button>
+      <div ngbDropdownMenu style="margin:0px;padding:0px;min-width:5rem;left:-50px;" aria-labelledby="dropdownMenuButton">
+        <a ngbDropdownItem (click)="logout()">Logout</a>
+      </div>
+    </div> -->
+
+  </div>
+</nav>

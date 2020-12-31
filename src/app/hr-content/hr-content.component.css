@@ -1,0 +1,39 @@
+.hrbc-main-container{
+    background: rgba(18, 23, 162, 0.6);
+    margin: 20px;
+}
+
+thead{
+    background-color: rgba(40, 28, 164, 1);
+    border-radius: 20px 20px 0px 0px;
+    color: white;
+}
+
+th{
+    border: none;
+}
+
+tbody{
+    background-color: white;
+    color: black;
+}
+
+.hr-btns{
+    background: transparent linear-gradient(180deg, #281CA4 0%, #140E52 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+    color: white;
+    font-size: 12px;
+    width: 150px;
+    height: 34px;
+    border-radius: 20px;
+    border: none;
+}
+
+.input-style{
+    text-align: center;
+    width: 200px;
+    border-radius: 20px;
+    font-size: 12px;
+    height: 34px;
+    border: none;
+}

@@ -1,0 +1,314 @@
+<ng-template #uploadCandModal class="appModal" let-modal>
+    <div class="modal-body">
+        <div style="font-size: 20px;">{{uploadCandMessage}}</div><br><br>
+        <div class="row">
+            <div class="col-sm-6  center-align">
+                <button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="margin-left: 150px;margin-top: 50px;" (click)="modal.dismiss('Cross click')">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #resetPasswordMessageModal class="appModal" let-modal>
+    <div class="modal-body">
+        <div style="font-size: 20px;">{{resetpasswordMessage}}</div><br><br>
+        <div class="row">
+            <div class="col-sm-6  center-align">
+                <button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="margin-left: 150px;margin-top: 50px;" (click)="modal.dismiss('Cross click')">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #uploadFileMessageModal class="appModal" let-modal>
+    <div class="modal-body">
+        <div>
+            <p style="font-size: 20px; white-space:pre-line;line-height:normal;word-break:break-all;">
+                {{uploadFileMessage}}</p>
+        </div><br><br>
+        <div class="row">
+            <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="
+  margin-left: 150px;
+  margin-top: 50px;" (click)="modal.dismiss('Cross click')">OK</button></div>
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #resetPasswordModal class="appModal" let-modal>
+    <div class="modal-body">
+        <form autocomplete="off" [formGroup]="resetPasswordForm" (ngSubmit)="resetPassword()">
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <input type="email" formControlName="emailID" placeholder="Registered Email ID" class="email input-custom form-control" name="emailId" style="padding-left:10px;">
+                    </div>
+                    <span *ngIf="formControls.emailID.errors" class="help-block">
+                        <span>Email is required</span>
+                    </span>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col">
+                    <div>
+                        <input type="password" formControlName="password" placeholder="Password" class="input-custom form-control" name="password">
+                    </div>
+
+                    <span *ngIf="formControls.password.errors" class="help-block">
+                        <span>Password is required</span>
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button type="submit" [disabled]="!resetPasswordForm.valid" class="btn btn-primary btn-radius font-segoe btn-custom" style="width: 150px;margin-top:8px;">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+
+
+<div class="container-fluid transition-bg" style="height:100%;">
+    <div style="text-align: center;">
+        <input class="input" class="item-content" style="padding: 8px 10px 8px 20px;border-radius: 10px;" type="text" placeholder="Deal ID" (change)="handleDealID($event)">
+        <button class="btn btn-primary btn-radius font-segoe btn-custom" (click)="handleDealSearch()">
+            Search
+        </button>
+    </div>
+    <div style="margin: 41px 79px 22px 99px;" *ngIf="fetchDeal.length">
+        <table id="Sequence" [formGroup]="transitionPanel">
+            <tr>
+                <th style="border-top-left-radius: 20px ;"></th>
+                <th>Deal ID</th>
+                <th>Start date</th>
+                <th>Access</th>
+                <th>Status</th>
+                <th>Created By</th>
+                <th>Company</th>
+                <!-- <th>Head Count</th> -->
+                <th style="border-top-right-radius: 20px;">Geography</th>
+            </tr>
+            <tr>
+                <td style="width:80px; text-align: center;"><input formControlName="radioDeal" (change)="handleSelection($event)" type="radio" required></td>
+                <!-- <td style="width:80px; text-align: center;"><input type="radio" name="schedule"  (change)="checked" required></td> -->
+                <td style="width:120px;color: #0061F2;">{{fetchDeal[0].id}}</td>
+                <td style="width:160px">{{fetchDeal[0].monthOfCreation}}</td>
+                <td style="width:160px">{{fetchDeal[0].iouOrIsu}}</td>
+                <td style="width:160px">{{fetchDeal[0].dealStatus}}</td>
+                <td style="width:160px">{{fetchDeal[0].businessSpocName}}</td>
+                <td style="width:160px">{{fetchDeal[0].clientName}}</td>
+                <td style="width:160px">{{fetchDeal[0].geographyWithInScope}}</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+            <ngb-accordion [closeOthers]="true">
+                <ngb-panel id="static-1" [disabled]="!enablePanel">
+                    <ng-template ngbPanelTitle>
+                        <div class="drp-btn drp-btn1">Explore TCS
+                            <span style="float: right;padding: 0 8px 8px 0;">
+                                <svg height="30" width="30" stroke="white" stroke-width="2" fill="none">
+                                    <circle cx="15" cy="15" r="14"></circle>
+                                    <line x1="6" y1="12" x2="15" y2="21.25"></line>
+                                    <line x1="15" y1="21.25" x2="21.25" y2="12"></line>
+                                </svg></span>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <!-- <div class=" row can-access" style="background: transparent linear-gradient(180deg, #08377d 0%, #110f53 100%) 0%
+      0% no-repeat padding-box;margin-left: -5px;margin-top: -19px;padding-left:83px">
+                            <div style="margin-top:15px;width:100%; margin-right:80px">
+                                <app-explore-tcs [dealID]="dealID"></app-explore-tcs>
+                            </div>
+                        </div> -->
+                       <app-explore-tcs [dealID]="dealID"></app-explore-tcs>
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="static-2" [disabled]="!enablePanel">
+                    <ng-template ngbPanelTitle>
+                        <div class="drp-btn drp-btn2">Contact Us
+                            <span style="float: right;padding: 0 8px 8px 0;">
+                                <svg height="30" width="30" stroke="white" stroke-width="2" fill="none">
+                                    <circle cx="15" cy="15" r="14"></circle>
+                                    <line x1="6" y1="12" x2="15" y2="21.25"></line>
+                                    <line x1="15" y1="21.25" x2="21.25" y2="12"></line>
+                                </svg></span>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <!-- <div class=" row can-access" style="background-color: #e4d4168f; margin-left: -5px;margin-top: -19px;padding-left:83px">
+                            <div style="margin-top:15px;width:100%; margin-right:80px"> -->
+                                <app-contact-us [dealID]="dealID"></app-contact-us>
+                            <!-- </div>
+                        </div> -->
+
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="static-3" [disabled]="!enablePanel">
+                    <ng-template ngbPanelTitle>
+                        <div class="drp-btn drp-btn3">My Journey
+                            <span style="float: right;padding: 0 8px 8px 0;">
+                                <svg height="30" width="30" stroke="white" stroke-width="2" fill="none">
+                                    <circle cx="15" cy="15" r="14"></circle>
+                                    <line x1="6" y1="12" x2="15" y2="21.25"></line>
+                                    <line x1="15" y1="21.25" x2="21.25" y2="12"></line>
+                                </svg></span>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <!-- <div class=" row can-access" style="background-color:#4182B6;margin-left: -5px;margin-top: -19px;padding-left:83px">
+        <div style="margin-top:15px"><app-my-journey></app-my-journey></div> </div>-->
+                        <app-my-journey [dealID]="dealID"></app-my-journey>
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="static-4" [disabled]="!enablePanel">
+                    <ng-template ngbPanelTitle>
+                        <div class="drp-btn drp-btn4">Candidate Registration Form
+                            <span style="float: right;padding: 0 8px 8px 0;">
+                                <svg height="30" width="30" stroke="white" stroke-width="2" fill="none">
+                                    <circle cx="15" cy="15" r="14"></circle>
+                                    <line x1="6" y1="12" x2="15" y2="21.25"></line>
+                                    <line x1="15" y1="21.25" x2="21.25" y2="12"></line>
+                                </svg></span>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <!-- <div class=" row can-access" style="background-color:#4182B6;margin-left: -5px;margin-top: -19px;padding-left:83px">
+                            <div style="margin-top:15px"> -->
+                                <app-candidate-registration [dealID]="dealID"></app-candidate-registration>
+                            <!-- </div>
+                        </div> -->
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="static-5" [disabled]="!enablePanel">
+                    <ng-template ngbPanelTitle>
+                        <div class="drp-btn drp-btn5" placement="right">Workflow Sequence
+                            <span style="float: right;padding: 0 8px 8px 0;">
+                                <svg height="30" width="30" stroke="white" stroke-width="2" fill="none">
+                                    <circle cx="15" cy="15" r="14"></circle>
+                                    <line x1="6" y1="12" x2="15" y2="21.25"></line>
+                                    <line x1="15" y1="21.25" x2="21.25" y2="12"></line>
+                                </svg></span>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <form [formGroup]="workflowSequence">
+                            <div class="row workflow" style="margin-left: 0px;margin-right: 14px;">
+                                <div style="margin: 30px 14px 65px 35px;">
+                                    <table id="Sequence">
+                                        <tr>
+                                            <th style="border-top-left-radius: 20px ;"></th>
+                                            <th>Category</th>
+                                            <th style="border-top-right-radius: 20px;">Details</th>
+                                        </tr>
+                                        <tr *ngFor="let types of scenario">
+                                            <td style="width:80px; text-align: center;"><input type="radio" name="sequence" value="{{types.title}}, {{types.flow}}" (change)="selector($event)" required></td>
+                                            <td style="width:100px;color: #0061F2;">{{types.title}}</td>
+                                            <td style="width:600px">{{types.flow}}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div style="margin: auto;">
+                                    <button style="margin-left:0px;width:115px;height:36px;margin-right: 30px;" class="btn btn-primary btn-radius font-segoe btn-custom" (click)='saveSequence()'>Save</button>
+                                    <button class="btn btn-primary btn-radius font-segoe btn-custom btn-upload" style="margin-left:0px;width:115px;height:36px" (click)='updateSequence()'>Update</button>
+                                </div>
+                            </div>
+                        </form>
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="static-6" [disabled]="!enablePanel">
+                    <ng-template ngbPanelTitle>
+                        <div class="drp-btn drp-btn6" placement="right">Recruiter Profile
+                            <span style="float: right;padding: 0 8px 8px 0;">
+                                <svg height="30" width="30" stroke="white" stroke-width="2" fill="none">
+                                    <circle cx="15" cy="15" r="14"></circle>
+                                    <line x1="6" y1="12" x2="15" y2="21.25"></line>
+                                    <line x1="15" y1="21.25" x2="21.25" y2="12"></line>
+                                </svg></span>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <app-recruiter-profile ></app-recruiter-profile>
+                    </ng-template>
+
+                </ngb-panel>
+                <ngb-panel id="static-7" [disabled]="!enablePanel">
+                    <ng-template ngbPanelTitle>
+                        <div class="drp-btn drp-btn7">Panel Tagging
+                            <span style="float: right;padding: 0 8px 8px 0;">
+                                <svg height="30" width="30" stroke="white" stroke-width="2" fill="none">
+                                    <circle cx="15" cy="15" r="14"></circle>
+                                    <line x1="6" y1="12" x2="15" y2="21.25"></line>
+                                    <line x1="15" y1="21.25" x2="21.25" y2="12"></line>
+                                </svg></span>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <app-interview-scheduler [dealID]="dealID"></app-interview-scheduler>
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="static-8" [disabled]="!enablePanel">
+                    <ng-template ngbPanelTitle>
+                        <div class="drp-btn drp-btn8" placement="right" ngbTooltip="This Functionality is not available currently">Personalized Mailing
+                            <span style="float: right;padding: 0 8px 8px 0;">
+                                <svg height="30" width="30" stroke="white" stroke-width="2" fill="none">
+                                    <circle cx="15" cy="15" r="14"></circle>
+                                    <line x1="6" y1="12" x2="15" y2="21.25"></line>
+                                    <line x1="15" y1="21.25" x2="21.25" y2="12"></line>
+                                </svg></span>
+                        </div>
+                    </ng-template>
+                </ngb-panel>
+                <ngb-panel id="static-9" [disabled]="!enablePanel">
+                    <ng-template ngbPanelTitle>
+                        <div class="drp-btn drp-btn9">Candidate Access Management
+                            <span style="float: right;padding: 0 8px 8px 0;">
+                                <svg height="30" width="30" stroke="white" stroke-width="2" fill="none">
+                                    <circle cx="15" cy="15" r="14"></circle>
+                                    <line x1="6" y1="12" x2="15" y2="21.25"></line>
+                                    <line x1="15" y1="21.25" x2="21.25" y2="12"></line>
+                                </svg></span>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                        <div class=" row can-access" style="margin-left: 0px;margin-right: 14px;">
+                            <div class="col">
+                                <form style="display: inline" [formGroup]="form">
+
+                                    <label style="background: transparent linear-gradient(180deg, #208810 0%, #104408 100%) 0% 0% no-repeat padding-box;" class="btn btn-primary btn-radius font-segoe btn-custom btn-upload" style="margin-left:0px;">Upload <i class="fa fa-paperclip"></i><input
+                                            accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                                            style="display: none;padding-top: 80px; " type="file" name="avatar"
+                                            (change)="onFileChange($event)" /></label>
+
+                                </form>
+                            </div>
+                            <div class="col"><button type="button" style="margin-left:0px;" (click)='downloadFile()' class="btn btn-primary btn-radius font-segoe btn-custom">Download<img
+                                        src="../../assets/icons/ic_file_download_24px.png"
+                                        style="margin-left:10px;filter: invert(1);"></button></div>
+                            <div class="col"><a href="assets/templates/registration-template.xlsx"><button type="button"
+                                        style="margin-left:0px;"
+                                        class="btn btn-primary btn-radius font-segoe btn-custom">Template</button></a>
+                            </div>
+                            <div class="col"><button style="margin-left:0px;" type="button" (click)="openResetModal()" class="btn btn-primary btn-radius font-segoe btn-custom">Reset Password</button>
+                            </div>
+                        </div>
+
+                        <div class="row" *ngIf="uploaded" style="
+    font-size: 15px;
+    color: black;
+    padding-left:10px;
+  background-color: #C7EBD5;color:black;font-weight: 600;margin-left: 0px;margin-right: 0px;
+">
+                            <div class="col">File Uploaded !!!</div>
+                        </div>
+                    </ng-template>
+                </ngb-panel>
+            </ngb-accordion>
+        </div>
+</div>

@@ -1,0 +1,146 @@
+<!-- <div stye="border-radius: 0px 0px 20px 20px;">
+    <mat-grid-list cols="3" [gutterSize]="'15px'">
+        <mat-grid-tile *ngFor="let tile of tiles; let i = index;">
+            <mat-card>
+                <mat-card-content>
+                    <div class="show-image">
+                        <img src={{tile.image}} />
+                        <button (click)="updateTile(i,'yes')" [ngClass]="{'update-button': tile.display == 'yes'}" class="update" type="button">
+            <mat-icon>check</mat-icon></button>
+                        <button (click)="updateTile(i,'no')" [ngClass]="{'update-button': tile.display == 'no'}" class="delete" type="button">
+            <mat-icon>clear</mat-icon></button>
+                    </div>
+                    <div style="text-align: center">
+                        <input type="text" [(ngModel)]="tile.title" class="editable">
+                        <mat-icon style="color:blue">create</mat-icon>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <div class="bottom-buttons" style=" text-align: center;">
+        <button (click)="handleSave($event)" class="btn btn-primary btn-radius font-segoe btn-custom" style="margin:38px 0px 20px;">
+      Save
+    </button>
+    </div>
+</div> -->
+
+<div class="myJourney">
+<div class="row segoe">
+  <div class="col">
+      <ngb-accordion [closeOthers]="true">
+          <ngb-panel id="panel-1">
+            <ng-template ngbPanelTitle>
+              <div class="editBlog">Content<img style="float:right;padding-right: 10px;" src=".\assets\img\edit_white.png" /></div>
+          </ng-template>
+              <ng-template ngbPanelContent>
+                  <div  >
+                      <div>
+                          <div style="float:left; padding:15px 75px 0 35px;">
+                            <div class="journeyNav" style="display: flex;">
+                              <img src=".\assets\img\Doc Checklist.png" />
+                              <div class="journey btn-upload" style="display: flex;">
+                                  <div class="file-data">
+                                      <span style="margin:0px" class="font-segoe">Choose cover image</span>
+                                      <p style="margin: -4px 0 2px 0;">
+                                          <a class="file-name" *ngIf="coverImage" href=javascript:void(0)>{{coverImage}}</a>
+                                      </p>
+                                  </div>
+                                  <label><img class="btn pt-file-atmt" src=".\assets\img\attach-iconSmall.png" />
+                                  <input type="file" accept="image/*" (change)="selectFile($event,'coverimage')"
+                                      style="display: none;" /></label>
+                              </div>
+                          </div>
+                          <div class="journeyNav" style="display: flex;">
+                            <img src=".\assets\img\Testimonals.png" />
+                            <div class="journey btn-upload" style="display: flex;">
+                                <div class="file-data">
+                                    <span style="margin:0px" class="font-segoe">Poster</span>
+                                    <p style="margin: -4px 0 2px 0;">
+                                        <a class="file-name" *ngIf="poster" href=javascript:void(0)>{{poster}}</a>
+                                    </p>
+                                </div>
+                                <label><img class="btn pt-file-atmt" src=".\assets\img\attach-iconSmall.png" />
+                                <input type="file" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" (change)="selectFile($event,'poster')"
+                                    style="display: none;" /></label>
+                            </div>
+                        </div>
+                        <div class="journeyNav" style="display: flex;">
+                          <img src=".\assets\img\Induction Video.png" />
+                          <div class="journey btn-upload" style="display: flex;">
+                              <div class="file-data">
+                                  <span style="margin:0px" class="font-segoe">Video</span>
+                                  <p style="margin: -4px 0 2px 0;">
+                                      <a class="file-name" *ngIf="poster" href=javascript:void(0)>{{video}}</a>
+                                  </p>
+                              </div>
+                              <label><img class="btn pt-file-atmt" src=".\assets\img\attach-iconSmall.png" />
+                              <input type="file" accept="video/*" (change)="selectFile($event,'video')"
+                                  style="display: none;" /></label>
+                          </div>
+                      </div>
+
+                            <!-- <div class="journeyNav" style="display: flex;">
+                              <img src=".\assets\img\Doc Checklist.png" />
+                              <div class="journey btn-upload" style="display: flex;">
+                              <div class="file-data">
+                                <span style="margin:0px" class="font-segoe">Choose cover image</span>
+                              <p style="margin: -4px 0 2px 0;">
+                                <a class="file-name" *ngIf="coverImage" href=javascript:void(0)>{{coverImage}}</a>
+                              </p>
+                            </div>
+                              <label><img class="btn pt-file-atmt" src=".\assets\img\attach-iconSmall.png" />
+                              <label><img style="float:right;padding-right: 10px;" src=".\assets\img\attach-iconSmall.png"/> 
+                      <input  (change)="selectFile($event,'coverimage')" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display: none;" type="file"/></label>
+                          </div></div> -->
+                              <!-- <div class="journeyNav">
+                                  <img src=".\assets\img\Testimonals.png" />
+                                  <label class="btn font-segoe btn-upload journey">Poster<img style="float:right;padding-right: 10px;" src=".\assets\img\attach-iconSmall.png"/>
+                          <input  (change)="selectFile($event,'poster')" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display: none;" type="file"/></label>
+                              </div> -->
+                              <!-- <div class="journeyNav">
+                                  <img src=".\assets\img\Induction Video.png" />
+                                  <label class="btn font-segoe btn-upload journey">Video<img style="float:right;padding-right: 10px;" src=".\assets\img\attach-iconSmall.png"/>
+                          <input (change)="selectFile($event,'video')" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display: none;" type="file"/></label>
+                              </div> -->
+                          </div>
+                          <div id="vertical"></div>
+                          <div style="padding:15px 0 0 380px;">
+                            <textarea  [(ngModel)]="content" class="textarea" placeholder="Type Text....."></textarea>
+                          </div>
+                          <!-- <div id="save">
+                              <button style="width:103px;" type="submit" class="btn btn-primary btn-radius font-segoe btn-custom btn-upload" >Add</button>
+                          </div> -->
+                      </div>
+                  </div>
+              </ng-template>
+          </ngb-panel>
+          <ngb-panel id="panel-2">
+            <ng-template ngbPanelTitle>
+              <div class="editBlog">Benefits<img style="float:right;padding-right: 10px;" src=".\assets\img\edit_white.png" /></div>
+          </ng-template>
+            <ng-template ngbPanelContent>
+              <div>
+                <div style="display:flex">
+                    <div style="padding:15px 15px 0 45px;width:43%">
+                      <input style="width:100%" type="text " [(ngModel)]="benefitsHeader" placeholder="Header"/>
+                    </div>
+                    <!-- <div id="vertical"></div> -->
+                    <div style="padding:15px 0 0 20px;width:50%">
+                      <input style="width:100%" type="text " [(ngModel)]="benefitsContent" placeholder="Type Text....."/>
+                    </div>                    
+                </div>
+                <!-- <div id="save">
+                        <button style="width:103px;" type="submit" class="btn btn-primary btn-radius font-segoe btn-custom btn-upload" >Add</button>
+                    </div> -->
+            </div>
+            </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+      <div class="bottom-buttons" style=" text-align: center;">
+        <button  (click)= "handleSave()" class="btn btn-primary btn-radius font-segoe btn-custom" style="margin:38px 0px 20px;">
+      Save
+    </button>
+  </div>
+</div>
+</div>

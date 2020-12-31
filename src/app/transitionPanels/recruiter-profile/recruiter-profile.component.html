@@ -1,0 +1,85 @@
+<form [formGroup]="recruiter">
+    <div class="row recruiter">
+        <!-- <div class="row card-bg">
+            <div class="col">
+              <div class="cards segoe">
+                <div class="card" *ngFor="let dealOwner of dealOwners | keyvalue">
+                 <a (click)="recruiterProfile(dealOwner,dealOwnerCountry)" href="javascript:void(0)"><img class="card-image" src="assets/img/{{dealOwner.value[0]}}.{{dealOwner.value[1]}}"></a>
+                  <div class="card-name">
+                    {{dealOwner.key}} <br/> {{dealOwnerCountry}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div>
+        <div>
+        <div class="details">
+          <div style="float:left;margin-left:15px;">
+           <select formControlName="status" (change)="dropDown()">
+               <option value="Active">Active Deals</option>
+               <option value="completed ">Completed Deals</option>
+               <option selected value="All">All Deals</option>
+           </select>
+           <select formControlName="client" (change)="dropDown()">
+               <option *ngFor="let client of clients" value="{{client}}" selected>{{client}}</option>
+           </select>
+           <select formControlName="type" (change)="dropDown()">
+            <option value="">Deal type</option>
+           </select>
+        <div id="container">
+        </div>
+          </div>
+          <div>
+              <table id='contribution'>
+                  <tr>
+                      <th></th>
+                      <th style="text-align: center;font:normalbold 15px Segoe UI;color:#FFFFFF;">Overall Contribution</th>
+                  </tr>
+                  <tr>
+                      <td><mat-icon style="margin: 10px 5px 10px 23px;color:#FFFFFF;" aria-hidden="false">group_add</mat-icon></td>
+                      <td style="font:normalbold 13px Segoe UI;color:#FFFFFF;">Net Headcount Additions - {{presentDeal.total}}</td>
+                  </tr>
+                  <tr>
+                      <td><mat-icon style="margin: 10px 5px 10px 23px;color:#FFFFFF;" aria-hidden="false">local_post_office</mat-icon></td>
+                      <td style="font:normalbold 13px Segoe UI;color:#FFFFFF;">Net Offer Released - {{presentDeal.actual}}</td>
+                  </tr>
+                  <tr>
+                      <td><mat-icon style="margin: 10px 5px 10px 23px;color:#FFFFFF;" aria-hidden="false">monetization_on</mat-icon></td>
+                      <td style="font:normalbold 13px Segoe UI;color:#FFFFFF;">Joining Ratio - {{presentDeal.percent}}</td>
+                  </tr>
+                  <tr>
+                      <td><mat-icon style="margin: 10px 5px 10px 23px;color:#FFFFFF;" aria-hidden="false">account_balance</mat-icon></td>
+                      <td style="font:normalbold 13px Segoe UI;color:#FFFFFF;">Deals in Queue - {{presentDeal.active}}</td>
+                </tr>
+              </table>
+          </div>
+        </div>
+          <!-- <div style="margin:0 15px 0 155px;">
+            <table id="Sequence">
+                <tr>
+                    <th style="border-top-left-radius: 20px ;"></th>
+                    <th>Deal ID</th>
+                    <th>Start Date</th>
+                    <th>Status</th>
+                    <th>Created By</th>
+                    <th>Company</th>
+                    <th>Head Count</th>
+                    <th style="border-top-right-radius: 20px;">Geography</th>
+                </tr>
+                <tr>
+                    <td style="width:50px; text-align: center;"><input type="radio"></td>
+                    <td style="width:110px;color: #0061F2;">{{recruiterDetails.dealId}}</td>
+                    <td style="width:110px;">{{recruiterDetails.startDate}}</td>
+                    <td style="width:90px;">{{recruiterDetails.status}}</td>
+                    <td style="width:110px;">{{recruiterDetails.createdBy}}</td>
+                    <td style="width:110px;">{{recruiterDetails.company}}</td>
+                    <td style="width:110px;">{{recruiterDetails.headCount}}</td>
+                    <td style="width:110px">{{recruiterDetails.geography}}</td>
+                </tr>
+            </table>
+          </div> -->
+        </div>
+        </div>
+    </div>
+</form>

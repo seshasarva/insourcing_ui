@@ -1,0 +1,86 @@
+.myJourney { 
+    background-color: #DBA4FF;
+    height: auto;
+    padding: 20px 10px;
+    /* width: 937px; */
+    width: 126%;
+    border-radius: 0 0 20px 20px;
+    margin: -26px 0 10px 22px;
+  }
+
+.journey {
+    /* height: 44px; */
+    height: auto;
+    width: 192px;
+    /* padding: 15px 0 0 0; */
+    margin: 0px;
+    border: 0px;
+    border-radius: 0px;
+    color: white;
+    vertical-align: middle;
+    font-size: 11px;
+}
+
+.journeyNav {
+    margin-bottom: 25px;
+}
+
+.editBlog {
+    width: 424px;
+    height: 35px;
+    background-color: #3967D4;
+    color: white;
+    border-radius: 18px;
+    padding: 6px 0 0 30px;
+    text-align: left;
+    font: normal normal bold 13px Segoe UI;
+}
+
+.textarea {
+    width: 422px;
+    height: 145px;
+    margin-top: 15px;
+    margin-left: 25px;
+}
+
+#save {
+    width: 103px;
+    height: 35px;
+    text-align: center;
+    margin: 30px 0 0 270px;
+    display: block;
+}
+
+#vertical {
+    margin-top: 15px;
+    float: left;
+    width: 0px;
+    height: 349px;
+    border-right: 2px solid white
+}
+
+.link {
+    display: inline;
+    margin: 10px 30px 10px 10px;
+}
+
+.file-name {
+    color: deepskyblue;
+    text-decoration: none;
+}
+
+.file-data {
+    text-align: center;
+    margin: auto;
+    width: 150px;
+}
+
+.label-name {
+    margin: 0px;
+}
+
+.pt-file-atmt {
+    float: right;
+    padding: 10px 10px 2px 0px;
+    height: 36px;
+}

@@ -1,0 +1,81 @@
+
+.candidate-reg { 
+    background-color: #4182B6;
+    height: auto;
+    padding: 20px 10px;
+    /* width: 937px; */
+    width: 126%;
+    border-radius: 0 0 20px 20px;
+    margin: -26px 0 10px 22px;
+  }
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    width: 570px;
+    margin-left: 65px;
+    color: #FFFFFF;
+    transform: scale(0.82);
+}
+
+.top-margin-one {
+    /* margin-top: 15px; */    
+    padding: 40px 10px;
+}
+
+.tabs {
+    margin-left: 65px;
+}
+
+.tab-view {
+    width: 91%;
+    background-color: #AFA4FF;
+}
+
+.mat-radio-label-content {
+    margin: 0 20px 0 13px;
+}
+
+.mat-tab-label {
+    border: 1px solid transparent;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-color: #928BC1;
+    color: #FFFFFF;
+    height: 35px !important;
+}
+
+.mat-tab-label-active {
+    font-size: 15px;
+    color: #FFFFFF;
+    background-color: #AFA4FF;
+    border-color: #AFA4FF;
+}
+
+.mat-ink-bar {
+    display: none;
+}
+
+.remove-border-bottom .mat-tab-header {
+    border-bottom: none;
+}
+
+.mat-radio-button.mat-accent .mat-radio-outer-circle {
+    border-color: #FFFFFF;
+    background-color: #FFFFFF;
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #FFFFFF;
+    background-color: #FFFFFF;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+    color: #24AB3A;
+    background-color: #24AB3A;
+}
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+    color: #24AB3A;
+    background-color: #24AB3A;
+}

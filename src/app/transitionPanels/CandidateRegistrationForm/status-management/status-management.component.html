@@ -1,0 +1,163 @@
+<form autocomplete="off" [formGroup]="statusForm" class="space-around">
+
+    <div class="sm-flex-container">
+        <div class="show-image">
+            <select class="title" name="title">
+                <option value="" disabled>Title</option>
+                <option *ngFor="let title of Titles" [ngValue]="title">{{title}}</option>
+            </select>
+            <button (click)="statusFormUpdate('title','yes')" [ngClass]="{'update-button': statusForm.get('title').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('title','no')" [ngClass]="{'update-button': statusForm.get('title').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+        <div class="show-image">
+            <input type="text" placeholder="First Name" name="firstname">
+            <button (click)="statusFormUpdate('firstname','yes')" [ngClass]="{'update-button': statusForm.get('firstname').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('firstname','no')" [ngClass]="{'update-button': statusForm.get('firstname').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+        <div class="show-image">
+            <input type="text" placeholder="Middle Name" name="middlename">
+            <button (click)="statusFormUpdate('middlename','yes')" [ngClass]="{'update-button': statusForm.get('middlename').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('middlename','no')" [ngClass]="{'update-button': statusForm.get('middlename').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+        <div class="show-image">
+            <input type="text" placeholder="Last Name" name="lastname">
+            <button (click)="statusFormUpdate('lastname','yes')" [ngClass]="{'update-button': statusForm.get('lastname').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('lastname','no')" [ngClass]="{'update-button': statusForm.get('lastname').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="top-margin-row">
+        <div class="show-image" style="width:36%">
+            <span class="country">{{isdCode}}</span>
+            <input style="margin-left: -29px;width: 80%;" type="tel" required placeholder="Contact Number" name="contactno">
+            <button (click)="statusFormUpdate('contactno','yes')" [ngClass]="{'update-button': statusForm.get('contactno').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('contactno','no')" [ngClass]="{'update-button': statusForm.get('contactno').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="top-margin-row">
+        <div class="show-image" style="width: 60%;">
+            <input type="email" placeholder="E-mail ID" class="total-width" name="emailid">
+            <button (click)="statusFormUpdate('emailid','yes')" [ngClass]="{'update-button': statusForm.get('emailid').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('emailid','no')" [ngClass]="{'update-button': statusForm.get('emailid').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="top-margin-row sm-flex-container two-fields-width">
+        <div class="show-image" style="width: 50%;">
+            <input type="text" class="total-width" placeholder="Skills" name="skills">
+            <button (click)="statusFormUpdate('skills','yes')" [ngClass]="{'update-button': statusForm.get('skills').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('skills','no')" [ngClass]="{'update-button': statusForm.get('skills').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+        <div class="show-image" style="width: 42%;">
+            <input type="text" class="total-width" placeholder="Current Title" name="currentTitle">
+            <button (click)="statusFormUpdate('currentTitle','yes')" [ngClass]="{'update-button': statusForm.get('currentTitle').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('currentTitle','no')" [ngClass]="{'update-button': statusForm.get('currentTitle').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+        <!-- <input type="text" style="width: 50%;" placeholder="Skills" name="skills" formControlName="skills">
+        <input type="text" style="width: 42%;" placeholder="Current Title" name="currentTitle" formControlName="currentTitle"> -->
+    </div>
+    <div class="top-margin-row sm-flex-btw">
+        <div class="show-image fields-width">
+            <input class="total-width" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="DOB - dd/mm/yyyy" name="dateOfBirth">
+            <button (click)="statusFormUpdate('dateOfBirth','yes')" [ngClass]="{'update-button': statusForm.get('dateOfBirth').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('dateOfBirth','no')" [ngClass]="{'update-button': statusForm.get('dateOfBirth').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+        <div class="show-image fields-width">
+            <input class="total-width" type="text" placeholder="Current Location" name="currentLocation">
+            <button (click)="statusFormUpdate('currentLocation','yes')" [ngClass]="{'update-button': statusForm.get('currentLocation').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('currentLocation','no')" [ngClass]="{'update-button': statusForm.get('currentLocation').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="top-margin-row sm-flex-btw">
+        <div class="show-image fields-width">
+            <input class="total-width" type="text" placeholder="Password" name="password">
+            <button (click)="statusFormUpdate('password','yes')" [ngClass]="{'update-button': statusForm.get('password').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('password','no')" [ngClass]="{'update-button': statusForm.get('password').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button></div>
+        <div class="show-image fields-width">
+            <input class="total-width" type="text" placeholder="Confirm Password" name="confirmPassword">
+            <button (click)="statusFormUpdate('confirmPassword','yes')" [ngClass]="{'update-button': statusForm.get('confirmPassword').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="statusFormUpdate('confirmPassword','no')" [ngClass]="{'update-button': statusForm.get('confirmPassword').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div formArrayName="newFields">
+        <div class="show-image fields-width top-margin-row" *ngFor="let field of newFields.controls; let i = index;">
+            <div [formGroupName]="i"> <input class="total-width" type="text" value={{field.value.name}} name="newfield"></div>
+            <button (click)="newFieldUpdate(i,'yes')" [ngClass]="{'update-button':statusForm.get('newFields').value[i].display == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="newFieldUpdate(i,'no')" [ngClass]="{'update-button': statusForm.get('newFields').value[i].display == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div style="margin-top: 35px;">
+        <div><b>Add New Fields</b></div>
+        <div class="top-margin-row sm-flex-btw" style="float:left">
+            <input class="fields-width" type="text" placeholder="Enter Field Name" formControlName="newField1">
+            <select class="fields-width" style="padding-left: 10px;" formControlName="newFieldType1" name="newFieldType1">
+                <option value="" disabled>Field Type</option>
+                <option *ngFor="let type of fieldDataType" [ngValue]="type">{{type}}</option>
+            </select>
+            <!-- <input class="fields-width" type="text" placeholder="Field Type" formControlName="newFieldType1"> -->
+        </div>
+        <!-- <div class="top-margin-row sm-flex-btw" style="float:left">
+            <input class="fields-width" type="text" placeholder="Enter Field Name" formControlName="newField2">
+            <select class="fields-width" style="padding-left: 10px;" formControlName="newFieldType2" name="newFieldType2">
+                <option value="" disabled>Field Type</option>
+                <option *ngFor="let type of fieldDataType" [ngValue]="type">{{type}}</option>
+            </select>
+            <input class="fields-width" type="text" placeholder="Field Type" formControlName="newFieldType2">
+    </div>  -->
+        <span><button type="button"matTooltipClass="custom-tooltip" matTooltip="You can add upto 2 new fields!" style="margin:22px 0 0 20px;" (click)="addNewFields()" class="sta-btn btn sta-btn-color">Add</button>
+        </span>
+    </div>
+    <div class="sta-btn-container" style="margin-top: 10px;">
+        <button type="submit" (click)="submitStatusMgmt()" class="sta-btn btn sta-btn-color" id="save">Save</button>
+    </div>
+</form>

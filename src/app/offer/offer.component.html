@@ -1,0 +1,482 @@
+<ng-template #uploadFileMessageModal class="appModal" let-modal>
+  <div class="modal-body">
+      <div>
+          <p style="font-size: 20px; white-space:pre-line;line-height:normal;word-break:break-all;">{{uploadFileMessage}}</p>
+      </div><br><br>
+      <div class="row">
+          <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="
+  margin-left: 150px;
+  margin-top: 50px;" (click)="modal.dismiss('Cross click')">OK</button></div>
+      </div>
+  </div>
+</ng-template>
+
+<ng-template #autoComputeModal class="appModal" let-modal>
+    <div class="modal-body">
+        <div>
+            <p style="font-size: 20px; white-space:pre-line;line-height:normal;word-break:break-all;">{{autoComputeMessage}}</p>
+        </div><br><br>
+        <div class="row">
+            <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="
+    margin-left: 150px;
+    margin-top: 50px;" (click)="modal.dismiss('Cross click')">OK</button></div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #offerModal class="appModal" let-modal>
+
+
+
+    <div class="modal-body">
+
+
+        <div style="font-size: 20px;">{{generateMessage}}</div><br><br>
+
+        <div class="row">
+
+            <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="
+    margin-left: 150px;
+    margin-top: 50px;" (click)="modal.dismiss('Cross click')">OK</button></div>
+        </div>
+    </div>
+
+
+</ng-template>
+
+<ng-template #offerPreviewModal class="appModal" let-modal>
+
+    <div class="modal-header">
+        <p class="modal-title segoe-bold font-medium color-white" style="margin:0 auto">Preview</p>
+        <button type="button" class="close font-small" style="margin: -1rem -1rem -1rem 0;outline:none" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span class="color-white" aria-hidden="true">&times;</span>
+    </button>
+    </div>
+
+    <div class="modal-body">
+        <ngx-extended-pdf-viewer #pdfViewer [src]="offerPreview" useBrowserLocale="true" height="80vh"></ngx-extended-pdf-viewer>
+
+    </div>
+
+
+</ng-template>
+<ng-template #offermodalconfirmation class="appModal" let-modal>
+
+
+
+    <div class="modal-body">
+
+
+        <div style="font-size: 20px;">{{generateoffermessage}}</div><br><br>
+
+        <div class="row">
+
+            <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="margin-left: 19px;margin-top: 30px;" (click)="generateOffers();modal.dismiss()">Yes</button></div>
+
+            <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="
+            margin-left: 20px;
+            margin-top: 30px;" (click)="modal.dismiss('Cross click')">No</button></div>
+        </div>
+    </div>
+
+
+</ng-template>
+<ng-template #retentionmodal class="appModal" let-modal>
+
+
+
+    <div class="modal-body">
+
+
+        <div style="font-size: 20px;">{{generateretentionrmessage}}</div><br><br>
+
+        <div class="row">
+
+            <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="margin-left: 19px;margin-top: 30px;" (click)="generateRetentionLetters();modal.dismiss()">Yes</button></div>
+
+            <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="
+            margin-left: 20px;
+            margin-top: 30px;" (click)="modal.dismiss('Cross click')">No</button></div>
+        </div>
+    </div>
+
+
+</ng-template>
+<ng-template #appointmentmodal class="appModal" let-modal>
+
+
+
+    <div class="modal-body">
+
+
+        <div style="font-size: 20px;">{{generateappointmentmessage}}</div><br><br>
+
+        <div class="row">
+
+            <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="margin-left: 19px;margin-top: 30px;" (click)="generateAppointmentLetters();modal.dismiss()">Yes</button></div>
+
+            <div class="col-sm-6  center-align"><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="
+            margin-left: 20px;
+            margin-top: 30px;" (click)="modal.dismiss('Cross click')">No</button></div>
+        </div>
+    </div>
+
+
+</ng-template>
+
+
+
+<div class="container-fluid offer-bg">
+    <!-- <div class="row">
+    <div class="col-4 column-split">
+
+      <div class="buttons row">
+        <div class="col">
+        <form style="display: inline" [formGroup]="formexc" >
+
+          <label class="upload btn btn-primary btn-radius font-segoe btn-custom">Upload File <i class = "fa fa-paperclip"  ></i> <input style="display: none;padding-top: 80px; " type="file" name="avatar" (change)="onFileChange($event)" /></label>
+
+        </form>
+        </div>
+        <div class="col">
+        <button class="auto btn btn-primary btn-radius font-segoe btn-custom" (click)="autoComputeOffer()">Auto compute </button></div>
+      </div>
+      <div class="row" *ngIf="excelOffer" style="
+    font-size: 15px;
+    color: white;
+    padding-left:10px;
+"><div class="col">File Uploaded !!!</div></div>
+
+    </div>
+    <div class="col-2"></div>
+    <div class="col-6 column-split" >
+      <div class="creation" style="display: none;">Offer Creation</div>
+      <div class="container" style="display: none;">
+        <ul class="progressbar">
+          <li class="active">Profile</li>
+          <li class="active">Documents</li>
+          <li class="active">Eligeable</li>
+          <li class="active">Select</li>
+
+        </ul>
+      </div>
+
+
+
+    </div>
+  </div> -->
+    <div class="row pb-5" style="margin-top:50px;">
+        <div class="col">
+            <!-- <div>
+
+        <button class="offer"><u>Offer Letter</u> </button>
+        <button class="ret">Retention Letter </button>
+        <button class="ret">Appointment Letter </button>
+
+      </div>
+
+      <table class = "content-table">
+        <thead>
+        <tr>
+          <th > <input type="checkbox" class = "check"/>Name</th>
+          <th>Email ID</th>
+          <th>Relevant Exp</th>
+          <th>CTC</th>
+          <th>Skill</th>
+        </tr>
+        </thead>
+        <tbody id="offerTableBody"  [innerHTML] = "content">
+
+        </tbody>
+      </table> -->
+            <tabset #tabset>
+                <tab heading="Offer Letter">
+                    <div>
+                        <div class="flex" style="text-align: center;">
+                            <!-- <form style="display: inline" [formGroup]="formexc" > -->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div style="display:inline-flex">
+                                                <label class="upload btn btn-primary btn-radius font-segoe btn-custom" placement="right" ngbTooltip="Click to upload Excel file for Offers generation">
+                          Upload File
+                          <i class = "fa fa-paperclip"  ></i>
+                          <input accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" style="display: none;padding-top: 80px; " type="file" name="avatar" (change)="onFileChange($event)" />
+                        </label>
+                                                <i *ngIf="excelOffer" class="fa fa-check-circle" style="margin: 25px 0 0 -20px; font-size:1.5em;" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <!-- </form> -->
+                                        <div class="col">
+                                            <button class="auto btn btn-primary btn-radius font-segoe btn-custom" (click)="autoComputeOffer()" [disabled]="!offerFile" placement="right" ngbTooltip="Click to see the content of the excel file uploaded">
+                        Auto compute
+                      </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div style="display:inline-flex">
+                                                <label class="upload btn btn-primary btn-radius font-segoe btn-custom" placement="right" ngbTooltip="Click to upload Offer template">
+                          Template
+                          <i class = "fa fa-paperclip"  ></i>
+                          <input style="display: none; " accept="application/pdf" type="file" name="offerTemplate" (change)="onFileChangeDoc($event)" />
+                        </label>
+                                                <i *ngIf="docxOffer" class="fa fa-check-circle" style="margin: 25px 0 0 -20px; font-size:1.5em;" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <!-- </form> -->
+                                        <div class="col">
+                                            <button class="auto btn btn-primary btn-radius font-segoe btn-custom" (click)="previewOffer()" [disabled]="(!offerFile) || (!offerTemplate)" placement="right" ngbTooltip="Click to preview the offer letter of the candidate selected from the below table">
+                        Preview
+                      </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m-auto">
+                                    <button type="button" (click)="generateofferconfirmed()" [disabled]="(!offerFile) || (!offerTemplate)" class="generate btn btn-primary btn-radius font-segoe btn-custom" placement="right" ngbTooltip="Click to generate offers for the candidates provided in the excel">
+                  Generate Offer
+                </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <table class="content-table center-align">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <!--<input type="radio" class = "check"/>--></th>
+                                    <!-- <th>{{offerDifferentiate[hrUserCountry][0]}}</th>
+                <th>{{offerDifferentiate[hrUserCountry][1]}}</th>
+                <th>{{offerDifferentiate[hrUserCountry][2]}}</th>
+                <th>{{offerDifferentiate[hrUserCountry][3]}}</th>
+                <th>{{offerDifferentiate[hrUserCountry][4]}}</th> -->
+                                    <th *ngFor="let diff of offerDifferentiate[hrUserCountry]">
+                                        {{diff | uppercase}}
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <!-- <tbody id="offerTableBody"  [innerHTML] = "content"> -->
+
+                            <tbody class="font-segoe">
+                                <tr *ngFor="let offer of offerCompute; let i=index">
+                                    <td>
+                                        <input type="radio" [(ngModel)]="offerRadioGroup" [value]='i' />
+
+                                    </td>
+                                    <td>
+                                        {{offer[offerDifferentiate[hrUserCountry][0]]}}
+                                    </td>
+                                    <td>
+                                        {{offer[offerDifferentiate[hrUserCountry][1]]}}
+                                    </td>
+                                    <td>
+                                        {{offer[offerDifferentiate[hrUserCountry][2]]}}
+                                    </td>
+                                    <td>
+                                        {{offer[offerDifferentiate[hrUserCountry][3]]}}
+                                    </td>
+                                    <td>
+                                        {{offer[offerDifferentiate[hrUserCountry][4]]}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <div class="d-flex justify-content-between p-2">
+              <ngb-pagination [collectionSize]="offerCollectionSize" [(page)]="page" [pageSize]="pageSize">
+              </ngb-pagination>
+
+              <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+                <option [ngValue]="2">2 items per page</option>
+                <option [ngValue]="4">4 items per page</option>
+                <option [ngValue]="6">6 items per page</option>
+              </select>
+            </div> -->
+                    </div>
+                </tab>
+
+                <tab heading="Retention Letter">
+                    <div>
+                        <div class="flex" style="text-align: center;">
+                            <!-- <form style="display: inline" [formGroup]="formexc" > -->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div style="display:inline-flex">
+                                                <label class="upload btn btn-primary btn-radius font-segoe btn-custom">Upload File <i class = "fa fa-paperclip"  ></i> <input style="display: none;padding-top: 80px;" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"  type="file" name="retentionFile" (change)="onFileChange($event)" /></label>
+                                                <i *ngIf="excelRetention" class="fa fa-check-circle" style="margin: 25px 0 0 -20px; font-size:1.5em;" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <!-- </form> -->
+                                        <div class="col">
+                                            <button class="auto btn btn-primary btn-radius font-segoe btn-custom" (click)="autoComputeRetention()">Auto compute </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div style="display:inline-flex">
+                                                <label class="upload btn btn-primary btn-radius font-segoe btn-custom">Template  <i class = "fa fa-paperclip"  ></i> <input style="display: none; " type="file" accept="application/pdf" name="retentionTemplate" (change)="onFileChangeDoc($event)" /></label>
+                                                <i *ngIf="docxRetention" class="fa fa-check-circle" style="margin: 25px 0 0 -20px; font-size:1.5em;" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <!-- </form> -->
+                                        <div class="col">
+                                            <button class="auto btn btn-primary btn-radius font-segoe btn-custom" (click)="previewRetention()">Preview</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m-auto">
+                                    <button type="button" (click)="generateretention()" class="generate btn btn-primary btn-radius font-segoe btn-long">Generate Retention Letter </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <table class="content-table center-align">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <!--<input type="radio" class = "check"/>--></th>
+                                    <th *ngFor="let ret of retentionHeaders">
+                                        {{ret | uppercase}}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!-- <tbody id="offerTableBody"  [innerHTML] = "content"> -->
+                            <tbody class="font-segoe">
+                                <tr *ngFor="let retention of retentionCompute; let j=index">
+                                    <td>
+                                        <input type="radio" [(ngModel)]="retentionRadioGroup" [value]="j" />
+                                    </td>
+                                    <td>
+                                        {{retention['First Name']}}
+                                    </td>
+                                    <td>
+                                        {{retention['Email ID']}}
+                                    </td>
+                                    <td>
+                                        {{retention['Date']}}
+                                    </td>
+                                    <td>
+                                        {{retention['Bonus $']}}
+                                    </td>
+                                    <td>
+                                        {{retention['Work State']}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </tab>
+
+                <tab *ngIf="hrUserCountry=='IN'" heading="Appointment Letter">
+                    <div>
+                        <div class="flex" style="text-align: center;">
+                            <!-- <form style="display: inline" [formGroup]="formexc" > -->
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div style="display:inline-flex">
+                                                <label class="upload btn btn-primary btn-radius font-segoe btn-custom">Upload File <i class = "fa fa-paperclip"  ></i> <input style="display: none;padding-top: 80px;" accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"  type="file" name="appointmentFile" (change)="onFileChange($event)" /></label>
+                                                <i *ngIf="excelAppointment" class="fa fa-check-circle" style="margin: 25px 0 0 -20px; font-size:1.5em;" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <!-- </form> -->
+                                        <div class="col">
+                                            <button class="auto btn btn-primary btn-radius font-segoe btn-custom" (click)="autoComputeAppointment()">Auto compute </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div style="display:inline-flex">
+                                                <label class="upload btn btn-primary btn-radius font-segoe btn-custom">Template  <i class = "fa fa-paperclip"  ></i> <input style="display: none; " accept="application/pdf" type="file" name="appointmentTemplate" (change)="onFileChangeDoc($event)" /></label>
+                                                <i *ngIf="docxAppointment" class="fa fa-check-circle" style="margin: 25px 0 0 -20px; font-size:1.5em;" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                        <!-- </form> -->
+                                        <div class="col">
+                                            <button class="auto btn btn-primary btn-radius font-segoe btn-custom" (click)="previewAppointment()">Preview</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m-auto">
+                                    <button type="button" (click)="generateappointment()" class="generate btn btn-primary btn-radius font-segoe btn-long">Generate Appointment Letter </button>
+                                </div>
+                            </div>
+
+                        </div>
+                        <table class="content-table center-align">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <!--<input type="radio" class = "check"/>--></th>
+                                    <th *ngFor="let app of appointmentHeaders">
+                                        {{app | uppercase}}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!-- <tbody id="offerTableBody"  [innerHTML] = "content"> -->
+                            <tbody class="font-segoe">
+                                <tr *ngFor="let appointment of appointmentCompute; let k=index">
+                                    <td>
+                                        <input type="radio" [(ngModel)]="appointmentRadioGroup" [value]="k" />
+                                    </td>
+                                    <td>
+                                        {{appointment['First Name']}}
+                                    </td>
+                                    <td>
+                                        {{appointment['Email Id']}}
+                                    </td>
+                                    <td>
+                                        {{appointment['Joining Date']}}
+                                    </td>
+                                    <td>
+                                        {{appointment['Grade']}}
+                                    </td>
+                                    <td>
+                                        {{appointment['Designation']}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+        <!-- <div class="col-md-3  col-lg-3 col-sm" >
+      <div class="up row" >
+      </div>
+
+
+      <div class = "down row">
+        <div class="col">
+        <form style="display: flex" [formGroup]="docForm" >
+
+          <label class="template btn btn-primary btn-radius font-segoe btn-custom">Template  <i class = "fa fa-paperclip"  ></i> <input style="display: none; " type="file" name="file" (change)="onFileChangeDoc($event)" /></label>
+          <button class="btn btn-primary btn-radius font-segoe btn-custom template" (click)="previewOffer()">Preview</button>
+        </form></div>
+      </div>
+
+      <div class="row" *ngIf="docxOffer" style="
+    font-size: 15px;
+    color: black;
+    padding-left:5px;
+    margin-top: 40px;
+"><div class="col">Template Uploaded !!!</div></div>
+    </div>
+    <div class="col">
+      <button type="button" (click)="uploadDoc()" class="generate btn btn-primary btn-radius font-segoe btn-custom">Generate Offer </button>
+
+      <div class="row" *ngIf="error !=''" style="
+    font-size: 15px;
+    color: white;
+    padding-left:35px;
+"><div class="col">Error Generating Offer !!!</div></div>
+    </div> -->
+
+
+
+    </div>
+</div>

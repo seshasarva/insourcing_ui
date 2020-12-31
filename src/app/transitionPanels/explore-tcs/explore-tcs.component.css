@@ -1,0 +1,201 @@
+.text-inside-grid {
+    position: absolute;
+    left: auto;
+    top: 40%;
+}
+
+.footer {
+    margin: 10px;
+}
+
+div.show-image {
+    position: relative;
+}
+
+div.show-image:hover input {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+div.show-image:hover button {
+    display: block;
+    outline: none;
+}
+
+div.show-image button {
+    position: absolute;
+    display: none;
+}
+
+div.show-image button.update {
+    top: 0;
+    right: 32px;
+    color: white;
+    background-color: green;
+    border: 2px solid green;
+}
+
+div.show-image button.delete {
+    top: 0;
+    right: -4px;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    color: white;
+    background-color: red;
+    border: 2px solid red;
+}
+
+div.show-image button.update-button {
+    position: absolute;
+    display: block !important;
+    outline: none;
+    top: 0;
+    right: -4px;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.editable {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+  .drp-btn{
+    width: 953px;
+    height: 45px;
+    border-radius: 23px;
+    margin-left: 20px;
+    color: white;
+    text-align: left;
+    padding-left: 30px;
+    font-size: 13px;
+    padding-top: 8px;
+  }
+  
+  .drp-btn1{
+    background-color: #110F53;
+  }
+  .drp-btn2{
+    background-color: #D4A31E;
+  }
+  .drp-btn3{
+    background-color: #5214A2;
+  }
+  
+  .can-access{
+    background-color: #C7EBD5;
+    height: auto;
+    width: 937px;
+    padding: 10px;
+    border-radius: 0 0 20px 20px;
+  }
+  .btn-custom{
+    border-radius: 30px;
+    margin-top:5px;
+    font-size: 12px;
+    border-color: transparent;
+  }
+  /* .btn-upload{
+    background: transparent linear-gradient(180deg, #208810 0%, #104408 100%) 0% 0% no-repeat padding-box;
+  }
+   */
+  .fa-paperclip:before {
+    content: "\f0c6";
+    padding-left: 15px;
+    font-size: 15px;
+  }
+  
+  .btn.focus, .btn:focus, .btn:active{
+    box-shadow: none !important;
+  }
+  
+ 
+  .item-content {
+    border: 1px solid #fff;
+    margin:10px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 4px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+  .item-content:focus,
+  .text-area:focus {
+  outline: none;
+  }
+
+  .myJourney { 
+    background-color: #DBA4FF;
+    height: auto;
+    padding: 20px 10px;
+    /* width: 937px; */
+    width: 126%;
+    border-radius: 0 0 20px 20px;
+    margin: -26px 0 10px 22px;
+  }
+  
+  .journey {
+    /* height: 44px; */
+    height: auto;
+    width: 192px;
+    /* padding: 15px 0 0 0; */
+    margin: 0px;
+    border: 0px;
+    border-radius: 0px;
+    color: white;
+    vertical-align: middle;
+    font-size: 11px;
+}
+  .journeyNav {
+    margin-bottom: 25px;
+  }
+  .editBlog {
+    width: 872px;
+    height: 44px;
+    background-color: #3967D4;
+    color: white;
+    border-radius: 18px;
+    padding: 11px 0 0 30px;
+    text-align: left;
+    font: normal normal bold 13px Segoe UI;
+  }
+  .textarea {
+    width: 449px;
+    height: 183px;
+  }
+  #save {
+    width: 103px;
+    height: 35px;
+    text-align: center;
+    margin:30px 0 10px 270px;
+    display: block;
+  }
+  #vertical{
+    margin-top:15px;
+    float:left;
+    width: 0px;
+    height: 211px;
+    border-right: 2px solid white
+  }
+  .link{
+    display:inline;
+    margin:10px 30px 10px 10px;
+  }
+  
+.pt-file-atmt {
+  float: right;
+  padding: 10px 10px 2px 0px;
+  height: 36px;
+}
+
+.file-name {
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+.file-data {
+  text-align: center;
+  margin: auto;
+  width: 150px;
+}

@@ -1,0 +1,75 @@
+
+
+<div class="container-fluid myspace-bg">
+  <div class=row1>
+    <!-- <div class="row" style="
+  width: 94%;margin-left: 15px;"><div class="col-9" style="text-align: left;">Yearly<i class="fa fa-caret-down" ></i></div><div class="col-3 notification-element" style="text-align: left">Notification</div>
+  </div> -->
+
+  <div class="row" style="
+  width: 94%;margin-left: 15px;"><div class="col-9" style="text-align: left;"></div><div class="col-3 notification-element" style="text-align: left">Notification</div>
+  </div>
+
+    <div class="row data">
+
+      <div class="col-8 yearly">
+        <div class="tile tile-block-1">
+          <span class="box-text">3000</span>
+          <span class="box-text box-5"> Headcount</span>
+        </div>
+        <div class="tile">
+          <span class="box-text">2500</span>
+          <span class="box-text box-5"> Offers</span>
+        </div>
+        <div class="tile">
+          <span class="box-text">1900</span>
+          <span class="box-text box-5"> Joiners</span>
+        </div>
+        <div class="tile">
+          <span class="box-text">180</span>
+          <span class="box-text box-5 "> Skills</span>
+        </div>
+        <div class="tile ">
+          <span class="box-text ">63.3%</span>
+          <span class="box-text box-5 "> Offer Acceptence</span>
+        </div>
+
+      </div>
+
+      <div class="col-4 notification ">
+        <span class="col-4-box">7 Book a Slot Request- 3 Hours Ago</span>
+        <span class="col-4-box">7 Book a Slot Request- 3 Hours Ago</span>
+        <span class="col-4-box">7 Book a Slot Request- 3 Hours Ago</span>
+
+      </div>
+    </div>
+
+
+  </div> 
+  <div class="row card-bg">
+    <div class="col">
+      <div class="cards segoe">
+        <div class="card" *ngFor="let dealOwner of dealOwners | keyvalue">
+          <img class="card-image" src="assets/img/{{dealOwner.value[0]}}.{{dealOwner.value[1]}}">
+          <div class="card-name">
+            {{dealOwner.key}} <br/> {{dealOwnerCountry}}
+          </div>
+        </div>
+        <!-- <div class="card">
+          <img class="card-image" src="assets/img/myspace_1.png">
+          <div class="card-name">Tanveer S India</div>
+        </div>
+        <div class="card"><img class="card-image" src="assets/img/myspace_2.png"><div class="card-name">Khyati B India</div></div>
+        <div class="card"><img class="card-image" src="assets/img/myspace_3.png"><div class="card-name">Daniel R India</div></div>
+        <div class="card"><img class="card-image" src="assets/img/myspace_4.png"><div class="card-name">Patricia M Germany</div></div>
+        <div class="card"><img class="card-image" src="assets/img/myspace_5.png"><div class="card-name">Rajini N India</div></div> -->
+      </div>
+    </div>
+  </div>
+  <div class="row status-bg"><div class="col"><div class="status-cards segoe">
+    <div class="status-card"><img class="status-card-image" src="assets/img/closed_bg.png"><div hidden class="status-card-name"><div style="padding-left: 45px;">Closed Deals</div>Net Headcount Additions - 40,000<br>Net Offer Released - 63000<br>Joining Ratio - 72%<br></div></div>
+    <div class="status-card"><img class="status-card-image" src="assets/img/wip_bg.png"><div hidden class="status-card-name"><div style="padding-left: 45px;">Work In Progress</div>Offers Released - 300<br>Joiners - 0<br>Joining Ratio - 0<br></div></div>
+    <div class="status-card"><img class="status-card-image" src="assets/img/pipeline_bg.png"><div hidden class="status-card-name"><div style="padding-left: 45px;">Pipeline</div>Deals in Queue - 4<br>Approx. Headcount - 2500<br>Target - 8<br></div></div>
+  </div></div></div>
+
+</div>

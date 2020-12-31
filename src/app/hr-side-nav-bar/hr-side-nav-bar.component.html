@@ -1,0 +1,47 @@
+<!-- Sidebar -->
+<nav id="sidebar">
+    <ul class="list-unstyled components m-0">
+        <li >
+            <a [routerLink]="['/', { outlets: { 'primary': ['navpage', { outlets: { 'innerContent': ['myspace'] } }] } }]" [routerLinkActive]="['active','black-img']">
+                <i class="fa fa-2x fa-user"></i>
+                <p class="segoe-bold font-tiny">My Space</p>
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['/', { outlets: { 'primary': ['navpage', { outlets: { 'innerContent': ['transition'] } }]}}]" [routerLinkActive]="['active','black-img']">
+                <img src="assets/img/Transition-icon.png">
+                <p class="segoe-bold font-tiny">Transition</p>
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['/', { outlets: { 'primary': ['navpage', { outlets: { 'innerContent': ['deals'] } }] } }]" [routerLinkActive]="['active','black-img']">
+              <img src="assets/img/deals-icon.png">
+                <p class="segoe-bold font-tiny">Deals</p>
+            </a>
+        </li>
+        <li placement="right" ngbTooltip="This Functionality is not available currently">
+            <a >
+              <img src="assets/img/Evaluation-icon.png">
+                <p class="segoe-bold font-tiny">Evaluation</p>
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['/', { outlets: { 'primary': ['navpage', { outlets: { 'innerContent': ['offer'] } }]}}]" [routerLinkActive]="['active','black-img']">
+              <img src="assets/img/offer-icon.png">
+                <p class="segoe-bold font-tiny">Offer</p>
+            </a>
+        </li>
+        <li>
+            <a [routerLink]="['/', { outlets: { 'primary': ['navpage', { outlets: { 'innerContent': ['reports'] } }]}}]" [routerLinkActive]="['active','black-img']">
+              <img src="assets/img/reports-icon.png">
+                <p class="segoe-bold font-tiny">Reports</p>
+            </a>
+        </li>
+        <li placement="right" ngbTooltip="This Functionality is not available currently">
+            <a >
+              <img src="assets/img/access-icon.png">
+                <p class="segoe-bold font-tiny">Access</p>
+            </a>
+        </li>
+    </ul>
+</nav>

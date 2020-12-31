@@ -1,0 +1,431 @@
+<ng-template #autoComputeFileModal class="appModal" let-modal>
+    <div class="modal-body">
+        <div>
+            <p style="font-size: 20px; white-space: pre-line; line-height: normal">
+                {{ autoComputeFileMessage }}
+            </p>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-12 center-align">
+                <button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="margin-top: 5px" (click)="modal.dismiss('Cross click')">
+          OK
+        </button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #fileDeleteModal class="appModal" let-modal>
+    <div class="modal-body">
+        <div>
+            <p style="font-size: 20px; white-space: pre-line; line-height: normal">
+                {{ fileDeleteMessage }}
+            </p>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-sm-6 center-align">
+                <button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="margin-left: 19px; margin-top: 5px" (click)="deleteDealNoteFile(); modal.dismiss()">
+          Yes
+        </button>
+            </div>
+            <div class="col-sm-6 center-align">
+                <button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="margin-left: 20px; margin-top: 5px" (click)="modal.dismiss('Cross click')">
+          No
+        </button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<div class="deals-firstbox">
+    <div class="create-deal-container">
+        <div class="deal-heading">
+            <h3 class="deals-heading">Create Deal</h3>
+        </div>
+        <form [formGroup]="dealForm" (submit)="submitForm()">
+            <div class="deal-items-container">
+                <div class="deal-item">
+                    <label>Month of Creation<span class="required">*</span></label>
+                    <label style="color: red" *ngIf="
+              dealForm.get('monthOfCreation').value === '' &&
+              dealForm.get('monthOfCreation').touched
+            ">*required</label>
+                    <input type="month" formControlName="monthOfCreation" class="deal-item-content" placeholder="-----" />
+                    <!-- <p *ngIf="dealForm.get('monthOfCreation').value==='' && dealForm.get('monthOfCreation').touched" class="error">Error while adding Month</p> -->
+                </div>
+                <div class="deal-item">
+                    <label>Opportunity ID</label>
+                    <input type="text" formControlName="oppurtunityId" class="deal-item-content" placeholder="-----" />
+                </div>
+                <div class="deal-item">
+                    <label>Client Name<span class="required">*</span></label>
+                    <input type="text" formControlName="clientName" class="deal-item-content" placeholder="-----" />
+                </div>
+                <div class="deal-item">
+                    <label>Deal Status</label>
+                    <select class="deal-item-content" formControlName="dealStatus">
+            <option value="" disabled selected hidden>-------</option>
+            <option value="Open">Open</option>
+            <option value="Hold">Hold</option>
+            <option value="Closed">Closed</option>
+          </select>
+                </div>
+                <div class="deal-item">
+                    <label>Enter Business spoc name</label>
+                    <input type="text" formControlName="businessSpocName" class="deal-item-content" placeholder="-----" />
+                </div>
+                <div class="deal-item">
+                    <label>Client Interaction<span class="required">*</span></label>
+                    <select class="deal-item-content" formControlName="clientInteraction">
+            <option value="" disabled selected hidden>
+              -------
+            </option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+                </div>
+                <div class="deal-item">
+                    <label>IOU/ISU<span class="required">*</span></label>
+                    <select class="deal-item-content" formControlName="iouOrIsu">
+            <option value="" disabled selected hidden>-------</option>
+            <option value="BFSI">BFSI</option>
+            <option value="BFSI Platforms">BFSI Platforms</option>
+            <option value="CBO">CBO</option>
+            <option value="CMI">CMI</option>
+            <option value="CPG">CPG</option>
+            <option value="C&SI">C&SI</option>
+            <option value="Digital Transformation Services">
+              Digital Transformation Services
+            </option>
+            <option value="Digitate">Digitate</option>
+            <option value="ER">ER</option>
+            <option value="GE">GE</option>
+            <option value="Health Care">Health Care</option>
+            <option value="HiTech & Prof Services">
+              HiTech & Prof Services
+            </option>
+            <option value="Life Sciences">Life Sciences</option>
+            <option value="Manufacturing">Manufacturing</option>
+            <option value="Public Services">Public Services</option>
+            <option value="Retail">Retail</option>
+            <option value="TechBU">TechBU</option>
+            <option value="TCS FS">TCS FS</option>
+            <option value="TTH">TTH</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Others">Others</option>
+          </select>
+                </div>
+                <div class="deal-item">
+                    <label>Deal Value in USD(mil)</label>
+                    <input type="number" formControlName="dealValue" class="deal-item-content" placeholder="-----" />
+                </div>
+                <div class="deal-item">
+                    <label>Work Area<span class="required">*</span></label>
+                    <select class="deal-item-content" formControlName="workArea">
+            <option value="" disabled selected hidden>-------</option>
+            <option value="RFQ/RFI/RFP">RFQ/RFI/RFP</option>
+            <option value="Contract Review">Contract Review</option>
+            <option value="Deal Qualification">Deal Qualification</option>
+            <option value="Proposal Presentation/Defense">
+              Proposal Presentation/Defense
+            </option>
+            <option value="HR Due Diligence">HR Due Diligence</option>
+            <option value="Costing">Costing</option>
+            <option value="People Transition">People Transition</option>
+            <option value="Others">Others</option>
+          </select>
+                </div>
+                <div class="deal-item">
+                    <label>People Transition<span class="required">*</span></label>
+                    <select class="deal-item-content" formControlName="peopleTransistion">
+            <option value="" disabled selected hidden>-------</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+                </div>
+                <div class="deal-item">
+                    <label>Kickoff people Transistion</label>
+                    <select class="deal-item-content" formControlName="kickOffPeopleTransistion">
+            <option value="" disabled selected hidden>
+              -------
+            </option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+                </div>
+                <div class="deal-item">
+                    <label>Global Deal<span class="required">*</span></label>
+                    <select class="deal-item-content" formControlName="globalDeal">
+            <option value="" disabled selected hidden>-------</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+                </div>
+                <div class="deal-item">
+                    <label>Deal Headquarters/Location<span class="required">*</span></label>
+                    <select class="deal-item-content" formControlName="dealLocation" placeholder="-----">
+            <option value="" disabled selected hidden>
+              -------
+            </option>
+            <option *ngIf="dealForm.get('globalDeal').value === 'No'" value="USA">
+              USA
+            </option>
+            <option *ngIf="dealForm.get('globalDeal').value === 'No'" value="Canada">
+              Canada
+            </option>
+            <option value="Europe">Europe</option>
+            <option value="UK">UK</option>
+            <option value="Ireland">Ireland</option>
+            <option value="LATAM">LATAM</option>
+            <option value="MEA">MEA</option>
+            <option value="APAC">APAC</option>
+            <option value="India">India</option>
+          </select>
+                </div>
+                <div class="deal-item">
+                    <label>Geographies with in the scope</label>
+                    <select class="deal-item-content" [disabled]="dealForm.get('globalDeal').value === 'No'" formControlName="geographyWithInScope" placeholder="-----">
+            <option value="" disabled selected hidden>
+              -----
+            </option>
+            <option *ngFor="let country of dealOnLoad.allGeographies" [value]="country">{{country}}</option>
+          </select>
+                </div>
+                <div class="deal-item" *ngIf="dealOnLoad.dealLead">
+                    <label>Deal Lead<span class="required">*</span></label>
+                    <input type="text" disabled formControlName="dealLead" class="deal-item-content" />
+                </div>
+                <div class="deal-item" *ngIf="dealOnLoad.allUsers">
+                    <label>Deal Lead<span class="required">*</span></label>
+                    <select class="deal-item-content" formControlName="dealLead">
+            <option value="" disabled selected hidden>-----</option>
+            <option *ngFor="let user of dealOnLoad.allUsers | keyvalue" [value]="user.key">{{user.value}} :
+              {{user.key}}</option>
+          </select>
+                </div>
+                <div class="deal-items-container" *ngIf="dealForm.get('kickOffPeopleTransistion').value === 'Yes'">
+                    <div class="deal-item">
+                        <label>Service commencement date</label>
+                        <input type="month" formControlName="serviceCommencementDate" class="deal-item-content" placeholder="-----" />
+                    </div>
+                    <div class="deal-item">
+                        <label>Offer Release Month</label>
+                        <input type="month" formControlName="offerReleaseMonth" class="deal-item-content" placeholder="-----" />
+                    </div>
+                    <div class="deal-item">
+                        <label>Proposed Joining Month</label>
+                        <input type="month" formControlName="proposedJoinMonth" class="deal-item-content" placeholder="-----" />
+                    </div>
+                    <div class="deal-item">
+                        <label>Number of Offers to be released</label>
+                        <input type="text" formControlName="numberOfOffersToBeReleased" class="deal-item-content" placeholder="-----" />
+                    </div>
+                    <div class="deal-item">
+                        <label>offer Released Through</label>
+                        <select class="deal-item-content" formControlName="offerReleasedThrough" placeholder="-----">
+              <option value="" disabled selected hidden>
+                -------
+              </option>
+              <option value="Transition Portal">Transition Portal</option>
+              <option value="GRS">GRS</option>
+              <option value="Manual">Manual</option>
+            </select>
+                    </div>
+                    <div class="deal-item" *ngIf="dealOnLoad.dealLead">
+                        <label>HR Transition manager</label>
+                        <input type="text" disabled formControlName="hrTransitionManager" class="deal-item-content" />
+                    </div>
+                    <div class="deal-item" *ngIf="dealOnLoad.allUsers">
+                        <label>HR Transition manager</label>
+                        <select class="deal-item-content" formControlName="hrTransitionManager" placeholder="-----">
+              <option value="" disabled selected hidden>
+                -----
+              </option>
+              <option *ngFor="let user of dealOnLoad.allUsers | keyvalue" [value]="user.key">{{user.value}} :
+                {{user.key}}</option>
+            </select>
+                    </div>
+                </div>
+                <div class="deal-items-container" *ngIf="dealForm.get('peopleTransistion').value === 'Yes' && dealForm.get('kickOffPeopleTransistion').value === 'Yes' &&
+            dealForm.get('workArea').value === 'Contract Review'
+          ">
+                    <div class="deal-item">
+                        <label>Exception Category</label>
+                        <select class="deal-item-content" formControlName="exceptionCategory">
+              <option value="" disabled selected hidden>
+                -------
+              </option>
+              <option value="Non -Solicitation">Non -Solicitation</option>
+              <option value="Right to Hire">Right to Hire</option>
+              <option value="BGC">BGC</option>
+              <option value="Non Compete">Non Compete</option>
+            </select>
+                    </div>
+                    <div class="deal-item">
+                        <label>Exception Applicable</label>
+                        <select class="deal-item-content" formControlName="dealException">
+              <option value="" disabled selected hidden>
+                -------
+              </option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+                    </div>
+                    <div style="width: 51%; padding: 10px; box-sizing: border-box">
+                        <label style="color: #fff; padding-left: 10px; font-size: 12px">Exception Summary</label>
+                        <input type="text" formControlName="exceptionSummary" class="deal-single-item-content" placeholder="-----" />
+                    </div>
+                    <div class="single-text-box-item">
+                        <label>Exception Details</label>
+                        <input type="text" formControlName="exceptionApprovedBy" class="deal-single-item-content" placeholder="-----" />
+                    </div>
+                    <div class="upload-file-name-div">
+                        <div><label class="upload-file-name-label">Upload file</label></div>
+                        <span style="margin-left: 5px" *ngIf="dealForm.controls['exceptionApprovedFile'].value['name']"><a
+                href="javascript:void(0);" (click)="handleFileDelete(0, 'exceptionApprovedFile')"
+                style="color: red; text-decoration: none">&#10006;</a></span>{{ dealForm.controls["exceptionApprovedFile"].value["name"] }}
+                    </div>
+                    <div class="upload-div">
+                        <div><label class="upload-file-name-label">Upload file</label></div>
+                        <span class="upload-box">
+              <label for="exceptionApprovedFile">Upload File &nbsp;<i class="fa fa-paperclip"
+                  aria-hidden="true"></i></label>
+              <input type="file" id="exceptionApprovedFile"
+                accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                class="file-attachment" (change)="
+                  handleFileInput($event.target.files, 'exceptionApprovedFile')
+                " />
+            </span>
+                    </div>
+                </div>
+                <div class="deal-items-container" *ngIf="dealForm.get('peopleTransistion').value === 'Yes' && dealForm.get('kickOffPeopleTransistion').value === 'Yes'">
+                    <div class="single-text-box-item">
+                        <label>HR Costing Tenets</label>
+                        <input type="text" class="deal-single-item-content" placeholder="-----" formControlName="hrCostingTenets" />
+                    </div>
+                    <div class="upload-file-name-div">
+                        <div><label class="upload-file-name-label">Upload file</label></div>
+                        <span style="margin-left: 5px" *ngIf="dealForm.controls['hrCostingTenetsFile'].value['name']"><a
+                href="javascript:void(0);" (click)="handleFileDelete(0, 'hrCostingTenetsFile')"
+                style="color: red; text-decoration: none">&#10006;</a></span>{{ dealForm.controls["hrCostingTenetsFile"].value["name"] }}
+                    </div>
+                    <div class="upload-div">
+                        <div><label class="upload-file-name-label">Upload file</label></div>
+                        <span class="upload-box">
+              <label for="hrCostingTenetsFile">Upload File &nbsp;<i class="fa fa-paperclip"
+                  aria-hidden="true"></i></label>
+              <input type="file" id="hrCostingTenetsFile"
+                accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                class="file-attachment" (change)="
+                  handleFileInput($event.target.files, 'hrCostingTenetsFile')
+                " />
+            </span>
+                    </div>
+                    <div class="single-text-box-item">
+                        <label>HR Solution Tenets</label>
+                        <input type="text" class="deal-single-item-content" placeholder="-----" formControlName="hrSolutionTenets" />
+                    </div>
+                    <div class="upload-file-name-div">
+                        <div><label class="upload-file-name-label">Upload file</label></div>
+                        <span style="margin-left: 5px" *ngIf="dealForm.controls['hrSolutionTenetsFile'].value['name']"><a
+                href="javascript:void(0);" (click)="handleFileDelete(0, 'hrSolutionTenetsFile')"
+                style="color: red; text-decoration: none">&#10006;</a></span>{{ dealForm.controls["hrSolutionTenetsFile"].value["name"] }}
+                    </div>
+                    <div class="upload-div">
+                        <div><label class="upload-file-name-label">Upload file</label></div>
+                        <span class="upload-box">
+              <label for="hrSolutionTenetsFile">Upload File &nbsp;<i class="fa fa-paperclip"
+                  aria-hidden="true"></i></label>
+              <input type="file" id="hrSolutionTenetsFile"
+                accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                class="file-attachment" (change)="
+                  handleFileInput($event.target.files, 'hrSolutionTenetsFile')
+                " />
+            </span>
+                    </div>
+                    <div class="single-text-box-item">
+                        <label>Deal Solution Summary</label>
+                        <input type="text" formControlName="dealSolutionSummary" class="deal-single-item-content" placeholder="-----" />
+                    </div>
+                    <div class="upload-file-name-div">
+                        <div><label class="upload-file-name-label">Upload file</label></div>
+                        <span style="margin-left: 5px" *ngIf="dealForm.controls['dealSolutionSummaryFile'].value['name']"><a
+                href="javascript:void(0);" (click)="handleFileDelete(0, 'dealSolutionSummaryFile')"
+                style="color: red; text-decoration: none">&#10006;</a></span> {{ dealForm.controls["dealSolutionSummaryFile"].value["name"] }}
+                    </div>
+                    <div class="upload-div">
+                        <div><label class="upload-file-name-label">Upload file</label></div>
+                        <span class="upload-box">
+              <label for="dealSolutionSummaryFile">Upload File &nbsp;<i class="fa fa-paperclip"
+                  aria-hidden="true"></i></label>
+              <input type="file" id="dealSolutionSummaryFile"
+                accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                class="file-attachment" (change)="
+                  handleFileInput(
+                    $event.target.files,
+                    'dealSolutionSummaryFile'
+                  )
+                " />
+            </span>
+                    </div>
+                    <div class="single-text-box-item">
+                        <label>People Transition Joiners Data</label>
+                        <input type="text" formControlName="peopleTransitionJoinersData" class="deal-single-item-content" placeholder="-----" />
+                    </div>
+                    <div class="upload-file-name-div">
+                        <div><label class="upload-file-name-label">Upload file</label></div>
+                        <span style="margin-left: 5px" *ngIf="
+                dealForm.controls['peopleTransitionJoinersDataFile'].value[
+                  'name'
+                ]
+              ">
+              <a href="javascript:void(0);" (click)="handleFileDelete(0, 'peopleTransitionJoinersDataFile')"
+                style="color: red; text-decoration: none">&#10006;</a></span> {{ dealForm.controls["peopleTransitionJoinersDataFile"].value["name"] }}
+                    </div>
+                    <div class="upload-div">
+                        <div><label class="upload-file-name-label">Upload file</label></div>
+                        <span class="upload-box">
+              <label for="peopleTransitionJoinersDataFile">Upload File &nbsp;<i class="fa fa-paperclip"
+                  aria-hidden="true"></i></label>
+              <input type="file" id="peopleTransitionJoinersDataFile"
+                accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                class="file-attachment" (change)="
+                  handleFileInput(
+                    $event.target.files,
+                    'peopleTransitionJoinersDataFile'
+                  )
+                " />
+            </span>
+                    </div>
+                </div>
+                <div class="text-area-container">
+                    <h3 class="deal-note">
+                        <span>Deal Note</span>
+                    </h3>
+                    <textarea rows="4" class="text-area" placeholder="Start typing" formControlName="dealNote"></textarea>
+                    <label for="dealNoteFile" class="file-attachment-label"><i class="fa fa-paperclip"
+              aria-hidden="true"></i></label>
+                    <input type="file" id="dealNoteFile" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"
+                        class="file-attachment" (change)="
+              handleFileInputDealNote($event.target.files, 'dealNoteFile')
+            " />
+                </div>
+                <div formArrayName="dealAttachments" style="color: white">
+                    <div *ngFor="let dealNote of dealAttachments.value; let i = index">
+                        <div [formGroupName]="i">
+                            <a href="javascript:void(0);" style="text-decoration: none" (click)="handleFileDownload(dealNote.id,dealNote.name)"> {{ dealNote.name
+              }}</a><span style="margin-left: 5px"><a href="javascript:void(0);"
+                  (click)="handleFileDelete(i, 'dealNoteFile')"
+                  style="color: red; text-decoration: none">&#10006;</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-buttons">
+                <button class="btn btn-primary btn-radius font-segoe btn-custom" type="submit" [disabled]="dealForm.invalid">
+          Update
+        </button>
+            </div>
+        </form>
+    </div>
+</div>

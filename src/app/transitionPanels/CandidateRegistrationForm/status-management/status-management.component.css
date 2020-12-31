@@ -1,0 +1,131 @@
+.space-around {
+    padding: 35px 25px 20px 33px;
+}
+
+input,
+select {
+    border-radius: 10px;
+    height: 35px;
+}
+
+.sm-flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+input {
+    text-align: left;
+    padding-left: 15px;
+    border: 1px solid #fff;
+    background: #fff;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+}
+
+.top-margin-row {
+    margin-top: 25px;
+}
+
+.title {
+    background-color: #DEDBDB;
+    width: 100px;
+    padding-left: 25px;
+}
+
+.country {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 7px 40px 8px 15px;
+    background-color: #DEDBDB;
+}
+
+.total-width {
+    width: 100%;
+}
+
+.two-fields-width {
+    width: 85%;
+}
+
+.sm-flex-btw {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+}
+
+.fields-width {
+    width: 42%;
+}
+
+div.show-image {
+    position: relative;
+}
+
+div.show-image:hover input {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+div.show-image:hover button {
+    display: block;
+    outline: none;
+}
+
+div.show-image button {
+    position: absolute;
+    display: none;
+}
+
+.update {
+    top: 0;
+    right: 32px;
+    color: white;
+    background-color: green;
+    border: 2px solid green;
+}
+
+.delete {
+    top: 0;
+    right: -4px;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    color: white;
+    background-color: red;
+    border: 2px solid red;
+}
+
+.update-button {
+    position: absolute;
+    display: block !important;
+    outline: none;
+    top: 0;
+    right: -4px;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.sta-btn-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.sta-btn-color {
+    background-color: #271F90;
+    color: white;
+}
+
+.sta-btn {
+    padding: 8px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+.custom-tooltip {
+    background: white;
+    border-radius: 10px;
+    color: black;
+}

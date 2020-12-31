@@ -1,0 +1,52 @@
+<div class="container-fluid home-bg" >
+
+  <div class="row">
+    <div class="col-sm center-align" >
+      <img   [ngClass]="{'logo-anim': showLoginPopup === true,'logo-anim-out':showLoginPopup === false }"  src="../assets/img/home_logo.png">    </div>
+
+  </div>
+  <div class="row"><div   class="col-sm  login d-flex justify-content-center title-wrapper align-items-center align-middle center-align"   >
+  <div class=" segoe-bold  ">
+    <p>People Transition</p>
+  </div>
+
+</div>
+</div>
+  <div class="row">
+    <div class="col center-align" ><button type="button" class="btn btn-primary btn-radius font-segoe btn-custom" style="width: 150px;margin-top:8px;"  [hidden]="showLoginPopup" [@loginButtonState]="stateName" (click)=toggleLPopup()>Sign In</button></div></div>
+  <div class="row"><div  [hidden]="!showLoginPopup"  [@loginPopOverState]="stateName" class=" div-wrapper d-flex justify-content-center align-items-center center-align"  [ngClass]="{'col': showLoginPopup === true,'noDisplay':showLoginPopup === false }" >
+    <div class="m1-custom"  >
+
+      <!-- Modal content -->
+      <div class="modal-content m1-content-custom">
+        <div class="row"><div class="col" style="text-align: right">
+          <button  type="button" (click)="toggleLPopup()" class="close close-modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button></div></div>
+        <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+          <div class="row"><div class="col">
+            <div [ngClass]="{ 'has-error': isSubmitted && formControls.emailID.errors }">
+
+            <input type="email" (keyup)="keyingInCredentials($event)" formControlName="emailID" placeholder="Email ID"  class="form-control email input-custom" name="emailId" style="
+    padding-left:10px;
+"></div><span *ngIf="isSubmitted && formControls.emailID.errors" class="help-block">
+                <span >Email ID is required</span>
+              </span></div></div>
+          <div class="row"><div class="col"><div [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+            <input appBlockCopyPaste type="password" (keyup)="keyingInCredentials($event)" placeholder="Password" formControlName="password" class="input-custom form-control" name="password" >
+          </div> <span *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+                  <span >Password is required</span>
+                </span></div></div>
+      <div class="row"><div class="col"><button type="submit" class="btn btn-primary btn-radius font-segoe btn-custom" style="width: 150px;margin-top:8px;">Sign In</button>
+        </div></div><div class="row"><div class="col"> <span *ngIf="loginError" class="help-block">
+                  <span >Login/Password is incorrect</span>
+                </span>
+        </div></div></form>
+
+      </div>
+
+
+
+  </div></div>
+</div>
+</div>

@@ -1,0 +1,37 @@
+.navbar-bg{
+    background: transparent linear-gradient(99deg, #281CA4 0%, #140E52 100%);
+}
+
+#navbarSupportedContent button{
+    background: none;
+    border: none;
+}
+
+#navbarSupportedContent button i{
+    color: white;
+    margin: 0 10px;
+}
+.dropdown-item:hover{
+    color: blue;
+}
+#outer_box_search{
+	display:flex;
+	background: white;
+    cursor: text;
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    border-style:solid;
+    border-radius:100px;
+}
+#outer_box_search input{
+    text-align: center;
+    font-size: 13px;
+    width: 420px;
+    border: none;
+    margin-left: 20px;
+}
+
+.dropdown-item:hover{
+    background-color: black;
+    color: #fff;
+    cursor: pointer;
+}

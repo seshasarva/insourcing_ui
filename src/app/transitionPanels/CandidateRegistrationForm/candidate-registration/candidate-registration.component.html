@@ -1,0 +1,25 @@
+<div class="top-margin-one candidate-reg">
+    <div>
+        <mat-radio-group [formControl]="viewType" class="flex-container">
+            <mat-radio-button value="EU Countries">EU Countries</mat-radio-button>
+            <mat-radio-button value="Non EU Countries">Non EU Countries</mat-radio-button>
+            <mat-radio-button value="Custom View">Custom View</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <p>Selected Value:{{viewType.value}} </p>
+    <div class="tabs">
+        <mat-tab-group dynamicHeight class="remove-border-bottom">
+            <mat-tab label="Status Management">
+                <div class="tab-view">
+                    <app-status-management [dealID]="dealID" [viewType]="viewType.value"></app-status-management>
+                </div>
+            </mat-tab>
+            <mat-tab label="Application Form">
+                <div class="tab-view">
+                    <app-application-form [dealID]="dealID" [viewType]="viewType.value"></app-application-form>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+
+</div>

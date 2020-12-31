@@ -1,0 +1,145 @@
+<form [formGroup]="myJourney">
+    <div class="myJourney">
+        <div>
+            <div style="float:left; padding:15px 75px 0 35px;">
+                <div class="journeyNav" style="display: flex;">
+                    <img src=".\assets\img\Doc Checklist.png" />
+                    <div class="journey btn-upload" style="display: flex;">
+                        <div class="file-data">
+                            <span style="margin:0px" class="font-segoe">Doc - Checklist</span>
+                            <p style="margin: -4px 0 2px 0;">
+                                <a class="file-name" *ngIf="fetchJourney.checklistFile" href=javascript:void(0) (click)="handleFileDownload('checklist',dealID)">{{fetchJourney.checklistFile}}</a>
+                            </p>
+                        </div>
+                        <label><img class="btn pt-file-atmt" src=".\assets\img\attach-iconSmall.png" />
+                        <input type="file" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" (change)="checklist($event.target.files, 'checklist',dealID)"
+                            style="display: none;" /></label>
+                    </div>
+                </div>
+                <div class="journeyNav" style="display: flex;">
+                    <img src=".\assets\img\Testimonals.png" />
+                    <div class="journey btn-upload" style="display: flex;">
+                        <div class="file-data">
+                            <span style="margin:0px" class="font-segoe">Testimonals</span>
+                            <p style="margin: -4px 0 2px 0;">
+                                <a class="file-name" *ngIf="fetchJourney.testimonialsFile" href=javascript:void(0) (click)="handleFileDownload('testimonials',dealID)">{{fetchJourney.testimonialsFile}}</a>
+                            </p>
+                        </div>
+                        <label><img class="btn pt-file-atmt" src=".\assets\img\attach-iconSmall.png" />
+                        <input type="file" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" (change)="checklist($event.target.files, 'testimonials',dealID)"
+                            style="display: none;" /></label>
+                    </div>
+                    <!-- <label class="btn font-segoe btn-upload journey">Testimonals<img style="float:right;padding-right: 10px;" src=".\assets\img\attach-iconSmall.png"/>
+            <input (change)="testimonials($event.target.files, 'testimonials',dealID)" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display: none;" type="file"/></label> -->
+                </div>
+                <div class="journeyNav" style="display: flex;">
+                    <img src=".\assets\img\Induction Video.png" />
+                    <div class="journey btn-upload" style="display: flex;">
+                        <div class="file-data">
+                            <span style="margin:0px" class="font-segoe">Induction Video</span>
+                            <p style="margin: -4px 0 2px 0;">
+                                <a class="file-name" *ngIf="fetchJourney.inductionVideoFile" href=javascript:void(0) (click)="handleFileDownload('inductionVideo',dealID)">{{fetchJourney.inductionVideoFile}}</a>
+                            </p>
+                        </div>
+                        <label><img class="btn pt-file-atmt" src=".\assets\img\attach-iconSmall.png" />
+                        <input type="file" accept="video/*" (change)="checklist($event.target.files, 'inductionVideo',dealID)"
+                            style="display: none;" /></label>
+                    </div>
+                    <!-- <label class="btn font-segoe btn-upload journey">Induction Video<img style="float:right;padding-right: 10px;" src=".\assets\img\attach-iconSmall.png"/>
+            <input (change)="inductionVideo($event.target.files, 'inductionVideo',dealID)" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display: none;" type="file"/></label> -->
+                </div>
+                <div class="journeyNav" style="display: flex;">
+                    <img src=".\assets\img\Instruction Video.png" />
+                    <div class="journey btn-upload" style="display: flex;">
+                        <div class="file-data">
+                            <span style="margin:0px" class="font-segoe">Instruction Video</span>
+                            <p style="margin: -4px 0 2px 0;">
+                                <a class="file-name" *ngIf="fetchJourney.instructionVideoFile" href=javascript:void(0) (click)="handleFileDownload('instructionVideo',dealID)">{{fetchJourney.instructionVideoFile}}</a>
+                            </p>
+                        </div>
+                        <label><img class="btn pt-file-atmt" src=".\assets\img\attach-iconSmall.png" />
+                        <input type="file" accept="video/*" (change)="checklist($event.target.files, 'instructionVideo',dealID)"
+                            style="display: none;" /></label>
+                    </div>
+                    </div>
+                <div class="journeyNav" style="display: flex;">
+                    <img src=".\assets\img\Townhall URL.png" />
+                    <div class="journey btn-upload" style="display: flex;">
+                        <div class="file-data">
+                            <span style="margin:0px" class="font-segoe">Webex/Townhall URL</span>
+                            <p style="margin: -4px 0 2px 0;">
+                                <a class="file-name" *ngIf="fetchJourney.urlFile" href=javascript:void(0) (click)="handleFileDownload('url',dealID)">{{fetchJourney.urlFile}}</a>
+                            </p>
+                        </div>
+                        <label><img class="btn pt-file-atmt" src=".\assets\img\attach-iconSmall.png" />
+                        <input type="file" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" (change)="checklist($event.target.files, 'url',dealID)"
+                            style="display: none;" /></label>
+                    </div>
+                  </div>
+                <div class="journeyNav" style="display: flex;">
+                    <img src=".\assets\img\3rd Part URLs.png" />
+                    <div class="journey btn-upload" style="display: flex;">
+                        <div class="file-data">
+                            <span style="margin:0px" class="font-segoe">3rd Part URLs</span>
+                            <p style="margin: -4px 0 2px 0;">
+                                <a class="file-name" *ngIf="fetchJourney.thirdPartUrlsFile" href=javascript:void(0) (click)="handleFileDownload('thirdPartUrls',dealID)">{{fetchJourney.thirdPartUrlsFile}}</a>
+                            </p>
+                        </div>
+                        <label><img class="btn pt-file-atmt" src=".\assets\img\attach-iconSmall.png" />
+                        <input type="file" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" (change)="checklist($event.target.files, 'thirdPartUrls',dealID)"
+                            style="display: none;" /></label>
+                    </div>
+                  </div>
+            </div>
+            <div id="vertical"></div>
+            <div style="padding:15px 0 0 380px;">
+                <ngb-accordion [closeOthers]="true" activeIds="edit-5">
+                    <ngb-panel id="edit-1">
+                        <ng-template ngbPanelTitle>
+                            <div class="editBlog">Blog Registration<img style="float:right;padding-right: 10px;" src=".\assets\img\edit_white.png" /></div>
+                        </ng-template>
+                        <ng-template ngbPanelContent>
+                            <div><textarea formControlName="blogRegistration" class="textarea" placeholder="Type Text....."></textarea></div>
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel id="edit-2">
+                        <ng-template ngbPanelTitle>
+                            <div class="editBlog">Blog Induction<img style="float:right;padding-right: 10px;" src=".\assets\img\edit_white.png" /></div>
+                        </ng-template>
+                        <ng-template ngbPanelContent>
+                            <div><textarea formControlName="blogInduction" class="textarea" placeholder="Type Text....."></textarea></div>
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel id="edit-3">
+                        <ng-template ngbPanelTitle>
+                            <div class="editBlog"> Blog Evaluation<img style="float:right;padding-right: 10px;" src=".\assets\img\edit_white.png" /></div>
+                        </ng-template>
+                        <ng-template ngbPanelContent>
+                            <div><textarea formControlName="blogEvaluation" class="textarea" placeholder="Type Text....."></textarea></div>
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel id="edit-4">
+                        <ng-template ngbPanelTitle>
+                            <div class="editBlog">Blog Offer<img style="float:right;padding-right: 10px;" src=".\assets\img\edit_white.png" /></div>
+                        </ng-template>
+                        <ng-template ngbPanelContent>
+                            <div> <textarea formControlName="blogOffer" class="textarea" placeholder="Type Text....."></textarea></div>
+                        </ng-template>
+                    </ngb-panel>
+                    <ngb-panel id="edit-5">
+                        <ng-template ngbPanelTitle>
+                            <div class="editBlog">New Content<img style="float:right;padding-right: 10px;" src=".\assets\img\edit_white.png" /></div>
+                        </ng-template>
+                        <ng-template ngbPanelContent>
+                            <div> <textarea formControlName="newContent" class="textarea" placeholder="Type Text....."></textarea></div>
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+
+            </div>
+            <div id="save">
+                <button style="width:103px;" type="submit" class="btn btn-primary btn-radius font-segoe btn-custom btn-upload" (click)="saveEdit(this.dealID)">Save</button>
+            </div>
+        </div>
+    </div>
+</form>

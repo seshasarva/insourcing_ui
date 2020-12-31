@@ -1,0 +1,1080 @@
+<form autocomplete="off" [formGroup]="applicationForm" class="space-around">
+    <div class="sub-panel first-sub-panel">
+        <p class="sub-panel-content">Basic Information</p>
+    </div>
+    <table>
+        <tr>
+            <td>
+                <div style="width: 140px;" class="show-image">
+                    <select name="title" class="title">
+                        <option value="" disabled>Title</option>
+                        <option *ngFor="let title of Titles" [ngValue]="title">{{title}}</option>
+                    </select>
+                    <button (click)="applicationFormUpdate('title','yes')" [ngClass]="{'update-button': applicationForm.get('title').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('title','no')" [ngClass]="{'update-button': applicationForm.get('title').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </div>
+            </td>
+            <td>
+                <div class="show-image">
+                    <input type="text" class="first-name" name="firstName" placeholder="First Name" id="f-name" appAlphabetOnly required>
+                    <button (click)="applicationFormUpdate('firstName','yes')" [ngClass]="{'update-button': applicationForm.get('firstName').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('firstName','no')" [ngClass]="{'update-button': applicationForm.get('firstName').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </div>
+            </td>
+            <td>
+                <div class="show-image">
+                    <input type="text" name="middleName" placeholder="Middle Name" id="m-name" appAlphabetOnly>
+                    <button (click)="applicationFormUpdate('middleName','yes')" [ngClass]="{'update-button': applicationForm.get('middleName').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('middleName','no')" [ngClass]="{'update-button': applicationForm.get('middleName').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+            <td>
+                <div class="show-image">
+                    <input type="text" name="lastName" placeholder="Last Name" id="l-name" appAlphabetOnly>
+                    <button (click)="applicationFormUpdate('lastName','yes')" [ngClass]="{'update-button': applicationForm.get('lastName').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('lastName','no')" [ngClass]="{'update-button': applicationForm.get('lastName').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=4>
+                <div class="show-image" style="width:fit-content;">
+                    <span style="padding-top: 7px;" class="country">{{isdCode}}</span>
+                    <input style="width:280px;margin-left:-24px" type="tel" placeholder="Contact Number" name="contactNo">
+                    <button (click)="applicationFormUpdate('contactNo','yes')" [ngClass]="{'update-button': applicationForm.get('contactNo').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('contactNo','no')" [ngClass]="{'update-button': applicationForm.get('contactNo').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=4>
+                <div class="show-image" style="width:fit-content;">
+                    <input type="email" style="width: 500px;" name="emailid" placeholder="E-mail ID" id="mail">
+                    <button (click)="applicationFormUpdate('emailid','yes')" [ngClass]="{'update-button': applicationForm.get('emailid').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('emailid','no')" [ngClass]="{'update-button': applicationForm.get('emailid').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=4>
+                <div style="width:fit-content;" class="show-image"><select name="country" style="padding-left: 10px;">
+                        <option value="" disabled>Country</option>
+                        <option value="Afganistan">Afghanistan</option>
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">Algeria</option>
+                        <option value="American Samoa">American Samoa</option>
+                        <option value="Andorra">Andorra</option>
+                        <option value="Angola">Angola</option>
+                        <option value="Anguilla">Anguilla</option>
+                        <option value="Antigua & Barbuda">Antigua & Barbuda</option>
+                        <option value="Argentina">Argentina</option>
+                        <option value="Armenia">Armenia</option>
+                        <option value="Aruba">Aruba</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Austria">Austria</option>
+                        <option value="Azerbaijan">Azerbaijan</option>
+                        <option value="Bahamas">Bahamas</option>
+                        <option value="Bahrain">Bahrain</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Barbados">Barbados</option>
+                        <option value="Belarus">Belarus</option>
+                        <option value="Belgium">Belgium</option>
+                        <option value="Belize">Belize</option>
+                        <option value="Benin">Benin</option>
+                        <option value="Bermuda">Bermuda</option>
+                        <option value="Bhutan">Bhutan</option>
+                        <option value="Bolivia">Bolivia</option>
+                        <option value="Bonaire">Bonaire</option>
+                        <option value="Bosnia & Herzegovina">Bosnia & Herzegovina</option>
+                        <option value="Botswana">Botswana</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+                        <option value="Brunei">Brunei</option>
+                        <option value="Bulgaria">Bulgaria</option>
+                        <option value="Burkina Faso">Burkina Faso</option>
+                        <option value="Burundi">Burundi</option>
+                        <option value="Cambodia">Cambodia</option>
+                        <option value="Cameroon">Cameroon</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Canary Islands">Canary Islands</option>
+                        <option value="Cape Verde">Cape Verde</option>
+                        <option value="Cayman Islands">Cayman Islands</option>
+                        <option value="Central African Republic">Central African Republic</option>
+                        <option value="Chad">Chad</option>
+                        <option value="Channel Islands">Channel Islands</option>
+                        <option value="Chile">Chile</option>
+                        <option value="China">China</option>
+                        <option value="Christmas Island">Christmas Island</option>
+                        <option value="Cocos Island">Cocos Island</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Comoros">Comoros</option>
+                        <option value="Congo">Congo</option>
+                        <option value="Cook Islands">Cook Islands</option>
+                        <option value="Costa Rica">Costa Rica</option>
+                        <option value="Cote DIvoire">Cote DIvoire</option>
+                        <option value="Croatia">Croatia</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="Curaco">Curacao</option>
+                        <option value="Cyprus">Cyprus</option>
+                        <option value="Czech Republic">Czech Republic</option>
+                        <option value="Denmark">Denmark</option>
+                        <option value="Djibouti">Djibouti</option>
+                        <option value="Dominica">Dominica</option>
+                        <option value="Dominican Republic">Dominican Republic</option>
+                        <option value="East Timor">East Timor</option>
+                        <option value="Ecuador">Ecuador</option>
+                        <option value="Egypt">Egypt</option>
+                        <option value="El Salvador">El Salvador</option>
+                        <option value="Equatorial Guinea">Equatorial Guinea</option>
+                        <option value="Eritrea">Eritrea</option>
+                        <option value="Estonia">Estonia</option>
+                        <option value="Ethiopia">Ethiopia</option>
+                        <option value="Falkland Islands">Falkland Islands</option>
+                        <option value="Faroe Islands">Faroe Islands</option>
+                        <option value="Fiji">Fiji</option>
+                        <option value="Finland">Finland</option>
+                        <option value="France">France</option>
+                        <option value="French Guiana">French Guiana</option>
+                        <option value="French Polynesia">French Polynesia</option>
+                        <option value="French Southern Ter">French Southern Ter</option>
+                        <option value="Gabon">Gabon</option>
+                        <option value="Gambia">Gambia</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Germany">Germany</option>
+                        <option value="Ghana">Ghana</option>
+                        <option value="Gibraltar">Gibraltar</option>
+                        <option value="Great Britain">Great Britain</option>
+                        <option value="Greece">Greece</option>
+                        <option value="Greenland">Greenland</option>
+                        <option value="Grenada">Grenada</option>
+                        <option value="Guadeloupe">Guadeloupe</option>
+                        <option value="Guam">Guam</option>
+                        <option value="Guatemala">Guatemala</option>
+                        <option value="Guinea">Guinea</option>
+                        <option value="Guyana">Guyana</option>
+                        <option value="Haiti">Haiti</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Honduras">Honduras</option>
+                        <option value="Hong Kong">Hong Kong</option>
+                        <option value="Hungary">Hungary</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="India">India</option>
+                        <option value="Iran">Iran</option>
+                        <option value="Iraq">Iraq</option>
+                        <option value="Ireland">Ireland</option>
+                        <option value="Isle of Man">Isle of Man</option>
+                        <option value="Israel">Israel</option>
+                        <option value="Italy">Italy</option>
+                        <option value="Jamaica">Jamaica</option>
+                        <option value="Japan">Japan</option>
+                        <option value="Jordan">Jordan</option>
+                        <option value="Kazakhstan">Kazakhstan</option>
+                        <option value="Kenya">Kenya</option>
+                        <option value="Kiribati">Kiribati</option>
+                        <option value="Korea North">Korea North</option>
+                        <option value="Korea Sout">Korea South</option>
+                        <option value="Kuwait">Kuwait</option>
+                        <option value="Kyrgyzstan">Kyrgyzstan</option>
+                        <option value="Laos">Laos</option>
+                        <option value="Latvia">Latvia</option>
+                        <option value="Lebanon">Lebanon</option>
+                        <option value="Lesotho">Lesotho</option>
+                        <option value="Liberia">Liberia</option>
+                        <option value="Libya">Libya</option>
+                        <option value="Liechtenstein">Liechtenstein</option>
+                        <option value="Lithuania">Lithuania</option>
+                        <option value="Luxembourg">Luxembourg</option>
+                        <option value="Macau">Macau</option>
+                        <option value="Macedonia">Macedonia</option>
+                        <option value="Madagascar">Madagascar</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Malawi">Malawi</option>
+                        <option value="Maldives">Maldives</option>
+                        <option value="Mali">Mali</option>
+                        <option value="Malta">Malta</option>
+                        <option value="Marshall Islands">Marshall Islands</option>
+                        <option value="Martinique">Martinique</option>
+                        <option value="Mauritania">Mauritania</option>
+                        <option value="Mauritius">Mauritius</option>
+                        <option value="Mayotte">Mayotte</option>
+                        <option value="Mexico">Mexico</option>
+                        <option value="Midway Islands">Midway Islands</option>
+                        <option value="Moldova">Moldova</option>
+                        <option value="Monaco">Monaco</option>
+                        <option value="Mongolia">Mongolia</option>
+                        <option value="Montserrat">Montserrat</option>
+                        <option value="Morocco">Morocco</option>
+                        <option value="Mozambique">Mozambique</option>
+                        <option value="Myanmar">Myanmar</option>
+                        <option value="Nambia">Nambia</option>
+                        <option value="Nauru">Nauru</option>
+                        <option value="Nepal">Nepal</option>
+                        <option value="Netherland Antilles">Netherland Antilles</option>
+                        <option value="Netherlands">Netherlands (Holland, Europe)</option>
+                        <option value="Nevis">Nevis</option>
+                        <option value="New Caledonia">New Caledonia</option>
+                        <option value="New Zealand">New Zealand</option>
+                        <option value="Nicaragua">Nicaragua</option>
+                        <option value="Niger">Niger</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Niue">Niue</option>
+                        <option value="Norfolk Island">Norfolk Island</option>
+                        <option value="Norway">Norway</option>
+                        <option value="Oman">Oman</option>
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Palau Island">Palau Island</option>
+                        <option value="Palestine">Palestine</option>
+                        <option value="Panama">Panama</option>
+                        <option value="Papua New Guinea">Papua New Guinea</option>
+                        <option value="Paraguay">Paraguay</option>
+                        <option value="Peru">Peru</option>
+                        <option value="Phillipines">Philippines</option>
+                        <option value="Pitcairn Island">Pitcairn Island</option>
+                        <option value="Poland">Poland</option>
+                        <option value="Portugal">Portugal</option>
+                        <option value="Puerto Rico">Puerto Rico</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Republic of Montenegro">Republic of Montenegro</option>
+                        <option value="Republic of Serbia">Republic of Serbia</option>
+                        <option value="Reunion">Reunion</option>
+                        <option value="Romania">Romania</option>
+                        <option value="Russia">Russia</option>
+                        <option value="Rwanda">Rwanda</option>
+                        <option value="St Barthelemy">St Barthelemy</option>
+                        <option value="St Eustatius">St Eustatius</option>
+                        <option value="St Helena">St Helena</option>
+                        <option value="St Kitts-Nevis">St Kitts-Nevis</option>
+                        <option value="St Lucia">St Lucia</option>
+                        <option value="St Maarten">St Maarten</option>
+                        <option value="St Pierre & Miquelon">St Pierre & Miquelon</option>
+                        <option value="St Vincent & Grenadines">St Vincent & Grenadines</option>
+                        <option value="Saipan">Saipan</option>
+                        <option value="Samoa">Samoa</option>
+                        <option value="Samoa American">Samoa American</option>
+                        <option value="San Marino">San Marino</option>
+                        <option value="Sao Tome & Principe">Sao Tome & Principe</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="Senegal">Senegal</option>
+                        <option value="Seychelles">Seychelles</option>
+                        <option value="Sierra Leone">Sierra Leone</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="Slovakia">Slovakia</option>
+                        <option value="Slovenia">Slovenia</option>
+                        <option value="Solomon Islands">Solomon Islands</option>
+                        <option value="Somalia">Somalia</option>
+                        <option value="South Africa">South Africa</option>
+                        <option value="Spain">Spain</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="Sudan">Sudan</option>
+                        <option value="Suriname">Suriname</option>
+                        <option value="Swaziland">Swaziland</option>
+                        <option value="Sweden">Sweden</option>
+                        <option value="Switzerland">Switzerland</option>
+                        <option value="Syria">Syria</option>
+                        <option value="Tahiti">Tahiti</option>
+                        <option value="Taiwan">Taiwan</option>
+                        <option value="Tajikistan">Tajikistan</option>
+                        <option value="Tanzania">Tanzania</option>
+                        <option value="Thailand">Thailand</option>
+                        <option value="Togo">Togo</option>
+                        <option value="Tokelau">Tokelau</option>
+                        <option value="Tonga">Tonga</option>
+                        <option value="Trinidad & Tobago">Trinidad & Tobago</option>
+                        <option value="Tunisia">Tunisia</option>
+                        <option value="Turkey">Turkey</option>
+                        <option value="Turkmenistan">Turkmenistan</option>
+                        <option value="Turks & Caicos Is">Turks & Caicos Is</option>
+                        <option value="Tuvalu">Tuvalu</option>
+                        <option value="Uganda">Uganda</option>
+                        <option value="United Kingdom">United Kingdom</option>
+                        <option value="Ukraine">Ukraine</option>
+                        <option value="United Arab Erimates">United Arab Emirates</option>
+                        <option value="United States of America">United States of America</option>
+                        <option value="Uraguay">Uruguay</option>
+                        <option value="Uzbekistan">Uzbekistan</option>
+                        <option value="Vanuatu">Vanuatu</option>
+                        <option value="Vatican City State">Vatican City State</option>
+                        <option value="Venezuela">Venezuela</option>
+                        <option value="Vietnam">Vietnam</option>
+                        <option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+                        <option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+                        <option value="Wake Island">Wake Island</option>
+                        <option value="Wallis & Futana Is">Wallis & Futana Is</option>
+                        <option value="Yemen">Yemen</option>
+                        <option value="Zaire">Zaire</option>
+                        <option value="Zambia">Zambia</option>
+                        <option value="Zimbabwe">Zimbabwe</option>
+                    </select>
+                    <button (click)="applicationFormUpdate('country','yes')" [ngClass]="{'update-button': applicationForm.get('country').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('country','no')" [ngClass]="{'update-button': applicationForm.get('country').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <div class="show-image">
+                    <input type="text" name="streetAddress" placeholder="Address Line 1" id="al1">
+                    <button (click)="applicationFormUpdate('streetAddress','yes')" [ngClass]="{'update-button': applicationForm.get('streetAddress').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('streetAddress','no')" [ngClass]="{'update-button': applicationForm.get('streetAddress').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+            <td colspan=2>
+                <div class="show-image">
+                    <input type="text" name="apartmentUnit" placeholder="Address Line 2" id="al2">
+                    <button (click)="applicationFormUpdate('apartmentUnit','yes')" [ngClass]="{'update-button': applicationForm.get('apartmentUnit').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('apartmentUnit','no')" [ngClass]="{'update-button': applicationForm.get('apartmentUnit').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="show-image">
+                    <input type="text" name="city" placeholder="City" id="city">
+                    <button (click)="applicationFormUpdate('city','yes')" [ngClass]="{'update-button': applicationForm.get('city').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('city','no')" [ngClass]="{'update-button': applicationForm.get('city').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+            <td colspan=2>
+                <div class="show-image">
+                    <input type="text" name="state" placeholder="State" id="state">
+                    <button (click)="applicationFormUpdate('state','yes')" [ngClass]="{'update-button': applicationForm.get('state').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('state','no')" [ngClass]="{'update-button': applicationForm.get('state').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+            <td>
+                <div class="show-image">
+                    <input type="text" name="zipCode" placeholder="Zip Code" id="zcode">
+                    <button (click)="applicationFormUpdate('zipCode','yes')" [ngClass]="{'update-button': applicationForm.get('zipCode').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('zipCode','no')" [ngClass]="{'update-button': applicationForm.get('zipCode').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <div class="show-image">
+                    <input type="text" name="dateAvailable" placeholder="Date available">
+                    <button (click)="applicationFormUpdate('dateAvailable','yes')" [ngClass]="{'update-button': applicationForm.get('dateAvailable').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('dateAvailable','no')" [ngClass]="{'update-button': applicationForm.get('dateAvailable').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+            <td colspan=2>
+                <div class="show-image">
+                    <input type="text" name="currentWorkLocation" placeholder="Current Work Location">
+                    <button (click)="applicationFormUpdate('currentWorkLocation','yes')" [ngClass]="{'update-button': applicationForm.get('currentWorkLocation').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('currentWorkLocation','no')" [ngClass]="{'update-button': applicationForm.get('currentWorkLocation').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2><label style="padding-top:5px;"> Total Years of Experience </label></td>
+            <td>
+                <div class="show-image">
+                    <input type="text" name="totalExpYrs" placeholder="Years">
+                    <button (click)="applicationFormUpdate('totalExpYrs','yes')" [ngClass]="{'update-button': applicationForm.get('totalExpYrs').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('totalExpYrs','no')" [ngClass]="{'update-button': applicationForm.get('totalExpYrs').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+            <td>
+                <div class="show-image">
+                    <input type="text" name="totalExpMts" placeholder="Months">
+                    <button (click)="applicationFormUpdate('totalExpMts','yes')" [ngClass]="{'update-button': applicationForm.get('totalExpMts').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('totalExpMts','no')" [ngClass]="{'update-button': applicationForm.get('totalExpMts').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2><label> Total Years of Relevant Experience </label></td>
+            <td>
+                <div class="show-image">
+                    <input type="text" name="totalRelExpYrs" placeholder="Years">
+                    <button (click)="applicationFormUpdate('totalRelExpYrs','yes')" [ngClass]="{'update-button': applicationForm.get('totalRelExpYrs').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('totalRelExpYrs','no')" [ngClass]="{'update-button': applicationForm.get('totalRelExpYrs').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+            <td>
+                <div class="show-image">
+                    <input type="text" name="totalRelExpMts" placeholder="Months">
+                    <button (click)="applicationFormUpdate('totalRelExpMts','yes')" [ngClass]="{'update-button': applicationForm.get('totalRelExpMts').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('totalRelExpMts','no')" [ngClass]="{'update-button': applicationForm.get('totalRelExpMts').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=3>
+                <div class="show-image">
+                    If you are under the age of 18, can you provide a work permit?
+                    <button (click)="applicationFormUpdate('under18ProvideWorkPermit','yes')" [ngClass]="{'update-button': applicationForm.get('under18ProvideWorkPermit').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('under18ProvideWorkPermit','no')" [ngClass]="{'update-button': applicationForm.get('under18ProvideWorkPermit').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <mat-radio-group name="under18ProvideWorkPermit" class="app-flex-container">
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=4>
+                <div class="show-image">
+                    If an offer of employment is extended to you, will you be able to demonstrate that you are authorized to work in the US?
+                    <button (click)="applicationFormUpdate('offerEmpExtDemWorkUS','yes')" [ngClass]="{'update-button': applicationForm.get('offerEmpExtDemWorkUS').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('offerEmpExtDemWorkUS','no')" [ngClass]="{'update-button': applicationForm.get('offerEmpExtDemWorkUS').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <mat-radio-group name="offerEmpExtDemWorkUS" class="app-flex-container">
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <div class="show-image">
+                    Do you require sponsorship now or in future?
+                    <button (click)="applicationFormUpdate('reqSponsorship','yes')" [ngClass]="{'update-button': applicationForm.get('reqSponsorship').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('reqSponsorship','no')" [ngClass]="{'update-button': applicationForm.get('reqSponsorship').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <mat-radio-group name="reqSponsorship" class="app-flex-container">
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <div class="show-image">
+                    Are you an ex-TCS employee?
+                    <button (click)="applicationFormUpdate('exTCSEmployee','yes')" [ngClass]="{'update-button': applicationForm.get('exTCSEmployee').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('exTCSEmployee','no')" [ngClass]="{'update-button': applicationForm.get('exTCSEmployee').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2>
+                <mat-radio-group name="exTCSEmployee" class="app-flex-container">
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                </mat-radio-group>
+            </td>
+        </tr>
+        <tr *ngIf="applicationForm.get('exTCSEmployee').value==='Yes'">
+            <td colspan=2>
+                <label>Please fill the past TCS Employment Start Date and End Date</label>
+            </td>
+            <td>
+                <div class="show-image">
+                    <input type="text" name="exTCSStartDate" placeholder="Start Date" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                    <button (click)="applicationFormUpdate('exTCSStartDate','yes')" [ngClass]="{'update-button': applicationForm.get('exTCSStartDate').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('exTCSStartDate','no')" [ngClass]="{'update-button': applicationForm.get('exTCSStartDate').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+            <td>
+                <div class="show-image">
+                    <input type="text" name="exTCSEndDate" placeholder="End Date" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                    <button (click)="applicationFormUpdate('exTCSEndDate','yes')" [ngClass]="{'update-button': applicationForm.get('exTCSEndDate').value == 'yes'}" class="update">
+                        <mat-icon>check</mat-icon>
+                    </button>
+                    <button (click)="applicationFormUpdate('exTCSEndDate','no')" [ngClass]="{'update-button': applicationForm.get('exTCSEndDate').value == 'no'}" class="delete">
+                        <mat-icon>clear</mat-icon>
+                    </button></div>
+            </td>
+        </tr>
+    </table>
+    <div formArrayName="companies">
+        <div class="sub-panel">
+            <p class="sub-panel-content">Work Experience**</p>
+        </div>
+        <table *ngFor="let company of companies.controls; let i = index;">
+            <tr *ngIf="i == 0">
+                <td colspan=4>
+                    WORK EXPERIENCE-Please detail your entire work history. Begin with your current or most recent employer. If you held multiple positions with the same organization, detail each position separately. Attach additional rows if necessary. Omission or misrepresentation
+                    of information concerning your prior employment will warrant the rejection of your Application or the immediate termination of your employment, as applicable.<br><br> PLEASE NOTE: By acknowledging your consent in
+                    this section, subject to applicable law, you expressly authorize TCS to contact all current and former employers for reference information, including, but not limited to, information regarding your dates of employment, compensation,
+                    title and/or other information pertaining to your work performance.
+                </td>
+            </tr>
+            <tr [formGroup]="company">
+                <td colspan=1>
+                    <div class="show-image">
+                        <input type="text" name="companyName" placeholder="Company Name">
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'companyName','yes')" [ngClass]="{'update-button': company.get('companyName').value == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'companyName','no')" [ngClass]="{'update-button': company.get('companyName').value == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button></div>
+                </td>
+                <td colspan=3>
+                    <div class="show-image">
+                        <input type="text" name="address" placeholder="Address">
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'address','yes')" [ngClass]="{'update-button': company.get('address').value == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'address','no')" [ngClass]="{'update-button': company.get('address').value == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button></div>
+                </td>
+            </tr>
+            <tr [formGroup]="company">
+                <td colspan=1>
+                    <div class="show-image">
+                        <input type="text" name="supervisorName" placeholder="Supervisor Name" id="sname">
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'supervisorName','yes')" [ngClass]="{'update-button': company.get('supervisorName').value == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'supervisorName','no')" [ngClass]="{'update-button': company.get('supervisorName').value == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button></div>
+                </td>
+                <td colspan=3>
+                    <div class="show-image" style="width:fit-content;">
+                        <input type="text" style="width: 220px" name="supervisorContact" placeholder="Supervisor Contact" id="scontact" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'supervisorContact','yes')" [ngClass]="{'update-button': company.get('supervisorContact').value == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'supervisorContact','no')" [ngClass]="{'update-button': company.get('supervisorContact').value == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button></div>
+                </td>
+            </tr>
+            <tr [formGroup]="company">
+                <td colspan=1>
+                    <div class="show-image">
+                        <input type="text" name="jobTitle" placeholder="Job Title">
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'jobTitle','yes')" [ngClass]="{'update-button': company.get('jobTitle').value == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'jobTitle','no')" [ngClass]="{'update-button': company.get('jobTitle').value == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button></div>
+                </td>
+                <td colspan=3>
+                    <div class="show-image">
+                        <input type="text" name="responsibilities" placeholder="Responsibilities" id="resp">
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'responsibilities','yes')" [ngClass]="{'update-button': company.get('responsibilities').value == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'responsibilities','no')" [ngClass]="{'update-button': company.get('responsibilities').value == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button></div>
+                </td>
+            </tr>
+            <tr [formGroup]="company">
+                <td colspan=1>
+                    <div class="show-image">
+                        <input type="text" name="startDate" placeholder="Start Date" id="sdate" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'startDate','yes')" [ngClass]="{'update-button': company.get('startDate').value == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'startDate','no')" [ngClass]="{'update-button': company.get('startDate').value == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button></div>
+
+                </td>
+                <td colspan=1>
+                    <div class="show-image">
+                        <input type="text" name="endDate" placeholder="End Date" id="edate" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'endDate','yes')" [ngClass]="{'update-button': company.get('endDate').value == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'endDate','no')" [ngClass]="{'update-button': company.get('endDate').value == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button></div>
+                </td>
+                <td colspan=2>
+                    <div class="show-image">
+                        <textarea rows="2" style="width: 100%" name="reasonForLeaving" placeholder="Reason for Leaving" id="rfl"></textarea>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'reasonForLeaving','yes')" [ngClass]="{'update-button': company.get('reasonForLeaving').value == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'reasonForLeaving','no')" [ngClass]="{'update-button': company.get('reasonForLeaving').value == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button></div>
+                </td>
+            </tr>
+            <tr [formGroup]="company">
+                <td colspan=2>
+                    <div class="show-image">
+                        May we connect with your current/previous supervisor for reference?
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'comMayContactSupervisorRef','yes')" [ngClass]="{'update-button': company.get('comMayContactSupervisorRef').value == 'yes'}" class="update">
+                            <mat-icon>check</mat-icon>
+                        </button>
+                        <button *ngIf="i == 0" (click)="arrayUpdate('companies', 'comMayContactSupervisorRef','no')" [ngClass]="{'update-button': company.get('comMayContactSupervisorRef').value == 'no'}" class="delete">
+                            <mat-icon>clear</mat-icon>
+                        </button></div>
+                </td>
+            </tr>
+            <tr [formGroup]="company">
+                <td colspan=4>
+                    <mat-radio-group style="width:25%" name="comMayContactSupervisorRef" class="app-flex-container">
+                        <mat-radio-button value="Yes">Yes</mat-radio-button>
+                        <mat-radio-button value="No">No</mat-radio-button>
+                    </mat-radio-group>
+                </td>
+            </tr>
+            <tr [formGroup]="company">
+                <td>
+                    <button type="button" [disabled]="i==0" (click)="removeCompanies(i)" class="btn reg-btn-color reg-btn" id="remove_{{i}}">Remove Row</button>
+                </td>
+            </tr>
+            <br />
+        </table>
+        <div class="reg-btn-container" style="margin-top:-50px">
+            <button type="button" (click)="addcompany()" class="btn reg-btn-color reg-btn" id="add1">Add
+                Row</button>
+        </div>
+    </div>
+    <div formArrayName="courses">
+        <div class="sub-panel">
+            <p class="sub-panel-content">Education</p>
+        </div>
+        <div>
+            <table *ngFor="let course of courses.controls; let i = index;">
+                <tr *ngIf="i == 0">
+                    <td colspan=2>
+                        Kindly fill your entire education history in the following order as applicable to you : High School, Associate, Bachelor, Master, Doctoral, Other/Certifications
+                        <br /><br />
+                    </td>
+                </tr>
+                <tr [formGroup]="course">
+                    <td colspan=2>
+                        <div class="show-image" style="width:fit-content;">
+                            <span style="padding:10px 30px;font-size:15px">Education Level: </span>
+                            <select style="width: 334px;padding-left: 10px;" name="educationalLevel">
+                                <option value="High School">High School</option>
+                                <option value="Associate">Associate</option>
+                                <option value="Bachelor">Bachelor</option>
+                                <option value="Master">Master</option>
+                                <option value="Doctoral">Doctoral</option>
+                                <option value="Other/Certifications">Other/Certifications</option>
+                            </select>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','educationalLevel','yes')" [ngClass]="{'update-button': course.get('educationalLevel').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','educationalLevel','no')" [ngClass]="{'update-button': course.get('educationalLevel').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                </tr>
+                <tr [formGroup]="course">
+                    <td>
+                        <div class="show-image">
+                            <input type="text" name="instituteName" placeholder="Institute Name" id="iname" name>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','instituteName','yes')" [ngClass]="{'update-button': course.get('instituteName').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','instituteName','no')" [ngClass]="{'update-button': course.get('instituteName').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                    <td>
+                        <div class="show-image">
+                            <input type="text" name="insAddress" placeholder="Address">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','insAddress','yes')" [ngClass]="{'update-button': course.get('insAddress').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','insAddress','no')" [ngClass]="{'update-button': course.get('insAddress').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                </tr>
+                <tr [formGroup]="course">
+                    <td>
+                        <div class="show-image">
+                            <input type="text" name="degree" placeholder="Degree" id="degree">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','degree','yes')" [ngClass]="{'update-button': course.get('degree').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','degree','no')" [ngClass]="{'update-button': course.get('degree').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                    <td>
+                        <div class="show-image">
+                            <input type="text" name="cos" placeholder="Course of Study" id="spec">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','cos','yes')" [ngClass]="{'update-button': course.get('cos').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','cos','no')" [ngClass]="{'update-button': course.get('cos').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                </tr>
+                <tr [formGroup]="course">
+                    <td colspan=2>
+                        <div class="show-image" style="width:fit-content;">
+                            <input type="text" style="width:305px;" name="GPA" id="gpa" placeholder="GPA/Scale" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','GPA','yes')" [ngClass]="{'update-button': course.get('GPA').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','GPA','no')" [ngClass]="{'update-button': course.get('GPA').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="show-image">
+                            Did you graduate?
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','graduate','yes')" [ngClass]="{'update-button': course.get('graduate').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('courses','graduate','no')" [ngClass]="{'update-button': course.get('graduate').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                </tr>
+                <tr [formGroup]="course">
+                    <td colspan=2>
+                        <mat-radio-group style="width:25%" name="graduate" class="app-flex-container">
+                            <mat-radio-button value="Yes">Yes</mat-radio-button>
+                            <mat-radio-button value="No">No</mat-radio-button>
+                        </mat-radio-group>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" [disabled]="i==0" (click)="removeCourse(i)" class="reg-btn btn reg-btn-color" id="remove_{{i}}">Remove Row</button>
+                    </td>
+                </tr>
+            </table>
+            <div class="reg-btn-container" style="margin-top:-50px">
+                <button type="button" (click)="addCourse()" class="reg-btn btn reg-btn-color" id="add2">Add Row</button>
+            </div>
+        </div>
+    </div>
+    <div formArrayName="skills">
+        <div class="sub-panel">
+            <p class="sub-panel-content">Technology Profeciency</p>
+        </div>
+        <div>
+            <table *ngFor="let skill of skills.controls; let i = index;">
+                <tr [formGroup]="skill">
+                    <td colspan=1>
+                        <div class="show-image">
+                            <input style="height: 34px;" type="text" name="skillTech" placeholder="Skills" id="skill">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('skills','skillTech','yes')" [ngClass]="{'update-button': skill.get('skillTech').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('skills','skillTech','no')" [ngClass]="{'update-button': skill.get('skillTech').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                    <td colspan=2>
+                        <div class="show-image">
+                            <input style="height: 34px;" type="text" name="description" name placeholder="Description" id="desc">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('skills','description','yes')" [ngClass]="{'update-button': skill.get('description').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('skills','description','no')" [ngClass]="{'update-button': skill.get('description').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                </tr>
+                <br />
+                <tr [formGroup]="skill">
+                    <td colspan=3>
+                        <button type="button" [disabled]="i==0" (click)="removeSkill(i)" class="reg-btn btn reg-btn-color" id="remove_{{i}}">Remove Row</button>
+                    </td>
+                </tr>
+                <br />
+            </table>
+            <div class="reg-btn-container" style="margin-top:-45px">
+                <button type="button" (click)="addSkill()" class="reg-btn btn reg-btn-color" id="add3">Add
+                    Row</button>
+            </div>
+        </div>
+    </div>
+    <div formArrayName="references">
+        <div class="sub-panel">
+            <p class="sub-panel-content">References</p>
+        </div>
+        <div>
+            <table *ngFor="let reference of references.controls; let i = index;">
+                <tr *ngIf="i == 0">
+                    <td colspan=3>
+                        Please list three professional references. By providing this information, subject to applicable law, you expressly consent to TCS contacting the individuals identified to discuss information bearing on your prospective employment, as determined by Tata
+                        Consultancy Services in its sole discretion.
+                    </td>
+                </tr>
+                <tr [formGroup]="reference">
+                    <td>
+                        <div class="show-image">
+                            <input style="height: 34px;" type="text" name="fullName" placeholder="Full Name" id="fname">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','fullName','yes')" [ngClass]="{'update-button': reference.get('fullName').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','fullName','no')" [ngClass]="{'update-button': reference.get('fullName').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                    <td>
+                        <div class="show-image">
+                            <input style="height: 34px;" type="text" name="relationship" placeholder="Relationship" id="rel">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','relationship','yes')" [ngClass]="{'update-button': reference.get('relationship').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','relationship','no')" [ngClass]="{'update-button': reference.get('relationship').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                    <td style="width: 15%;"></td>
+                </tr>
+                <tr [formGroup]="reference">
+                    <td>
+                        <div class="show-image">
+                            <input style="height: 34px;" type="text" name="comName" placeholder="Company Name" id="cname">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','comName','yes')" [ngClass]="{'update-button': reference.get('comName').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','comName','no')" [ngClass]="{'update-button': reference.get('comName').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                    <td>
+                        <div class="show-image">
+                            <input style="height: 34px;" type="text" name="contactNo" placeholder="Contact Number" id="cn" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','contactNo','yes')" [ngClass]="{'update-button': reference.get('contactNo').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','contactNo','no')" [ngClass]="{'update-button': reference.get('contactNo').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                    <td style="width: 15%;"></td>
+                </tr>
+                <tr [formGroup]="reference">
+                    <td>
+                        <div class="show-image">
+                            <input style="height: 34px;" type="email" name="emailId" value="" placeholder="someone@example.com" maxlength="255" id="eid">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','emailId','yes')" [ngClass]="{'update-button': reference.get('emailId').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','emailId','no')" [ngClass]="{'update-button': reference.get('emailId').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                    <td colspan=2>
+                        <div class="show-image">
+                            <input style="height: 34px;" type="text" name="address" placeholder="Address" id="address">
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','address','yes')" [ngClass]="{'update-button': reference.get('address').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button *ngIf="i == 0" (click)="arrayUpdate('references','address','no')" [ngClass]="{'update-button': reference.get('address').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                </tr>
+                <tr [formGroup]="reference">
+                    <td colspan=3>
+                        <button type="button" [disabled]="i==0" (click)="removeReference(i)" class="reg-btn btn reg-btn-color" id="remove_{{i}}">Remove Reference</button>
+                    </td>
+                </tr>
+            </table>
+            <div class="reg-btn-container" style="margin-top:-30px">
+                <button type="button" (click)="addReference()" class="reg-btn btn reg-btn-color" id="add4">Add
+                    Reference</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="sub-panel">
+            <p class="sub-panel-content">Military Service</p>
+        </div>
+        <div>
+            <table>
+                <tr>
+                    <td style="width:58%">
+                        <p>List any military training or experience that you feel relevant to the position you are applying to :</p>
+                    </td>
+                    <td>
+                        <div class="show-image">
+                            <textarea style="width:100%" name="militaryExp" rows="3" placeholder="Enter Here" id="army"></textarea>
+                            <button (click)="applicationFormUpdate('militaryExp','yes')" [ngClass]="{'update-button': applicationForm.get('militaryExp').value == 'yes'}" class="update">
+                                <mat-icon>check</mat-icon>
+                            </button>
+                            <button (click)="applicationFormUpdate('militaryExp','no')" [ngClass]="{'update-button': applicationForm.get('militaryExp').value == 'no'}" class="delete">
+                                <mat-icon>clear</mat-icon>
+                            </button></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="text-divs">
+        <p>
+            <b>Massachusetts Applicants:</b> It is unlawful in Massachusetts to require or administer a lie detector test as a condition of employment or continued employment. An employer who violates this law shall be subject to criminal penalties and
+            civil liability.
+            <br /><br />
+            <b>Maryland Applicants:</b> UNDER MARYLAND LAW, AN EMPLOYER MAY NOT REQUIRE OR DEMAND, AS A CONDITION OF EMPLOYMENT, PROSPECTIVE EMPLOYMENT, OR CONTINUED EMPLOYMENT, THAT AN INDIVIDUAL SUBMIT TO OR TAKE A POLYGRAPH EXAMINATION OR SIMILAR TEST.
+            AN EMPLOYER WHO VIOLATES THIS LAW IS GUILTY OF A MISDEMEANOR AND SUBJECT TO A FINE NOT EXCEEDING $100.
+            <br /><br /> By signing below, I hereby acknowledge that I have read the foregoing statements concerning Maryland law and understand their meaning.
+            <br /><br />
+        </p>
+        <div class="show-image">
+            <input type="text" maxlength="50" name="lawSignature" id="lawSign" placeholder="Applicant's Signature">
+            <button (click)="applicationFormUpdate('signature','yes')" [ngClass]="{'update-button': applicationForm.get('signature').value == 'yes'}" class="update">
+                <mat-icon>check</mat-icon>
+            </button>
+            <button (click)="applicationFormUpdate('signature','no')" [ngClass]="{'update-button': applicationForm.get('signature').value == 'no'}" class="delete">
+                <mat-icon>clear</mat-icon>
+            </button></div>
+        <br />
+        <hr style="background-color: white" />
+
+        <p>
+            TCS is an equal opportunity employer that aims to integrate global diversity and inclusion at each level within our organization. Hiring decisions are solely made on the capability of an individual to perform a role. Any personal details like gender,
+            age and nationality that may be provided by you during the course of application or selection process will be used for administrative records and all qualified applicants will receive consideration for employment without regard to this information.
+        </p>
+
+    </div>
+    <div>
+        <div class="sub-panel">
+            <p class="sub-panel-content">Disclaimer & Signature</p>
+        </div>
+        <div class="text-divs">
+            <p>
+                I certify that my answers on this Application are true and accurate to the best of my knowledge. I understand that any false, misleading or incomplete information given by me in this Application entitles TCS to immediately reject my Application and/or
+                to immediately terminate my employment, as applicable.
+                <br /><br /> By signing below, I acknowledge that TCS is an “at-will” employer. Consequently, if I am employed, such employment shall not be for a fixed duration and it is subject to termination by TCS or me at any time with or without
+                notice for any lawful reason. I further understand that no supervisor or manager of TCS has the authority to alter this at-will employment arrangement or make any promises or guarantees concerning the terms and conditions of employment,
+                including, but not limited to, the length thereof, unless contained in a writing signed by TCS’ President of North America. Should TCS extend an offer of employment to me, in consideration of that employment, I agree to follow all applicable
+                rules, regulations and policies and I acknowledge that TCS may modify, supersede or withdraw any and all rules, regulations and/or policies, as well as the terms and conditions of my employment, at any time with or without notice.
+                <br /><br /> I hereby agree to submit to binding arbitration before a neutral arbitrator all disputes and claims arising out of the submission of this application, including without limitation any claims for discriminatory failure to hire,
+                breach of contract, or breach of implied good faith and fair dealing. I understand and acknowledge that I am waiving my right to a jury trial. I further understand that any binding arbitration must be brought in my name as an individual
+                and not as a plaintiff or a class member in any purported class or representative proceeding. The arbitrator may not consolidate more than one person’s claim and may not otherwise preside over any form of a representative or class proceeding.
+                Such arbitration shall be conducted in accordance with the rules of the Employment Arbitration Rules & Procedures of the American Arbitration Association (“AAA Rule”) then in effect and will be governed by Federal Arbitration Act ( 9 U.S.C.
+                §2 et seq.). The AAA Rules are available at www.adr.org or will, upon your request, be provided by TCS. If employment is in California, California Code of Civil Procedure §1280 et seq. will also govern such arbitration to the extent that
+                California law is not contradictory to or preempted by federal law. TCS agrees that the cost to you of binding arbitration will not exceed the cost of commencing a court action. TCS agrees and stipulates that discovery will be more than
+                minimal and will be adequate to permit you to prepare your case for hearing as determined by the arbitrator. The arbitrator will be empowered to grant any type of relief, including prevailing party attorneys’ fees and costs which would
+                be available to you or TCS in a court of proper jurisdiction unless the law prohibits providing for such relief in an arbitration forum. The arbitrator will be required to render his or her decision in writing. Except as may be required
+                by law, I understand and agree that neither a party nor its representatives may disclose the existence, content, or results of any arbitration hereunder without the prior written consent of the all of the parties.
+            </p>
+            <hr style="background-color: white" />
+            <div>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="show-image">
+                                <input type="text" name="signName" id="na" placeholder="Name">
+                                <button (click)="applicationFormUpdate('signName','yes')" [ngClass]="{'update-button': applicationForm.get('signName').value == 'yes'}" class="update">
+                                    <mat-icon>check</mat-icon>
+                                </button>
+                                <button (click)="applicationFormUpdate('signName','no')" [ngClass]="{'update-button': applicationForm.get('signName').value == 'no'}" class="delete">
+                                    <mat-icon>clear</mat-icon>
+                                </button></div>
+                        </td>
+                        <td>
+                            <div class="show-image">
+                                <input type="text" name="signature" id="sign" placeholder="Signature">
+                                <button (click)="applicationFormUpdate('signature','yes')" [ngClass]="{'update-button': applicationForm.get('signature').value == 'yes'}" class="update">
+                                    <mat-icon>check</mat-icon>
+                                </button>
+                                <button (click)="applicationFormUpdate('signature','no')" [ngClass]="{'update-button': applicationForm.get('signature').value == 'no'}" class="delete">
+                                    <mat-icon>clear</mat-icon>
+                                </button></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="show-image">
+                                <input type="text" name="signDate" id="date" placeholder="Date" onfocus="(this.type='date')" onblur="if(this.value==''){this.type='text'}">
+                                <button (click)="applicationFormUpdate('signDate','yes')" [ngClass]="{'update-button': applicationForm.get('signDate').value == 'yes'}" class="update">
+                                    <mat-icon>check</mat-icon>
+                                </button>
+                                <button (click)="applicationFormUpdate('signDate','no')" [ngClass]="{'update-button': applicationForm.get('signDate').value == 'no'}" class="delete">
+                                    <mat-icon>clear</mat-icon>
+                                </button></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="reg-btn-container">
+                <button type="submit" (click)="submitApplication()" class="reg-btn btn reg-btn-color" id="save">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>

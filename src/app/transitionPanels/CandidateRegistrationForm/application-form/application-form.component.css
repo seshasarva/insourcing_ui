@@ -1,0 +1,177 @@
+.space-around {
+    padding: 30px 25px 20px 33px;
+}
+
+input,
+select {
+    border-radius: 10px;
+    height: 35px;
+}
+
+input {
+    text-align: left;
+    padding-left: 15px;
+    border: 1px solid #fff;
+    background: #fff;
+    width: 100%;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+}
+
+table {
+    width: 100%;
+}
+
+table,
+th,
+td {
+    padding: 10px;
+}
+
+.title {
+    padding-left: 35px;
+    width: 80%;
+    background-color: #DEDBDB;
+}
+
+.first-name {
+    margin-left: -25px;
+    width: 115%;
+}
+
+.country {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 8px 40px 8px 15px;
+    background-color: #DEDBDB;
+}
+
+.app-flex-container {
+    display: flex;
+    justify-content: space-around;
+    transform: scale(0.82);
+}
+
+text-divs {
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 1084px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 6%;
+    padding: 2%;
+}
+
+.text-divs>p {
+    /* color: white; */
+    text-align: justify;
+}
+
+.reg-btn-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.reg-btn-color {
+    background-color: #271F90;
+    color: white;
+}
+
+.reg-btn {
+    padding: 8px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+.sub-panel {
+    width: 108%;
+    background-color: #271F90;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0 13px -35px;
+    border-radius: 15px;
+    margin-top: 13px;
+}
+
+.sub-panel-content {
+    padding-top: 10px;
+    color: white;
+}
+
+.first-sub-panel {
+    margin-top: -30px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
+div.show-image {
+    position: relative;
+}
+
+div.show-image:hover input {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+div.show-image:hover button {
+    display: block;
+    outline: none;
+}
+
+div.show-image button {
+    position: absolute;
+    display: none;
+}
+
+.update {
+    top: 0;
+    right: 32px;
+    color: white;
+    background-color: green;
+    border: 2px solid green;
+}
+
+.delete {
+    top: 0;
+    right: -4px;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    color: white;
+    background-color: red;
+    border: 2px solid red;
+}
+
+.update-button {
+    position: absolute;
+    display: block !important;
+    outline: none;
+    top: 0;
+    right: -4px;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.sta-btn-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.sta-btn-color {
+    background-color: #271F90;
+    color: white;
+}
+
+.sta-btn {
+    padding: 8px 25px;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+.custom-tooltip {
+    background: white;
+    border-radius: 10px;
+    color: black;
+}

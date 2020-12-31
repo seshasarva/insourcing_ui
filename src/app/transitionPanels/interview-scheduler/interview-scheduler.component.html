@@ -1,0 +1,107 @@
+<form [formGroup]="panelForm">
+    <div class="Schedule">
+        <div style="align-items: center;">
+            <div>
+                <p style="color: white;">
+                    <mat-icon style="margin: 10px 5px 10px 23px;" aria-hidden="false" aria-label="Example home icon">
+                        group_add
+                    </mat-icon><b style="position: absolute;
+          top: 71px;">Interview Scheduling</b>
+                </p>
+            </div>
+            <!-- <div style="text-align: center;" >
+        <input class="input" formControlName="date" type="date" placeholder="Interview Date">
+        <input class="input" formControlName="time" type="time" placeholder="Interview Time">
+        <input class="input" formControlName="trId" type="number" placeholder="TR Panel Emp ID">
+        <input class="input" formControlName="mrId" type="number" placeholder="MR Panel Emp ID">
+        <input class="input" formControlName="hrId" type="number" placeholder="HR Panel Emp ID">
+      </div> -->
+            <div class="pt-flex-container pt-datepicker" style="text-align: center;">
+                <div class="input-group" style="width: 80%;">
+                    <input class="form-control" placeholder="Start Date" name="dp" formControlName="startDate" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append" style="margin-right: 25px;">
+                        <button class="btn btn-outline-secondary calendar pt-date-btn" (click)="d.toggle()" type="button"></button>
+                    </div>
+                </div>
+                <div class="input-group" style="width: 80%;margin-left: 25px;">
+                    <input class="form-control" placeholder="End Date" name="dp1" formControlName="endDate" ngbDatepicker #d1="ngbDatepicker">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar pt-date-btn" (click)="d1.toggle()" type="button"></button>
+                    </div>
+                </div>
+
+                <!-- <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp1" formControlName="endDate" ngbDatepicker #d1="ngbDatepicker">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
+                    </div>
+                </div> -->
+                <!-- <input formControlName="fromDate" type="date" placeholder="From Date">
+                <input formControlName="toDate" type="date" placeholder="To Date"> -->
+            </div>
+            <div class="pt-flex-container" style="text-align: center;margin-top: 15px;">
+                <input formControlName="trId" type="number" placeholder="TR Panel Emp ID">
+                <input formControlName="trName" type="text" placeholder="TR Panel Name">
+                <input formControlName="trGrade" type="text" placeholder="TR Panel Grade">
+            </div>
+            <div class="pt-flex-container" style="text-align: center;">
+                <input formControlName="mrId" type="number" placeholder="MR Panel Emp ID">
+                <input formControlName="mrName" type="text" placeholder="MR Panel Name">
+                <input formControlName="mrGrade" type="text" placeholder="MR Panel Grade">
+            </div>
+            <div class="pt-flex-container" style="text-align: center;">
+                <input formControlName="hrId" type="number" placeholder="HR Panel Emp ID">
+                <input formControlName="hrName" type="text" placeholder="HR Panel Name">
+                <input formControlName="hrGrade" type="text" placeholder="HR Panel Grade">
+            </div>
+        </div>
+        <div style="margin: auto; text-align: center;padding-top: 10px;padding-bottom:10px">
+            <button type="submit" (click)='savePanel()' id="add" style="margin-left:0px;width:115px;height:36px;margin-right: 30px;" class="btn btn-primary btn-radius font-segoe btn-custom">Add</button>
+            <label type="submit" style="background: transparent linear-gradient(180deg, #208810 0%, #104408 100%) 0% 0% no-repeat padding-box;" id="uploadFile" class="btn btn-primary btn-radius font-segoe btn-custom btn-upload" style="margin-left:0px;">Upload <i class="fa fa-paperclip"></i><input type="file"
+                    accept="application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                    style="display: none;padding-top: 80px; " type="file" name="avatar"
+                    (change)="uploadInterview($event,dealID)" /></label>
+        </div>
+        <div style="margin: 15px 23px 35px 23px;" *ngIf="scheduler.length">
+            <table id="Sequence">
+                <tr>
+                    <th style="border-top-left-radius: 20px ;"></th>
+                    <th>Start date</th>
+                    <th>End date</th>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th style="border-top-right-radius: 20px;">TR/MR/HR</th>
+                </tr>
+                <tr *ngFor="let list of scheduler">
+                    <td style="width:80px; text-align: center;"><input type="radio" name="schedule" value=""></td>
+                    <td style="width:160px">{{list.Start_Date}}</td>
+                    <td style="width:160px">{{list.End_Date}}</td>
+                    <td style="width:120px;color: #0061F2;">{{list.Employee_Id}}</td>
+                    <td style="width:160px">{{list.Name}}</td>
+                    <td style="width:160px">{{list.Grade}}</td>
+                    <td style="width:160px">{{list.TR_MR_HR}}</td>
+                </tr>
+                <!-- {"id":"DL304","data":"[{\"Start_Date\":{\"year\":2020,\"month\":12,\"day\":1},
+                \"End_Date\":{\"year\":2020,\"month\":12,\"day\":10},
+                \"Employee_Id\":1,\"Name\":\"as\",\"Grade\":\"ant\",\"TR_MR_HR\":\"TR\"}]"} -->
+                <!-- <tr> style="margin: 30px 14px 65px 35px"
+        <th style="border-top-left-radius: 20px ;"></th>
+        <th>Employee ID</th>
+        <th>Start date</th>
+        <th>Name</th>
+        <th>Grade</th>
+        <th style="border-top-right-radius: 20px;">Access</th>
+      </tr>
+        <tr *ngFor="let list of scheduler">
+        <td style="width:80px; text-align: center;"><input type="radio" name="schedule" value=""></td>
+        <td style="width:120px;color: #0061F2;">{{list.Emp_no}}</td>
+        <td style="width:160px">{{list.Start_Date}}</td>
+        <td style="width:160px">{{list.Name}}</td>
+        <td style="width:160px">{{list.Grade}}</td>
+        <td style="width:160px">{{list.Access}}</td>
+      </tr> -->
+            </table>
+        </div>
+    </div>
+</form>
